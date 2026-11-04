@@ -1,0 +1,16 @@
+{
+ "hinweis": "Von Hand gepflegte Ergänzungen zu den automatisch gelesenen Veranstaltungen (veranstaltungen_auto.json, wird jede Woche vom SSB gelesen). Hier nichts löschen, was nicht dasteht. Danach baut sich das Portal automatisch neu.",
+ "angebot_melden": {
+  "titel": "Eigenes Angebot bei einer Veranstaltung anbieten",
+  "text": "Bei einigen Veranstaltungen des SSB können Vereine Schnupperangebote für Kinder und Jugendliche anbieten und sich so vorstellen. Im PSV entscheidet jede Abteilung selbst, ob sie ein Angebot stellt. Die Meldung läuft per E-Mail an den SSB oder über das Anmeldeformular auf der Veranstaltungsseite, falls es eines gibt. Die Plätze werden nach Eingang der Meldungen vergeben. Meldefristen veröffentlicht der SSB nicht einheitlich, deshalb rechtzeitig beim SSB nachfragen.",
+  "url": "https://www.ssb-leipzig.de/beteiligungsmoeglichkeiten-fuer-mitgliedsvereine/",
+  "mail": "info@ssb-leipzig.de"
+ },
+ "anpassungen": [
+  {"match": "SommerSportWoche", "vereinsangebot": true, "hinweis": "Vereine bieten Schnupperangebote für 6- bis 18-Jährige an. Meldung und Frist für Vereinsangebote beim SSB erfragen. Die Anmeldung der Teilnehmenden erfolgt nach Windhundverfahren."},
+  {"match": "Bewegungs-KOMM", "vereinsangebot": true, "hinweis": "Vereine können Schnupperangebote anbieten. Meldung beim SSB erfragen."},
+  {"match": "Bewegungstage für Senioren", "vereinsangebot": true, "hinweis": "Vereine können Angebote einbringen. Meldung beim SSB erfragen."},
+  {"match": "Sportjugend-Ehrung", "vereinsangebot": true, "hinweis": "Vereine können sich präsentieren. Meldung beim SSB erfragen."}
+ ],
+ "ergaenzungen": []
+}

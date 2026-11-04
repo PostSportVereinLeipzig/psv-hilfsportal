@@ -77,13 +77,42 @@ def downloads_liste():
     return out
 
 
+def veranstaltungen():
+    """Führt die automatisch gelesenen Veranstaltungen (veranstaltungen_auto.json) mit den
+    handgepflegten Angaben (veranstaltungen.json) zusammen."""
+    try:
+        auto = json.loads((DATEN / "veranstaltungen_auto.json").read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        print("  WARNUNG: daten/veranstaltungen_auto.json fehlt (noch kein Update gelaufen).")
+        auto = {"stand": None, "quellen": [], "eintraege": []}
+    manuell = lade("veranstaltungen.json")
+    vorlage = {"titel": "", "von": None, "bis": None, "ab": False, "veranstalter": "SSB Leipzig", "kategorie": "Veranstaltung",
+               "url": None, "le": None, "abgesagt": False, "anmeldung_ab": None, "anmeldung_bis": None,
+               "anmeldung_url": None, "vereinsangebot": False, "hinweis": ""}
+    eintraege = [{**vorlage, **e} for e in auto.get("eintraege", [])]
+    for i, e in enumerate(manuell.get("ergaenzungen", [])):
+        if not e.get("titel") or not e.get("von"):
+            sys.exit(f"FEHLER: Ergänzung Nr. {i + 1} in veranstaltungen.json braucht mindestens titel und von (JJJJ-MM-TT).")
+        eintraege.append({**vorlage, "veranstalter": "PSV", **e})
+    for a in manuell.get("anpassungen", []):
+        treffer = [e for e in eintraege if a["match"].lower() in e["titel"].lower() and (not a.get("jahr") or str(a["jahr"]) in (e["von"] or ""))]
+        if not treffer:
+            print(f"  WARNUNG: Anpassung '{a['match']}' trifft keinen Eintrag (Veranstaltung noch nicht im Plan?).")
+        for e in treffer:
+            e.update({k: v for k, v in a.items() if k not in ("match", "jahr")})
+    eintraege = [e for e in eintraege if not e.get("ausblenden")]
+    eintraege.sort(key=lambda e: (e["von"] or "9999", e["titel"]))
+    return {"stand": auto.get("stand"), "quellen": auto.get("quellen", []), "eintraege": eintraege,
+            "angebot_melden": manuell.get("angebot_melden")}
+
+
 def main():
     ref = lade("dokumente.json")
     docs, chunks = list(ref["docs"]), [list(c) for c in ref["chunks"]]
     md_quellen(docs, chunks)
     data = {"docs": docs, "chunks": chunks, "downloads": downloads_liste(), "fmap": ref["fmap"],
             "termine": lade("termine.json"), "kontakte": lade("kontakte.json"),
-            "bildung": lade("bildung.json")}
+            "bildung": lade("bildung.json"), "veranstaltungen": veranstaltungen()}
     # Nur Dateien aus fmap prüfen, die es wirklich nicht gibt
     for v in ref["fmap"].values():
         if v and not (ROOT / v).exists():
@@ -93,7 +122,7 @@ def main():
     if "__DATA__" not in tpl:
         sys.exit("FEHLER: Platzhalter __DATA__ fehlt in tpl.html.")
     (ROOT / "index.html").write_text(tpl.replace("__DATA__", js), encoding="utf-8")
-    print(f"index.html gebaut: {len(docs)} Dokumente, {len(chunks)} Abschnitte, {len(data['downloads'])} Downloads.")
+    print(f"index.html gebaut: {len(docs)} Dokumente, {len(chunks)} Abschnitte, {len(data['downloads'])} Downloads, {len(data['veranstaltungen']['eintraege'])} Veranstaltungen.")
 
 
 if __name__ == "__main__":

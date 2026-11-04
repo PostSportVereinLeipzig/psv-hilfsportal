@@ -1,0 +1,50 @@
+name: Veranstaltungen aktualisieren
+
+# Liest jede Woche (montags früh) die Veranstaltungen und Kurse vom SSB Leipzig und LSB Sachsen,
+# baut die Seite neu und veröffentlicht Änderungen. Manuell startbar unter Actions -> Run workflow.
+# Schlägt eine Quelle fehl, bleibt der letzte Stand erhalten und der Lauf wird rot.
+# GitHub schickt dann automatisch eine E-Mail an den Kontoinhaber.
+on:
+  schedule:
+    - cron: "17 4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: portal-build
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Veranstaltungen lesen
+        id: upd
+        continue-on-error: true
+        run: python3 update_veranstaltungen.py
+      - name: Seite bauen
+        run: python3 build.py
+      - name: Änderungen veröffentlichen
+        run: |
+          git add daten/veranstaltungen_auto.json index.html
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            { echo "Veranstaltungen automatisch aktualisiert"; echo; head -n 40 daten/.aenderungen.txt 2>/dev/null; } > /tmp/msg.txt
+            git commit -F /tmp/msg.txt
+            git pull --rebase
+            git push
+          fi
+      - name: Fehler melden
+        if: steps.upd.outcome == 'failure'
+        run: |
+          echo "Mindestens eine Quelle konnte nicht gelesen werden. Details im Schritt 'Veranstaltungen lesen'."
+          exit 1

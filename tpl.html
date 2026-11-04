@@ -121,14 +121,14 @@ nav::-webkit-scrollbar{display:none}
 </style>
 <div class="wrap">
 <header><h1>Förderportal PSV</h1><p class="sub">Postsportverein Leipzig e.V. · Förderungen, Fristen, Formulare</p></header>
-<nav id="nav" aria-label="Bereiche"><a href="#suche">Suche</a><a href="#foerderungen">Förderungen</a><a href="#fristen">Fristen</a><a href="#termine">Termine</a><a href="#formulare">Formulare</a><a href="#weiterbildung">Weiterbildung</a></nav>
+<nav id="nav" aria-label="Bereiche"><a href="#suche">Suche</a><a href="#foerderungen">Förderungen</a><a href="#fristen">Fristen</a><a href="#termine">Termine</a><a href="#formulare">Formulare</a><a href="#weiterbildung">Weiterbildung</a><a href="#veranstaltungen">Veranstaltungen</a></nav>
 
 <section id="v-suche">
  <h2>Was suchst du?</h2>
  <div class="search"><input id="q" type="search" placeholder="z. B. Übungsleiter, Trainingsgerät, Fahrtkosten, Jubiläum" autocomplete="off" aria-label="Volltextsuche in Richtlinien und Formularen"></div>
  <div class="chips" id="hints"></div>
  <div id="results" class="res" aria-live="polite"></div>
- <div id="homeNext"><h2 style="margin-top:26px">Als Nächstes fällig</h2><div class="next" id="nextCards"></div><p class="note">Alle Fristen unter „Fristen“. Termine für das Folgejahr sind nach dem Muster des Vorjahres berechnet und müssen geprüft werden.</p></div>
+ <div id="homeNext"><h2 style="margin-top:26px">Als Nächstes fällig</h2><div class="next" id="nextCards"></div><div id="homeEv" hidden><h2 style="margin-top:22px">Veranstaltungen und Anmeldungen</h2><div class="next" id="evCards"></div><p class="note"><a href="#veranstaltungen">Alle Veranstaltungen ansehen</a></p></div><p class="note">Alle Fristen unter „Fristen“. Termine für das Folgejahr sind nach dem Muster des Vorjahres berechnet und müssen geprüft werden.</p></div>
 </section>
 
 <section id="v-foerderungen" hidden>
@@ -189,6 +189,17 @@ nav::-webkit-scrollbar{display:none}
  <ul id="bPsv"></ul>
  <h3 class="grp">Kurse und Ansprechpartner</h3>
  <div id="bKurse"></div>
+</section>
+
+<section id="v-veranstaltungen" hidden>
+ <h2>Veranstaltungen und Anmeldungen</h2>
+ <p class="note">Veranstaltungen und Kurse des SSB Leipzig, der Sportjugend und des LSB Sachsen mit Anmeldebeginn. Die Daten werden jede Woche automatisch von den Seiten der Veranstalter gelesen, Angaben ohne Gewähr. <span id="vStand"></span></p>
+ <div id="vWarn"></div>
+ <div class="chips" id="vchips"></div>
+ <details class="card" id="vAngebot" style="margin:14px 0"><summary><h3 id="vAngTitel"></h3><span class="note" style="grid-column:1/3">Wie melden wir ein Angebot an?</span></summary><div class="body"><p id="vAngText"></p><div class="btns" id="vAngBtn"></div></div></details>
+ <div id="vListe"></div>
+ <details class="card" style="margin-top:18px"><summary><h3>Vergangene Veranstaltungen</h3><span class="note" style="grid-column:1/3">in diesem Jahr bereits stattgefunden</span></summary><div class="body" id="vPast"></div></details>
+ <p class="note" id="vQuellen" style="margin-top:14px"></p>
 </section>
 
 <section id="v-formulare" hidden>
@@ -315,7 +326,7 @@ const days=d=>Math.round((d-TODAY)/864e5);
 const tone=n=>n<=14?'crit':n<=45?'warn':'ok';
 const lbl=n=>n===0?'heute':n===1?'morgen':'in '+n+' Tagen';
 const FE=FR.map(f=>{const d=nextOf(f);return Object.assign({},f,{date:d,n:days(d)})}).sort((a,b)=>a.date-b.date);
-const views=['suche','foerderungen','fristen','termine','formulare','weiterbildung'];
+const views=['suche','foerderungen','fristen','termine','formulare','weiterbildung','veranstaltungen'];
 function show(){const h=(location.hash||'#suche').slice(1);const v=views.includes(h)?h:'suche';views.forEach(x=>{$('#v-'+x).hidden=x!==v});document.querySelectorAll('#nav a').forEach(a=>{if(a.getAttribute('href')==='#'+v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')})}
 addEventListener('hashchange',show);show();
 $('#today').textContent=fmtD(TODAY);
@@ -404,4 +415,30 @@ function lizCheck(){const v=$('#bAblauf').value,o=$('#bCheck');if(!/^\d{4}-\d{2}
  else{const yrs=Math.ceil(-nd/365.25),r=(BW.abgelaufen||[]).find(a=>yrs<=a.bis_jahre)||{};h=`<span class="t"><b>Lizenz seit ${fmtD(end)} abgelaufen</b><br><span class="note">${yrs}. Jahr nach Ablauf: ${esc(r.umfang||'')}, ${esc(r.ergebnis||'')}.</span></span><span class="pill crit">abgelaufen</span>`}
  o.innerHTML=h;o.hidden=false}
 $('#bAblauf').oninput=lizCheck;
+
+/* Veranstaltungen */
+const VE=D.veranstaltungen||{eintraege:[]};
+const vD=s=>s?new Date(s+'T00:00:00'):null;
+const vEnd=e=>vD(e.bis||e.von);
+const vShort=d=>d.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
+function vRange(e){const a=vD(e.von),b=vD(e.bis);if(!a)return '';const pre=e.ab?'ab ':'';if(!b)return pre+fmtL(a);return a.getMonth()===b.getMonth()&&a.getFullYear()===b.getFullYear()?`${a.getDate()}.–${b.getDate()}.${String(b.getMonth()+1).padStart(2,'0')}.${b.getFullYear()}`:`${vShort(a)} bis ${vShort(b)}`}
+function vAnm(e){if(e.abgesagt)return {cls:'crit',t:'Abgesagt'};const a=vD(e.anmeldung_ab),b=vD(e.anmeldung_bis);if(b&&days(b)<0)return {cls:'gray',t:'Anmeldung beendet'};if(a&&days(a)>0)return {cls:days(a)<=14?'warn':'ok',t:'Anmeldung ab '+vShort(a)+' ('+lbl(days(a))+')'};if(a)return {cls:'ok',t:'Anmeldung offen seit '+vShort(a)+(b?', bis '+vShort(b):'')};if(b)return {cls:tone(days(b)),t:'Anmeldung bis '+vShort(b)};return {cls:'gray',t:'Anmeldebeginn: siehe Seite'}}
+const vCard=e=>{const a=vAnm(e),n=days(vEnd(e));return `<div class="dl"><span class="t"><b>${esc(e.titel)}</b><br><span class="note">${esc(vRange(e))}${e.le?' · '+esc(e.le):''}</span><br><span class="tags" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px"><span class="pill gray">${esc(e.veranstalter)}</span><span class="pill gray">${esc(e.kategorie==='Bildung'?'Kurs / Bildung':e.kategorie)}</span><span class="pill ${a.cls}">${esc(a.t)}</span>${e.vereinsangebot?'<span class="pill ok">Vereinsangebot möglich</span>':''}</span>${e.hinweis?`<br><span class="note">${esc(e.hinweis)}</span>`:''}</span><span class="btns">${e.anmeldung_url&&!e.abgesagt&&n>=0?`<a class="btn" href="${esc(e.anmeldung_url)}" target="_blank" rel="noopener">Anmelden</a>`:''}${e.url?`<a class="btn sec" href="${esc(e.url)}" target="_blank" rel="noopener">Zur Seite</a>`:''}</span></div>`};
+let vf='Alle';
+const vFilter={Alle:()=>true,Veranstaltungen:e=>e.kategorie==='Veranstaltung',Kurse:e=>e.kategorie==='Bildung','Vereinsangebot möglich':e=>e.vereinsangebot,LSB:e=>/LSB/.test(e.veranstalter)};
+function renderVE(){const all=VE.eintraege.filter(vFilter[vf]||vFilter.Alle);const up=all.filter(e=>days(vEnd(e))>=0),past=all.filter(e=>days(vEnd(e))<0).reverse();
+ $('#vListe').innerHTML=up.map(vCard).join('')||'<p class="empty">Keine kommenden Einträge für diese Auswahl.</p>';
+ $('#vPast').innerHTML=past.map(vCard).join('')||'<p class="note">Keine.</p>'}
+$('#vchips').innerHTML=Object.keys(vFilter).map(k=>`<button class="chip" aria-pressed="${k==='Alle'}" data-k="${esc(k)}">${esc(k==='Kurse'?'Kurse und Bildung':k)}</button>`).join('');
+$('#vchips').onclick=e=>{const b=e.target.closest('button');if(!b)return;vf=b.dataset.k;document.querySelectorAll('#vchips button').forEach(x=>x.setAttribute('aria-pressed',x===b));renderVE()};
+renderVE();
+const AM=VE.angebot_melden;
+if(AM){$('#vAngTitel').textContent=AM.titel;$('#vAngText').textContent=AM.text;$('#vAngBtn').innerHTML=(AM.url?`<a class="btn" href="${esc(AM.url)}" target="_blank" rel="noopener">Infos des SSB</a>`:'')+(AM.mail?`<a class="btn sec" href="mailto:${esc(AM.mail)}">${esc(AM.mail)}</a>`:'')}else $('#vAngebot').hidden=true;
+$('#vStand').textContent=VE.stand?'Stand der Daten: '+vShort(vD(VE.stand))+'.':'';
+const vBad=(VE.quellen||[]).filter(q=>!q.ok);
+$('#vWarn').innerHTML=vBad.length?`<p class="note"><span class="pill warn">Hinweis</span> Die letzte Aktualisierung war für ${vBad.map(q=>esc(q.name)).join(', ')} nicht möglich. Es gilt der letzte bekannte Stand, bitte auf der Originalseite prüfen.</p>`:'';
+$('#vQuellen').innerHTML='Quellen: '+(VE.quellen||[]).map(q=>`<a href="${esc(q.url)}" target="_blank" rel="noopener">${esc(q.name)}</a>`).join(', ')+'.';
+const HE=[];VE.eintraege.forEach(e=>{if(e.abgesagt)return;const a=vD(e.anmeldung_ab);if(a&&days(a)>=0&&days(a)<=60)HE.push({d:a,t:'Anmeldung startet',e});const s=vD(e.von);if(s&&days(s)>=0&&days(s)<=45)HE.push({d:s,t:e.kategorie==='Bildung'?'Kurs':'Veranstaltung',e})});
+HE.sort((x,y)=>x.d-y.d);
+if(HE.length){$('#homeEv').hidden=false;$('#evCards').innerHTML=HE.slice(0,3).map(h=>{const n=days(h.d);return `<div class="due"><span class="when"><span>${fmtD(h.d)}</span><span class="pill ${tone(n)}">${lbl(n)}</span></span><b>${esc(h.e.titel)}</b><span class="note">${esc(h.t)} · ${esc(h.e.veranstalter)}</span></div>`}).join('')}
 </script>

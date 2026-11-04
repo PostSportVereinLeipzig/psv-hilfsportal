@@ -12,6 +12,9 @@ Die Seite liegt öffentlich auf GitHub und wird dort kostenlos ausgeliefert.
 |---|---|
 | `daten/termine.json` | Termine (einmalig) und Vereinsfristen (jährlich wiederkehrend) |
 | `daten/kontakte.json` | Kontakt-E-Mail-Adressen (nur E-Mail, keine Telefonnummern) |
+| `daten/veranstaltungen.json` | Von Hand: Hinweise zu Veranstaltungen, eigene Ergänzungen, Infotext „Angebot anmelden“ |
+| `daten/veranstaltungen_auto.json` | Automatisch gelesen (jede Woche). Nicht von Hand ändern. |
+| `update_veranstaltungen.py` | Liest die Veranstaltungen von den Seiten des SSB und LSB |
 | `daten/bildung.json` | Inhalte des Reiters „Weiterbildung“ (Lizenzregeln, Schritte, Kontakt, Links) |
 | `daten/downloads.json` | Titel und Gruppe der Formulare im Reiter „Formulare“ |
 | `downloads/` | Die Formular-Dateien selbst (PDF, XLSX, XLS) |
@@ -21,6 +24,7 @@ Die Seite liegt öffentlich auf GitHub und wird dort kostenlos ausgeliefert.
 | `build.py` | Baut aus allem die fertige `index.html`. |
 | `index.html` | Fertige Seite. **Nie von Hand bearbeiten**, sie wird überschrieben. |
 | `.github/workflows/build.yml` | Automatik: baut `index.html` nach jeder Änderung auf GitHub. |
+| `.github/workflows/veranstaltungen.yml` | Automatik: liest montags die Veranstaltungen und baut die Seite neu. |
 
 ## Einfachster Weg: direkt im Browser ändern
 Die Seite baut sich selbst neu, sobald eine Datei in `daten/`, `quellen/`, `downloads/` oder `tpl.html` geändert wird.
@@ -78,6 +82,28 @@ Die Inhalte stammen von der SSB-Seite „Häufig gestellte Fragen“ (Link und S
 - `stand`: Datum der letzten Prüfung gegen die SSB-Seite, bitte mit anpassen
 
 Kurse, Termine und Anmeldebeginne stehen bewusst nicht im Portal, sondern nur als Link auf den Jahresplan des SSB. So kann nichts veralten.
+
+## Reiter „Veranstaltungen“
+**Was automatisch läuft:** Jeden Montag liest GitHub die Jahrespläne des SSB Leipzig (Veranstaltungen und Aus-/Weiterbildung), die Kurstabellen mit Anmeldebeginn (Grundlehrgang, Erste Hilfe, ÜL-C) und die Landesjugendspiele des LSB. Neue, geänderte und abgesagte Termine stehen danach im Portal. Was sich geändert hat, steht in der Commit-Meldung unter dem Reiter **Commits**.
+
+**Jetzt sofort aktualisieren:** Repository → **Actions** → „Veranstaltungen aktualisieren“ → **Run workflow**.
+
+**Wenn der Lauf rot wird:** Der SSB oder LSB hat eine Seite umgebaut oder sie war nicht erreichbar. Das Portal zeigt den letzten bekannten Stand und weist darauf hin. GitHub schickt eine E-Mail. In diesem Fall bitte melden, dann wird das Skript `update_veranstaltungen.py` angepasst.
+
+**Von Hand ergänzen (`daten/veranstaltungen.json`):**
+- `anpassungen`: Zusatzangaben zu einer automatisch gelesenen Veranstaltung. `match` ist ein Stück des Titels, z. B.:
+  ```json
+  {"match": "SommerSportWoche", "anmeldung_bis": "2026-06-15", "hinweis": "PSV meldet Angebot bis 10.05.", "vereinsangebot": true}
+  ```
+  Mögliche Felder: `anmeldung_ab`, `anmeldung_bis` (JJJJ-MM-TT), `hinweis`, `vereinsangebot`, `anmeldung_url`, `ausblenden` (true blendet den Eintrag aus), `jahr` (wenn der Titel in mehreren Jahren vorkommt).
+- `ergaenzungen`: Eigene Einträge, z. B. LSB-Termine oder Einladungen per E-Mail:
+  ```json
+  {"titel": "Sächsische Sportgala", "von": "2026-11-21", "veranstalter": "LSB Sachsen", "url": "https://www.sport-fuer-sachsen.de/veranstaltungen/saechsische-sportgala", "hinweis": "Einladung per Mail erhalten"}
+  ```
+  Pflicht sind `titel` und `von` (JJJJ-MM-TT). Optional `bis`, `anmeldung_ab`, `anmeldung_bis`, `kategorie` (Veranstaltung oder Bildung).
+- `angebot_melden`: Der Text im Aufklapper „Eigenes Angebot bei einer Veranstaltung anbieten“. Im PSV entscheidet jede Abteilung selbst.
+
+Manuelle Einträge bleiben bestehen, die automatische Aktualisierung überschreibt sie nie.
 
 ## Neues Formular bereitstellen
 1. Datei in `downloads/` legen. Dateinamen ohne Leerzeichen und Sonderzeichen, z. B. `Antrag-Beispiel-2027.pdf`.

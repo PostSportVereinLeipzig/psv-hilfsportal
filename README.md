@@ -23,13 +23,17 @@ Kurzfassung: Datei in `daten/` direkt auf GitHub bearbeiten (Stift-Symbol), spei
 | `build.py` | Baut `index.html` aus Vorlage und Daten |
 | `daten/termine.json` | Termine und jährlich wiederkehrende Vereinsfristen |
 | `daten/kontakte.json` | Kontakt-E-Mail-Adressen (keine Telefonnummern) |
+| `daten/veranstaltungen.json` | Von Hand gepflegte Veranstaltungs-Hinweise und Ergänzungen |
+| `daten/veranstaltungen_auto.json` | Automatisch gelesene Veranstaltungen (SSB, LSB) |
 | `daten/bildung.json` | Inhalte des Reiters Weiterbildung (Übungsleiter-Lizenz) |
 | `daten/downloads.json` | Titel und Gruppen der Downloads |
 | `daten/dokumente.json` | Such-Index der Richtlinien und Formulare |
 | `quellen/` | Neue Texte für die Suche als Markdown |
 | `downloads/` | Formulare und Vorlagen (PDF, XLSX, XLS) |
 | `manifest.webmanifest`, `icons/` | App-Installation auf dem Handy (PWA) |
+| `update_veranstaltungen.py` | Liest Veranstaltungen und Kurse von SSB und LSB |
 | `.github/workflows/build.yml` | Automatisches Bauen bei jeder Änderung |
+| `.github/workflows/veranstaltungen.yml` | Wöchentliches Aktualisieren der Veranstaltungen |
 
 ## Lokal bauen
 Voraussetzung: Python 3 (keine weiteren Pakete).
@@ -42,7 +46,7 @@ Danach `index.html` im Browser öffnen. Veröffentlicht wird mit `git push`; Git
 
 ## Technik
 - Statische Seite ohne Server, gehostet über GitHub Pages
-- Hash-Navigation (`#suche`, `#foerderungen`, `#fristen`, `#termine`, `#formulare`, `#weiterbildung`)
+- Hash-Navigation (`#suche`, `#foerderungen`, `#fristen`, `#termine`, `#formulare`, `#weiterbildung`, `#veranstaltungen`)
 - Responsives Layout für Handy, Tablet und Desktop, helles und dunkles Farbschema
 - Volltextsuche im Browser über rund 800 Textabschnitte
 
