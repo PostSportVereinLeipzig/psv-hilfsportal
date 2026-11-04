@@ -1,0 +1,227 @@
+{
+ "hinweis": "Titel und Gruppe der Downloads. Datei muss in downloads/ liegen. g = Sortierschlüssel der Gruppe (0 = PSV zuerst). Dateigröße wird beim Bauen ermittelt.",
+ "downloads": [
+  {
+   "g": "0",
+   "grp": "PSV-Vorlagen",
+   "t": "Abrechnung Grundbeiträge (Excel, halbjährlich)",
+   "f": "downloads/Grundbeitrag-neu-2026.xls"
+  },
+  {
+   "g": "0",
+   "grp": "PSV-Vorlagen",
+   "t": "Stundennachweis Übungsleiter (Excel)",
+   "f": "downloads/Template-Nachweis-Uebungsleiter.xlsx"
+  },
+  {
+   "g": "0",
+   "grp": "PSV-Vorlagen",
+   "t": "Übungsleitervertrag zum Ausfüllen am Bildschirm (PDF mit Auswahlfeldern)",
+   "f": "downloads/Uebungsleitervertrag-ausfuellbar.pdf"
+  },
+  {
+   "g": "1",
+   "grp": "Stadt Leipzig: Allgemein",
+   "t": "Mittelabforderung und Rechtsbehelfsverzicht (1-02)",
+   "f": "downloads/2024-1-02-Mittelabforderung-und-Rechtsbehelfsverzicht.pdf"
+  },
+  {
+   "g": "1",
+   "grp": "Stadt Leipzig: Allgemein",
+   "t": "Deckblatt zu allen städtischen Anträgen (2-0)",
+   "f": "downloads/2024-2-0-Gesamtdeckblatt-Sportfoerderung.pdf"
+  },
+  {
+   "g": "3",
+   "grp": "Stadt Leipzig: Abrechnung / Verwendungsnachweise",
+   "t": "Verwendungsnachweis Kinder- und Jugendarbeit (2-02)",
+   "f": "downloads/2024-2-02-Abrechnung-Kinder-und-Jugendarbeit.pdf"
+  },
+  {
+   "g": "3",
+   "grp": "Stadt Leipzig: Abrechnung / Verwendungsnachweise",
+   "t": "Verwendungsnachweis Übungsleiter (2-04)",
+   "f": "downloads/2024-2-04-Abrechnung-Uebungsleiter.pdf"
+  },
+  {
+   "g": "3",
+   "grp": "Stadt Leipzig: Abrechnung / Verwendungsnachweise",
+   "t": "Teilnahmebestätigung / Abrechnung Fahrtkosten (2-06)",
+   "f": "downloads/2024-2-06-Abrechnung-Fahrtkosten.pdf"
+  },
+  {
+   "g": "3",
+   "grp": "Stadt Leipzig: Abrechnung / Verwendungsnachweise",
+   "t": "Verwendungsnachweis Anmietung Sportstätten Dritter (2-08)",
+   "f": "downloads/2024-2-08-Abrechnung-Anmietung-Sportstaetten-Dritter.pdf"
+  },
+  {
+   "g": "2",
+   "grp": "Stadt Leipzig: Anträge",
+   "t": "Antrag Sportveranstaltung (2-09)",
+   "f": "downloads/2024-2-09-Zuschuss-Sportveranstaltung.pdf"
+  },
+  {
+   "g": "3",
+   "grp": "Stadt Leipzig: Abrechnung / Verwendungsnachweise",
+   "t": "Verwendungsnachweis Sportveranstaltung (2-10)",
+   "f": "downloads/2024-2-10-Abrechnung-Sportveranstaltung-Festbetragfestbetragsfinanzierung.pdf"
+  },
+  {
+   "g": "2",
+   "grp": "Stadt Leipzig: Anträge",
+   "t": "Antrag Nachwuchsleistungssport / Schwerpunktsportart (2-11)",
+   "f": "downloads/2024-2-11-Zuschuss-fuer-Projekte-im-Nachwuchsleistungssport.pdf"
+  },
+  {
+   "g": "3",
+   "grp": "Stadt Leipzig: Abrechnung / Verwendungsnachweise",
+   "t": "Verwendungsnachweis Nachwuchsleistungssport (2-12)",
+   "f": "downloads/2024-2-12-Abrechnung-Projekte-im-Nachwuchsleistungssport-Festbetragsfinanzierung.pdf"
+  },
+  {
+   "g": "2",
+   "grp": "Stadt Leipzig: Anträge",
+   "t": "Antrag Projekte Freizeit- und Breitensport (2-13)",
+   "f": "downloads/2024-2-13-Zuschuss-fuer-Projekte-im-Freizeit-und-Breitensport.pdf"
+  },
+  {
+   "g": "3",
+   "grp": "Stadt Leipzig: Abrechnung / Verwendungsnachweise",
+   "t": "Verwendungsnachweis Freizeit- und Breitensportprojekte (2-14)",
+   "f": "downloads/2024-2-14-Abrechnung-Projekte-im-Freizeit-und-Breitensportprojekte-Festbetragsfinanzierung.pdf"
+  },
+  {
+   "g": "2",
+   "grp": "Stadt Leipzig: Anträge",
+   "t": "Antrag Ehrungen und Jubiläum (2-15)",
+   "f": "downloads/2024-2-15-Zuschuss-fuer-Ehrungen.pdf"
+  },
+  {
+   "g": "3",
+   "grp": "Stadt Leipzig: Abrechnung / Verwendungsnachweise",
+   "t": "Verwendungsnachweis Ehrungen (2-16)",
+   "f": "downloads/2024-2-16-Abrechnung-Ehrungen.pdf"
+  },
+  {
+   "g": "2",
+   "grp": "Stadt Leipzig: Anträge",
+   "t": "Antrag Kleinsportgeräte (2-17)",
+   "f": "downloads/2024-2-17-Zuschuss-fuer-Kleinsportgeraete.pdf"
+  },
+  {
+   "g": "3",
+   "grp": "Stadt Leipzig: Abrechnung / Verwendungsnachweise",
+   "t": "Verwendungsnachweis Kleinsportgeräte (2-18)",
+   "f": "downloads/2024-2-18-Abrechnung-Kleinsportgeraete.pdf"
+  },
+  {
+   "g": "3",
+   "grp": "Stadt Leipzig: Abrechnung / Verwendungsnachweise",
+   "t": "Verwendungsnachweis Anteilsfinanzierung (2-19)",
+   "f": "downloads/2024-2-19-Abrechnung-Verwendungsnachweis-Anteilsfinanzierung.pdf"
+  },
+  {
+   "g": "2",
+   "grp": "Stadt Leipzig: Anträge",
+   "t": "Antrag Kinder- und Jugendzuschuss (2-01)",
+   "f": "downloads/2025-2-01-Antrag-Zuschuss-Kinder-und-Jugendarbeit.pdf"
+  },
+  {
+   "g": "2",
+   "grp": "Stadt Leipzig: Anträge",
+   "t": "Antrag Fahrtkosten (2-05)",
+   "f": "downloads/2025-2-05-Antrag-Zuschuss-Fahrtkosten.pdf"
+  },
+  {
+   "g": "2",
+   "grp": "Stadt Leipzig: Anträge",
+   "t": "Antrag Miete Sportstätten Dritter (2-07)",
+   "f": "downloads/2025-2-07-Antrag-Zuschuss-Miete.pdf"
+  },
+  {
+   "g": "2",
+   "grp": "Stadt Leipzig: Anträge",
+   "t": "Antrag Übungsleiter-Zuschuss (2-03)",
+   "f": "downloads/2025-2-03-Antrag-Zuschuss-Uebungsleiter.pdf"
+  },
+  {
+   "g": "1",
+   "grp": "Stadt Leipzig: Allgemein",
+   "t": "Formular Amt für Sport, SG Verwaltung/Haushalt (Bezeichnung unklar)",
+   "f": "downloads/465-5244345264619-pdf.pdf"
+  },
+  {
+   "g": "5",
+   "grp": "Stadt Leipzig: Hallenvergabe",
+   "t": "Antrag Hallenvergabe: Feriennutzung",
+   "f": "downloads/Antrag-Hallenvergabe-Feriennutzung.pdf"
+  },
+  {
+   "g": "5",
+   "grp": "Stadt Leipzig: Hallenvergabe",
+   "t": "Antrag Hallenvergabe: periodische Nutzung",
+   "f": "downloads/Antrag-Hallenvergabe-Periodische-Nutzung.pdf"
+  },
+  {
+   "g": "5",
+   "grp": "Stadt Leipzig: Hallenvergabe",
+   "t": "Antrag Hallenvergabe: terminliche Nutzung",
+   "f": "downloads/Antrag-Hallenvergabe-Terminliche-Nutzung.pdf"
+  },
+  {
+   "g": "2",
+   "grp": "Stadt Leipzig: Anträge",
+   "t": "Antrag Institutionelle Förderung Betriebskosten",
+   "f": "downloads/Antrag-Institutionelle-Foerderung-BK.pdf"
+  },
+  {
+   "g": "1",
+   "grp": "Stadt Leipzig: Allgemein",
+   "t": "Antrag auf städtische Förderung (allgemein)",
+   "f": "downloads/Antrag-Staedtische-Foerderung.pdf"
+  },
+  {
+   "g": "1",
+   "grp": "Stadt Leipzig: Allgemein",
+   "t": "Antrag Zuschüsse Sportförderung",
+   "f": "downloads/Antrag-Zuschuesse-Sportfoerderung.pdf"
+  },
+  {
+   "g": "4",
+   "grp": "Stadt Leipzig: Investitionsförderung",
+   "t": "Antrag Zuwendung Investitionsförderung",
+   "f": "downloads/Antrag-Zuwendung-Investfoerderung.pdf"
+  },
+  {
+   "g": "1",
+   "grp": "Stadt Leipzig: Allgemein",
+   "t": "Bestätigung Pächter kommunaler Sportanlagen (Corona, vermutlich veraltet)",
+   "f": "downloads/Bestaetigung-Paechter-komm-Sportanlagen-Corona.pdf"
+  },
+  {
+   "g": "4",
+   "grp": "Stadt Leipzig: Investitionsförderung",
+   "t": "Datenschutz-Einwilligung Investitionsförderung",
+   "f": "downloads/Datenschutz-Einwerklaerung-Investfoerderung.pdf"
+  },
+  {
+   "g": "4",
+   "grp": "Stadt Leipzig: Investitionsförderung",
+   "t": "Mittelabforderung Investitionsförderung",
+   "f": "downloads/Mittelabforderung-Investfoerderung.pdf"
+  },
+  {
+   "g": "3",
+   "grp": "Stadt Leipzig: Abrechnung / Verwendungsnachweise",
+   "t": "Verwendungsnachweis Institutionelle Förderung Betriebskosten",
+   "f": "downloads/VN-Institutionellen-Foerderung-BK.pdf"
+  },
+  {
+   "g": "4",
+   "grp": "Stadt Leipzig: Investitionsförderung",
+   "t": "Zwischen-/Verwendungsnachweis Investitionsförderung",
+   "f": "downloads/Verwendungsnachweis-Investitionsfoerderung.pdf"
+  }
+ ]
+}
