@@ -1,0 +1,66 @@
+{
+ "hinweis": "Inhalte des Reiters Aus- und Weiterbildung. Quelle: SSB Leipzig, Häufig gestellte Fragen. Zahlen vor Änderungen mit der Quelle abgleichen. Danach Portal neu bauen (geschieht automatisch nach dem Speichern auf GitHub).",
+ "stand": "04.11.2026",
+ "quelle": {
+  "titel": "SSB Leipzig: Aus- und Weiterbildung, häufig gestellte Fragen",
+  "url": "https://www.ssb-leipzig.de/leistungen/aus-und-weiterbildung/haeufig-gestellte-fragen/"
+ },
+ "kurse": {
+  "titel": "Kurse und Fristen des SSB Leipzig",
+  "url": "https://www.ssb-leipzig.de/leistungen/aus-und-weiterbildung/",
+  "hinweis": "Alle aktuellen Kurse und Anmeldefristen stehen auf der Seite des SSB. Dort immer zuerst nachsehen."
+ },
+ "kontakt": {
+  "rolle": "Referentin Aus- und Weiterbildung, Stadtsportbund Leipzig e.V.",
+  "mail": "bildung@ssb-leipzig.de",
+  "anschrift": "Goyastraße 2 d, 04105 Leipzig"
+ },
+ "kennzahlen": [
+  {"label": "Gültigkeit", "wert": "4 Jahre", "text": "Maßgeblich ist das Quartalsende, das auf der Lizenz steht, nicht der Ausstellungstag."},
+  {"label": "Verlängerung", "wert": "15 LE", "text": "Lerneinheiten innerhalb der vier Jahre nachweisen. Mehrere kleinere Angebote dürfen addiert werden."},
+  {"label": "Antrag", "wert": "letztes Quartal", "text": "Im letzten Quartal der Gültigkeit beim SSB per E-Mail einreichen."}
+ ],
+ "verlaengern": [
+  "Auf der Lizenz das Ablaufdatum (Quartalsende) nachsehen.",
+  "In den vier Jahren Fortbildungen im Umfang von insgesamt 15 Lerneinheiten (LE) besuchen. Kleinere Angebote dürfen addiert werden.",
+  "Teilnahmebescheinigungen sammeln. Die Anwesenheitspflicht gilt, höchstens 10 % der LE dürfen fehlen. Sonst werden nur die tatsächlich besuchten LE bescheinigt.",
+  "Im letzten Quartal der Gültigkeit den vollständig ausgefüllten Antrag auf Verlängerung samt Nachweisen per E-Mail an den SSB senden.",
+  "Die verlängerte Lizenz kommt als PDF per E-Mail an die Adresse des Lizenzinhabers.",
+  "Neue Lizenz an den Verein weitergeben, damit Vertrag und Abrechnung die gültige Lizenz nennen."
+ ],
+ "anerkannt": {
+  "ja": [
+   "Angebote des Stadtsportbundes Leipzig und seiner Sportjugend",
+   "Angebote des Landessportbundes Sachsen und seines Bildungswerks sowie der sächsischen Stadt- und Kreissportbünde",
+   "Angebote überregionaler Anbieter unter dem DOSB-Dach, besonders digitale Formate"
+  ],
+  "pruefen": [
+   "Anbieter außerhalb der DOSB-Struktur: Anerkennung vor der Buchung beim SSB klären"
+  ],
+  "regel": "Der Ausrichter muss vom Landessportbund Sachsen zertifiziert sein oder unter dem Dach des DOSB stehen."
+ },
+ "abgelaufen": [
+  {"bis_jahre": 1, "zeitraum": "Im 1. Jahr nach Ablauf", "umfang": "15 LE", "ergebnis": "Verlängerung um 3 Jahre"},
+  {"bis_jahre": 3, "zeitraum": "Im 2. und 3. Jahr nach Ablauf", "umfang": "30 LE", "ergebnis": "Verlängerung"},
+  {"bis_jahre": 5, "zeitraum": "Im 4. und 5. Jahr nach Ablauf", "umfang": "45 LE", "ergebnis": "Verlängerung"},
+  {"bis_jahre": 10, "zeitraum": "Im 6. bis 10. Jahr nach Ablauf", "umfang": "32 LE Grundlehrgang und 30 LE Weiterbildung", "ergebnis": "Erneuerung"},
+  {"bis_jahre": 999, "zeitraum": "Mehr als 10 Jahre nach Ablauf", "umfang": "Gesamte Lizenzausbildung", "ergebnis": "Neu absolvieren"}
+ ],
+ "ohne_lehrgang": [
+  "Absolventen der Universität Leipzig: Antrag nach der Kooperationsvereinbarung mit dem LSB Sachsen, Formulare beim LSB.",
+  "Andere Abschlüsse: Der LSB entscheidet im Einzelfall, ob die Inhalte den Lehrgangsinhalten entsprechen.",
+  "Abiturienten sächsischer Eliteschulen des Sports: Antragsformulare beim LSB.",
+  "Kontakt LSB: lizenzen@sport-fuer-sachsen.de"
+ ],
+ "psv": [
+  "Die Lizenz (C oder B) mit Gültigkeit steht im Übungsleitervertrag. Bei Verlängerung dem Vorstand die neue Lizenz geben.",
+  "Mit Lizenz: 6,00 € je Trainingseinheit im PSV, ohne Lizenz 4,00 €. Bei abgelaufener Lizenz vorher den Vorstand fragen.",
+  "Der städtische Übungsleiter-Zuschuss setzt eine gültige Lizenz voraus (siehe Reiter Förderungen).",
+  "Altersgrenze für die Verlängerungspflicht gibt es nicht."
+ ],
+ "links": [
+  {"t": "SSB Leipzig: Aus- und Weiterbildung (Kurse und Fristen)", "u": "https://www.ssb-leipzig.de/leistungen/aus-und-weiterbildung/"},
+  {"t": "SSB Leipzig: Häufig gestellte Fragen", "u": "https://www.ssb-leipzig.de/leistungen/aus-und-weiterbildung/haeufig-gestellte-fragen/"},
+  {"t": "LSB Sachsen: Bildungsportal", "u": "https://bildungsportal.sport-fuer-sachsen.de/"}
+ ]
+}

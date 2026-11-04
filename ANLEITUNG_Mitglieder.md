@@ -13,6 +13,7 @@ Kein Login, keine App-Installation. Funktioniert am Handy, Tablet und Computer.
 | **Fristen** | Kalender mit Ampel: Wie viele Tage bleiben bis zur nächsten Abgabe? |
 | **Termine** | Sitzungen und Veranstaltungen des Vereins, Vereinsfristen und Kontakt-E-Mail-Adressen. |
 | **Formulare** | Leere Vordrucke zum Herunterladen: PSV-Vorlagen und Formulare der Stadt Leipzig. |
+| **Weiterbildung** | Übungsleiter-Lizenz verlängern, erneuern oder neu erwerben. Mit Lizenz-Check: Ablaufdatum eingeben, die Seite sagt, was zu tun ist. |
 
 ## Suchen
 1. Reiter **Suche** öffnen.

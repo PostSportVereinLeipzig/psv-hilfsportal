@@ -23,6 +23,7 @@ Kurzfassung: Datei in `daten/` direkt auf GitHub bearbeiten (Stift-Symbol), spei
 | `build.py` | Baut `index.html` aus Vorlage und Daten |
 | `daten/termine.json` | Termine und jährlich wiederkehrende Vereinsfristen |
 | `daten/kontakte.json` | Kontakt-E-Mail-Adressen (keine Telefonnummern) |
+| `daten/bildung.json` | Inhalte des Reiters Weiterbildung (Übungsleiter-Lizenz) |
 | `daten/downloads.json` | Titel und Gruppen der Downloads |
 | `daten/dokumente.json` | Such-Index der Richtlinien und Formulare |
 | `quellen/` | Neue Texte für die Suche als Markdown |
@@ -41,7 +42,7 @@ Danach `index.html` im Browser öffnen. Veröffentlicht wird mit `git push`; Git
 
 ## Technik
 - Statische Seite ohne Server, gehostet über GitHub Pages
-- Hash-Navigation (`#suche`, `#foerderungen`, `#fristen`, `#termine`, `#formulare`)
+- Hash-Navigation (`#suche`, `#foerderungen`, `#fristen`, `#termine`, `#formulare`, `#weiterbildung`)
 - Responsives Layout für Handy, Tablet und Desktop, helles und dunkles Farbschema
 - Volltextsuche im Browser über rund 800 Textabschnitte
 

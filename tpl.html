@@ -80,6 +80,7 @@ details[open].card>summary::after{content:"–"}
 .foot{margin-top:32px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 .ext{font:500 11px var(--f-mono);color:var(--muted)}
 .empty{padding:20px;text-align:center;color:var(--muted)}
+.steps{margin:4px 0 0;padding-left:22px}.steps li{margin:6px 0}.toolbar label{flex:0 0 auto}
 [hidden]{display:none!important}
 /* Responsive: Touch-Ziele, schmale Bildschirme, breite Bildschirme */
 html{-webkit-text-size-adjust:100%}
@@ -120,7 +121,7 @@ nav::-webkit-scrollbar{display:none}
 </style>
 <div class="wrap">
 <header><h1>Förderportal PSV</h1><p class="sub">Postsportverein Leipzig e.V. · Förderungen, Fristen, Formulare</p></header>
-<nav id="nav" aria-label="Bereiche"><a href="#suche">Suche</a><a href="#foerderungen">Förderungen</a><a href="#fristen">Fristen</a><a href="#termine">Termine</a><a href="#formulare">Formulare</a></nav>
+<nav id="nav" aria-label="Bereiche"><a href="#suche">Suche</a><a href="#foerderungen">Förderungen</a><a href="#fristen">Fristen</a><a href="#termine">Termine</a><a href="#formulare">Formulare</a><a href="#weiterbildung">Weiterbildung</a></nav>
 
 <section id="v-suche">
  <h2>Was suchst du?</h2>
@@ -151,6 +152,28 @@ nav::-webkit-scrollbar{display:none}
  <h3 class="grp">Vereinsfristen</h3><div id="tFr"></div>
  <h3 class="grp">Kontakt</h3><p class="note">Für eure Anliegen schreibt bitte eine E-Mail an Vorstand, Finanzen usw. Weitere Infos auf der <a href="https://www.postsportverein-leipzig.de/Kontakt/" target="_blank" rel="noopener">Kontaktseite</a>.</p><div id="kt"></div>
  <details class="card" style="margin-top:18px"><summary><h3>Vergangene Termine</h3><span class="note" style="grid-column:1/3">in diesem Jahr bereits stattgefunden</span></summary><div class="body" id="tPast"></div></details>
+</section>
+
+<section id="v-weiterbildung" hidden>
+ <h2>Aus- und Weiterbildung der Übungsleiter</h2>
+ <p class="note">Lizenz verlängern, erneuern oder neu erwerben (ÜL-C Breitensport). <span id="bQuelle"></span></p>
+ <div class="kv" id="bKenn"></div>
+ <h3 class="grp">Lizenz-Check</h3>
+ <div class="toolbar"><label for="bAblauf" class="note">Ablauf laut Lizenz (Monat und Jahr)</label><input id="bAblauf" type="month" aria-label="Ablauf der Lizenz, Monat und Jahr"></div>
+ <div id="bCheck" class="dl" hidden></div>
+ <h3 class="grp">Lizenz verlängern: Schritte</h3>
+ <ol class="steps" id="bSchritte"></ol>
+ <h3 class="grp">Welche Angebote zählen?</h3>
+ <div class="two"><div class="yes"><span class="lbl">Anerkannt</span><ul id="bJa"></ul></div><div class="no"><span class="lbl">Vorher prüfen</span><ul id="bPruef"></ul></div></div>
+ <h3 class="grp">Lizenz abgelaufen</h3>
+ <p class="note">Je länger der Ablauf zurückliegt, desto mehr Lerneinheiten (LE) sind nötig (DOSB-Rahmenrichtlinie).</p>
+ <div id="bAbg"></div>
+ <h3 class="grp">Lizenz ohne Lehrgang</h3>
+ <ul id="bOhne"></ul>
+ <h3 class="grp">Das gilt im PSV</h3>
+ <ul id="bPsv"></ul>
+ <h3 class="grp">Kurse und Ansprechpartner</h3>
+ <div id="bKurse"></div>
 </section>
 
 <section id="v-formulare" hidden>
@@ -277,7 +300,7 @@ const days=d=>Math.round((d-TODAY)/864e5);
 const tone=n=>n<=14?'crit':n<=45?'warn':'ok';
 const lbl=n=>n===0?'heute':n===1?'morgen':'in '+n+' Tagen';
 const FE=FR.map(f=>{const d=nextOf(f);return Object.assign({},f,{date:d,n:days(d)})}).sort((a,b)=>a.date-b.date);
-const views=['suche','foerderungen','fristen','termine','formulare'];
+const views=['suche','foerderungen','fristen','termine','formulare','weiterbildung'];
 function show(){const h=(location.hash||'#suche').slice(1);const v=views.includes(h)?h:'suche';views.forEach(x=>{$('#v-'+x).hidden=x!==v});document.querySelectorAll('#nav a').forEach(a=>{if(a.getAttribute('href')==='#'+v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')})}
 addEventListener('hashchange',show);show();
 $('#today').textContent=fmtD(TODAY);
@@ -342,4 +365,23 @@ function doSearch(){const raw=$('#q').value.trim(),box=$('#results');$('#homeNex
  box.innerHTML=h}
 $('#results').addEventListener('click',e=>{const a=e.target.closest('a[data-open]');if(a){e.preventDefault();openCard(SB[+a.dataset.open].t.split(' ')[0])}});
 $('#q').addEventListener('input',run);
+
+/* Weiterbildung */
+const BW=D.bildung||{};
+const bli=a=>(a||[]).map(x=>`<li>${esc(x)}</li>`).join('');
+if(BW.quelle)$('#bQuelle').innerHTML=`Quelle: <a href="${esc(BW.quelle.url)}" target="_blank" rel="noopener">${esc(BW.quelle.titel)}</a>${BW.stand?', Stand '+esc(BW.stand):''}.`;
+$('#bKenn').innerHTML=(BW.kennzahlen||[]).map(k=>`<div><b>${esc(k.label)}</b><span style="font:700 20px var(--f-display)">${esc(k.wert)}</span><br><span class="note">${esc(k.text)}</span></div>`).join('');
+$('#bSchritte').innerHTML=bli(BW.verlaengern);
+$('#bJa').innerHTML=bli(BW.anerkannt&&BW.anerkannt.ja);$('#bPruef').innerHTML=bli(BW.anerkannt&&BW.anerkannt.pruefen);
+$('#bAbg').innerHTML=(BW.abgelaufen||[]).map(a=>`<div class="dl"><span class="t"><b>${esc(a.zeitraum)}</b><br><span class="note">${esc(a.ergebnis)}</span></span><span class="pill warn">${esc(a.umfang)}</span></div>`).join('');
+$('#bOhne').innerHTML=bli(BW.ohne_lehrgang);$('#bPsv').innerHTML=bli(BW.psv);
+const BK=BW.kontakt||{},BU=BW.kurse||{};
+$('#bKurse').innerHTML=(BU.url?`<div class="dl"><span class="t"><b>${esc(BU.titel)}</b><br><span class="note">${esc(BU.hinweis||'')}</span></span><a class="btn" href="${esc(BU.url)}" target="_blank" rel="noopener">Öffnen</a></div>`:'')+(BK.mail?`<div class="dl"><span class="t"><b>${esc(BK.rolle)}</b><br><span class="note">${esc(BK.anschrift||'')}</span></span><a href="mailto:${esc(BK.mail)}">${esc(BK.mail)}</a></div>`:'')+(BW.links||[]).map(l=>`<div class="dl"><span class="t">${esc(l.t)}</span><a class="btn sec" href="${esc(l.u)}" target="_blank" rel="noopener">Öffnen</a></div>`).join('');
+function lizCheck(){const v=$('#bAblauf').value,o=$('#bCheck');if(!/^\d{4}-\d{2}$/.test(v)){o.hidden=true;return}
+ const y=+v.slice(0,4),m=+v.slice(5)-1,q=Math.floor(m/3),end=new Date(y,q*3+3,0),start=new Date(y,q*3,1),nd=days(end);
+ let h;
+ if(nd>=0){const ns=days(start);h=ns>0?`<span class="t"><b>Gültig bis ${fmtD(end)}</b><br><span class="note">Der Antrag auf Verlängerung ist ab ${fmtD(start)} möglich (letztes Quartal). Bis dahin 15 LE nachweisen.</span></span><span class="pill ok">Antrag ${lbl(ns)}</span>`:`<span class="t"><b>Jetzt Antrag auf Verlängerung stellen</b><br><span class="note">Gültig bis ${fmtD(end)}. Antrag samt 15 LE Nachweis per E-Mail an den SSB, ${lbl(nd)} läuft die Lizenz ab.</span></span><span class="pill ${tone(nd)}">${lbl(nd)}</span>`}
+ else{const yrs=Math.ceil(-nd/365.25),r=(BW.abgelaufen||[]).find(a=>yrs<=a.bis_jahre)||{};h=`<span class="t"><b>Lizenz seit ${fmtD(end)} abgelaufen</b><br><span class="note">${yrs}. Jahr nach Ablauf: ${esc(r.umfang||'')}, ${esc(r.ergebnis||'')}.</span></span><span class="pill crit">abgelaufen</span>`}
+ o.innerHTML=h;o.hidden=false}
+$('#bAblauf').oninput=lizCheck;
 </script>

@@ -12,6 +12,7 @@ Die Seite liegt öffentlich auf GitHub und wird dort kostenlos ausgeliefert.
 |---|---|
 | `daten/termine.json` | Termine (einmalig) und Vereinsfristen (jährlich wiederkehrend) |
 | `daten/kontakte.json` | Kontakt-E-Mail-Adressen (nur E-Mail, keine Telefonnummern) |
+| `daten/bildung.json` | Inhalte des Reiters „Weiterbildung“ (Lizenzregeln, Schritte, Kontakt, Links) |
 | `daten/downloads.json` | Titel und Gruppe der Formulare im Reiter „Formulare“ |
 | `downloads/` | Die Formular-Dateien selbst (PDF, XLSX, XLS) |
 | `quellen/` | Neue Texte für die Suche als `.md`-Dateien |
@@ -64,6 +65,17 @@ Aktuelle Fristen: Grundbeiträge 1. Halbjahr 31.03.; Mitgliedermeldung 30.06. un
 
 ## Kontakte ändern (`daten/kontakte.json`)
 Felder je Eintrag: `gruppe`, `rolle`, `mail`, `anliegen`. Nur Funktionspostfächer, keine Telefonnummern. Einträge ohne E-Mail (z. B. Gymnastik-Ansprechpartner) bleiben draußen.
+
+## Reiter „Weiterbildung“ pflegen (`daten/bildung.json`)
+Die Inhalte stammen von der SSB-Seite „Häufig gestellte Fragen“ (Link und Stand stehen in der Datei). Ändern sich dort Zahlen oder Regeln, die Datei anpassen:
+- `kennzahlen`: die drei Kacheln oben (Gültigkeit, Lerneinheiten, Antragszeitpunkt)
+- `verlaengern`: die Schritte zur Verlängerung
+- `abgelaufen`: Tabelle für abgelaufene Lizenzen. `bis_jahre` ist die Obergrenze in Jahren nach Ablauf und steuert den Lizenz-Check
+- `psv`: Hinweise, die nur für den PSV gelten (Vertrag, Honorar)
+- `kontakt`, `kurse`, `links`: Ansprechpartner und Verweise
+- `stand`: Datum der letzten Prüfung gegen die SSB-Seite, bitte mit anpassen
+
+Kurse und Anmeldefristen stehen bewusst nicht im Portal, sondern nur als Link auf die Seite des SSB. So kann nichts veralten.
 
 ## Neues Formular bereitstellen
 1. Datei in `downloads/` legen. Dateinamen ohne Leerzeichen und Sonderzeichen, z. B. `Antrag-Beispiel-2027.pdf`.
