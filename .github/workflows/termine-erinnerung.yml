@@ -1,0 +1,38 @@
+name: Termine-Erinnerung
+
+# Erinnert zum Jahresende daran, die Termine des Vereins (Verwaltungsratssitzungen, Delegiertenversammlung,
+# Feiern usw.) für das nächste Jahr in daten/termine.json einzutragen. Legt einen Hinweis (Issue) an,
+# GitHub schickt dazu eine E-Mail. Läuft am 1. November, 1. Dezember, 15. Dezember und 5. Januar,
+# aber nur, solange für das Zieljahr noch kein Termin eingetragen ist.
+on:
+  schedule:
+    - cron: "30 6 1 11,12 *"
+    - cron: "30 6 15 12 *"
+    - cron: "30 6 5 1 *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  erinnern:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prüfen und erinnern
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ziel=$(python3 - <<'PY'
+          import datetime as d, json
+          h = d.date.today()
+          ziel = h.year + 1 if h.month >= 11 else h.year
+          termine = json.load(open("daten/termine.json", encoding="utf-8")).get("termine", [])
+          print(ziel if not any(t["datum"].startswith(str(ziel)) for t in termine) else "")
+          PY
+          )
+          if [ -z "$ziel" ]; then echo "Termine für das Zieljahr sind eingetragen."; exit 0; fi
+          offen=$(gh issue list --state open --search "Termine $ziel eintragen in:title" --json number --jq 'length')
+          if [ "$offen" != "0" ]; then echo "Erinnerung ist schon offen."; exit 0; fi
+          gh issue create --title "Termine $ziel eintragen" --body "Für $ziel sind noch keine Vereinstermine eingetragen (Verwaltungsratssitzungen, Delegiertenversammlung, Feiern und sonstiges). Bitte in \`daten/termine.json\` unter \`termine\` ergänzen (Datum als JJJJ-MM-TT) oder mir die Termine schicken. Die jährlichen Vereinsfristen sind nicht betroffen, sie wiederholen sich automatisch. Anleitung: ANLEITUNG_Pflege.md, Abschnitt Termine."

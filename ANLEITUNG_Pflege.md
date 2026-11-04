@@ -10,7 +10,9 @@ Die Seite liegt öffentlich auf GitHub und wird dort kostenlos ausgeliefert.
 
 | Datei / Ordner | Zweck |
 |---|---|
-| `daten/termine.json` | Termine (einmalig) und Vereinsfristen (jährlich wiederkehrend) |
+| `daten/termine.json` | Termine (einmalig, mit Jahr) und Vereinsfristen (jährlich wiederkehrend, ohne Jahr) |
+| `daten/fristen.json` | Fristen der Stadt, des LSB, des SSB und Dritter. Wiederkehrend, ohne Jahr. Wird jede Woche mit der SSB-Seite abgeglichen. |
+| `update_fristen.py` | Gleicht `fristen.json` mit der Fristenseite des SSB ab |
 | `daten/kontakte.json` | Kontakt-E-Mail-Adressen (nur E-Mail, keine Telefonnummern) |
 | `daten/veranstaltungen.json` | Von Hand: Hinweise zu Veranstaltungen, eigene Ergänzungen, Infotext „Angebot anmelden“ |
 | `daten/veranstaltungen_auto.json` | Automatisch gelesen (jede Woche). Nicht von Hand ändern. |
@@ -24,6 +26,8 @@ Die Seite liegt öffentlich auf GitHub und wird dort kostenlos ausgeliefert.
 | `build.py` | Baut aus allem die fertige `index.html`. |
 | `index.html` | Fertige Seite. **Nie von Hand bearbeiten**, sie wird überschrieben. |
 | `.github/workflows/build.yml` | Automatik: baut `index.html` nach jeder Änderung auf GitHub. |
+| `.github/workflows/fristen.yml` | Automatik: gleicht dienstags die Fristen mit der SSB-Seite ab. |
+| `.github/workflows/termine-erinnerung.yml` | Automatik: erinnert zum Jahresende an die Termine für das nächste Jahr. |
 | `.github/workflows/veranstaltungen.yml` | Automatik: liest montags die Veranstaltungen und baut die Seite neu. |
 
 ## Einfachster Weg: direkt im Browser ändern
@@ -53,12 +57,25 @@ Wer lokal arbeitet, holt vorher den neuesten Stand mit `git pull`, weil die Auto
 
 Voraussetzungen auf dem Rechner: Python 3, Git, angemeldet bei GitHub (`gh auth login`).
 
+## Fristen (`daten/fristen.json`) und Abgleich mit dem SSB
+Die Fristen gelten jedes Jahr, deshalb stehen nur Monat (`m`) und Tag (`d`) darin, kein Jahr. Im Portal erscheinen sie als „31.03. jährlich“ mit der Zahl der Tage bis zur nächsten Fälligkeit.
+
+**Automatischer Abgleich (dienstags):** GitHub vergleicht die Fristen mit der [Fristenseite des SSB](https://www.ssb-leipzig.de/leistungen/vereinsberatung/fristen-1/).
+- Weicht Monat oder Tag ab, wird die Frist angepasst.
+- Steht dort eine neue Frist, wird sie ergänzt (mit dem Hinweis „bitte Text prüfen“).
+- Fehlt eine Frist auf der SSB-Seite, bleibt sie stehen und wird nur gemeldet.
+- Titel und Hinweise ändert die Automatik nie.
+- Bei jeder Änderung legt GitHub unter **Issues** einen Hinweis an und schickt eine E-Mail, damit jemand kurz draufschaut.
+- Fristen ohne `ssb_match` in der Datei (z. B. „Ehrenamt stärken“) stehen nicht auf der SSB-Seite und werden von Hand gepflegt.
+
+**Jetzt sofort abgleichen:** Repository → **Actions** → „Fristen abgleichen“ → **Run workflow**.
+
 ## Termine ändern (`daten/termine.json`)
 Einmalige Termine stehen unter `"termine"`, Datum als `JJJJ-MM-TT`:
 ```json
 { "datum": "2026-12-10", "titel": "Verwaltungsratssitzung", "art": "Gremium", "ort": "Kultursaal, Am Sportforum 3, 04105 Leipzig" }
 ```
-Vergangene Termine wandern automatisch in „Vergangene Termine“. Zum Hinzufügen den Block kopieren und anpassen. Zwischen Blöcken steht ein Komma, nach dem letzten nicht.
+Vergangene Termine des laufenden Jahres wandern automatisch in „Vergangene Termine“. Neue Termine (Verwaltungsratssitzungen, Delegiertenversammlung, Feiern und sonstiges) werden am Jahresende für das nächste Jahr eingetragen. Dazu erinnert GitHub am 1. November, 1. Dezember, 15. Dezember und 5. Januar per Hinweis (Issue) und E-Mail, solange für das Zieljahr noch nichts eingetragen ist. Zum Hinzufügen den Block kopieren und anpassen. Zwischen Blöcken steht ein Komma, nach dem letzten nicht.
 
 ## Vereinsfristen ändern (`vereinsfristen` in derselben Datei)
 Sie wiederholen sich jährlich, deshalb nur `monat` und `tag`:

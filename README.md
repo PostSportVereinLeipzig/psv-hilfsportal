@@ -21,6 +21,7 @@ Kurzfassung: Datei in `daten/` direkt auf GitHub bearbeiten (Stift-Symbol), spei
 | `index.html` | Fertige Seite (wird automatisch erzeugt, nicht von Hand ändern) |
 | `tpl.html` | Vorlage mit Aussehen und Programmlogik (CSS und JavaScript inline) |
 | `build.py` | Baut `index.html` aus Vorlage und Daten |
+| `daten/fristen.json` | Wiederkehrende Fristen (ohne Jahr), wöchentlich mit der SSB-Seite abgeglichen |
 | `daten/termine.json` | Termine und jährlich wiederkehrende Vereinsfristen |
 | `daten/kontakte.json` | Kontakt-E-Mail-Adressen (keine Telefonnummern) |
 | `daten/veranstaltungen.json` | Von Hand gepflegte Veranstaltungs-Hinweise und Ergänzungen |
@@ -31,8 +32,11 @@ Kurzfassung: Datei in `daten/` direkt auf GitHub bearbeiten (Stift-Symbol), spei
 | `quellen/` | Neue Texte für die Suche als Markdown |
 | `downloads/` | Formulare und Vorlagen (PDF, XLSX, XLS) |
 | `manifest.webmanifest`, `icons/` | App-Installation auf dem Handy (PWA) |
+| `update_fristen.py` | Gleicht die Fristen mit der Fristenseite des SSB ab |
 | `update_veranstaltungen.py` | Liest Veranstaltungen und Kurse von SSB und LSB |
 | `.github/workflows/build.yml` | Automatisches Bauen bei jeder Änderung |
+| `.github/workflows/fristen.yml` | Wöchentlicher Fristenabgleich mit dem SSB |
+| `.github/workflows/termine-erinnerung.yml` | Jahresend-Erinnerung an die Vereinstermine |
 | `.github/workflows/veranstaltungen.yml` | Wöchentliches Aktualisieren der Veranstaltungen |
 
 ## Lokal bauen

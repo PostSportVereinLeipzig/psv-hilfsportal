@@ -1,0 +1,60 @@
+name: Fristen abgleichen
+
+# Vergleicht jede Woche (dienstags früh) die Fristen im Portal mit der Fristenseite des SSB Leipzig,
+# passt geänderte Tage an, ergänzt neue Fristen und baut die Seite neu.
+# Bei jeder Änderung wird ein Hinweis (Issue) angelegt, GitHub schickt dazu eine E-Mail.
+# Manuell startbar unter Actions -> Run workflow.
+on:
+  schedule:
+    - cron: "23 4 * * 2"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: portal-build
+  cancel-in-progress: false
+
+jobs:
+  fristen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: SSB-Fristenseite lesen
+        id: upd
+        continue-on-error: true
+        run: python3 update_fristen.py
+      - name: Seite bauen
+        run: python3 build.py
+      - name: Änderungen veröffentlichen
+        run: |
+          git add daten/fristen.json index.html
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            { echo "Fristen automatisch mit der SSB-Seite abgeglichen"; echo; cat daten/.fristen_aenderungen.txt; } > /tmp/msg.txt
+            git commit -F /tmp/msg.txt
+            git pull --rebase
+            git push
+          fi
+      - name: Hinweis anlegen
+        if: hashFiles('daten/.fristen_aenderungen.txt') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -s daten/.fristen_aenderungen.txt ]; then
+            { echo "Der wöchentliche Abgleich mit der Fristenseite des SSB hat Folgendes festgestellt. Änderungen wurden schon im Portal übernommen. Bitte kurz prüfen:"; echo; sed 's/^/- /' daten/.fristen_aenderungen.txt; echo; echo "Quelle: https://www.ssb-leipzig.de/leistungen/vereinsberatung/fristen-1/"; } > /tmp/issue.txt
+            gh issue create --title "Fristen vom SSB geändert ($(date +%d.%m.%Y))" --body-file /tmp/issue.txt
+          fi
+      - name: Fehler melden
+        if: steps.upd.outcome == 'failure'
+        run: |
+          echo "Die Fristenseite des SSB konnte nicht gelesen werden. Die Fristen bleiben unverändert."
+          exit 1

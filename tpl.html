@@ -128,7 +128,7 @@ nav::-webkit-scrollbar{display:none}
  <div class="search"><input id="q" type="search" placeholder="z. B. Übungsleiter, Trainingsgerät, Fahrtkosten, Jubiläum" autocomplete="off" aria-label="Volltextsuche in Richtlinien und Formularen"></div>
  <div class="chips" id="hints"></div>
  <div id="results" class="res" aria-live="polite"></div>
- <div id="homeNext"><h2 style="margin-top:26px">Als Nächstes fällig</h2><div class="next" id="nextCards"></div><div id="homeEv" hidden><h2 style="margin-top:22px">Veranstaltungen und Anmeldungen</h2><div class="next" id="evCards"></div><p class="note"><a href="#veranstaltungen">Alle Veranstaltungen ansehen</a></p></div><p class="note">Alle Fristen unter „Fristen“. Termine für das Folgejahr sind nach dem Muster des Vorjahres berechnet und müssen geprüft werden.</p></div>
+ <div id="homeNext"><h2 style="margin-top:26px">Als Nächstes fällig</h2><div class="next" id="nextCards"></div><div id="homeEv" hidden><h2 style="margin-top:22px">Veranstaltungen und Anmeldungen</h2><div class="next" id="evCards"></div><p class="note"><a href="#veranstaltungen">Alle Veranstaltungen ansehen</a></p></div><p class="note">Alle Fristen unter „Fristen“. Sie wiederholen sich jährlich und werden jede Woche mit der Fristenseite des SSB abgeglichen.</p></div>
 </section>
 
 <section id="v-foerderungen" hidden>
@@ -139,7 +139,7 @@ nav::-webkit-scrollbar{display:none}
 
 <section id="v-fristen" hidden>
  <h2>Fristenkalender</h2>
- <p class="note">Heute ist <span id="today"></span>. Die Ampel zeigt die Tage bis zur nächsten Fälligkeit.</p>
+ <p class="note">Heute ist <span id="today"></span>. Die Fristen wiederholen sich jährlich, die Ampel zeigt die Tage bis zur nächsten Fälligkeit. Die Daten werden jede Woche mit der <a href="https://www.ssb-leipzig.de/leistungen/vereinsberatung/fristen-1/" target="_blank" rel="noopener">Fristenseite des SSB</a> abgeglichen.</p>
  <div class="toolbar"><div class="chips" id="kchips" style="margin:0"></div></div>
  <div class="tl" id="tl"></div>
  <h3 class="grp">Laufend, vor Beginn der Maßnahme</h3><div id="ongoing"></div>
@@ -303,23 +303,10 @@ const SB=[
  an:'mindestens 6 Wochen vor Maßnahmenbeginn',ab:'nach Bescheid',
  forms:[],ext:[['SSB: Sport-, Jugend- und Projektförderung','https://www.ssb-leipzig.de/leistungen/vereinsberatung/sportfoerderung/']],q:'SSB Leipzig, Sport-, Jugend- und Projektförderung'}
 ];
-const FR=[
-{m:1,d:31,t:'Bestandsmeldung, Antrag Breitensportentwicklung und Verwendungsnachweis des Vorjahres',s:'LSB',w:'VereinsPortal LSB Sachsen',h:'Bestandsmeldung zum Stichtag 01.01. Verwendungsnachweis gleichzeitig mit dem neuen Antrag.'},
-{m:2,d:28,t:'Jahresabschluss des Vorjahres und Haushaltsplan des laufenden Jahres',s:'Stadt',w:'Amt für Sport',h:'Grundvoraussetzung für städtische Förderung.'},
-{m:2,d:28,t:'Abrechnung „Wir für Sachsen“ des Vorjahres',s:'Dritte',w:'Förderportal Bürgerstiftung',h:'Nur falls gefördert.'},
-{m:3,d:31,t:'Antrag Großsportgerät',s:'LSB',w:'VereinsPortal',h:'Drei Angebote beifügen, erst nach Antragstellung kaufen.'},
-{m:3,d:31,t:'Verwendungsnachweise der städtischen Förderung des Vorjahres',s:'Stadt',w:'Amt für Sport, Amt für Jugend und Familie',h:'Ausnahmen stehen auf Seite 2 des Bescheids (z. B. Veranstaltungen, Ehrungen, Fahrtkosten).'},
-{m:4,d:30,t:'Mitgliedsbeitrag Landessportbund Sachsen',s:'LSB',w:'Überweisung',h:'Voraussetzung für die LSB-Förderung.'},
-{m:5,d:31,t:'Antrag „Ehrenamt stärken im Sport“ (Fenster ab 01.04.)',s:'LSB',w:'VereinsPortal',h:'Gilt für 2026, für 2027 Ausschreibung prüfen.'},
-{m:6,d:30,t:'Abrechnung Pacht- und Pflegekostenzuschüsse',s:'Stadt',w:'Amt für Sport',h:'Nur für Vereine mit gepachteter Anlage.'},
-{m:7,d:31,t:'Mitgliedsbeitrag Stadtsportbund Leipzig',s:'SSB',w:'Überweisung',h:''},
-{m:8,d:31,t:'Antrag Stadtbezirksbudgets',s:'Stadt',w:'Stadt Leipzig',h:'Nur bei Bedarf.'},
-{m:9,d:30,t:'Anträge auf städtische Sportförderung für das Folgejahr',s:'Stadt',w:'Amt für Sport',h:'Später eingehende Anträge gelten als Nachanträge und werden nur bei vorhandenen Mitteln berücksichtigt.'},
-{m:10,d:31,t:'Antrag „Wir für Sachsen“ für das Folgejahr',s:'Dritte',w:'Förderportal Bürgerstiftung',h:''},
-{m:10,d:31,t:'Großsportgerät: Rechnung und Zahlungsnachweis; Ehrenamt stärken: Abrechnung',s:'LSB',w:'VereinsPortal',h:'Anschaffung nur 01.01. bis 31.10.'}
-];
-const ONG=[['Ferien-, Bildungs- und internationale Maßnahmen','mindestens 6 Wochen vor Beginn','Amt für Jugend und Familie'],['Neue periodische Hallennutzung','mindestens 4 Wochen vorher','Amt für Sport'],['Terminliche Hallennutzung','mindestens 4 Wochen vorher','Amt für Sport'],['Wettkampffahrten (Fahrtkostenzuschuss)','vor jeder Fahrt melden, Bestätigung bis 4 Wochen danach','Amt für Sport']];
+const FR=(D.fristen&&D.fristen.fristen||[]).map(f=>({m:f.m,d:f.d,t:f.t,s:f.s,w:f.w,h:f.h}));
+const ONG=(D.fristen&&D.fristen.laufend||[]).map(o=>[o.t,o.wann,o.w]);
 const TODAY=(()=>{const n=new Date();return new Date(n.getFullYear(),n.getMonth(),n.getDate())})();
+const fmtJ=d=>String(d.getDate()).padStart(2,'0')+'.'+String(d.getMonth()+1).padStart(2,'0')+'.';
 const fmtD=d=>d.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
 function nextOf(f){let d=new Date(TODAY.getFullYear(),f.m-1,f.d);if(d<TODAY)d=new Date(TODAY.getFullYear()+1,f.m-1,f.d);return d}
 const days=d=>Math.round((d-TODAY)/864e5);
@@ -330,19 +317,19 @@ const views=['suche','foerderungen','fristen','termine','formulare','weiterbildu
 function show(){const h=(location.hash||'#suche').slice(1);const v=views.includes(h)?h:'suche';views.forEach(x=>{$('#v-'+x).hidden=x!==v});document.querySelectorAll('#nav a').forEach(a=>{if(a.getAttribute('href')==='#'+v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')})}
 addEventListener('hashchange',show);show();
 $('#today').textContent=fmtD(TODAY);
-$('#nextCards').innerHTML=FE.slice(0,3).map(f=>`<div class="due"><span class="when"><span>${fmtD(f.date)}</span><span class="pill ${tone(f.n)}">${lbl(f.n)}</span></span><b>${esc(f.t)}</b><span class="note">${esc(f.s)} · ${esc(f.w)}</span></div>`).join('');
+$('#nextCards').innerHTML=FE.slice(0,3).map(f=>`<div class="due"><span class="when"><span>${fmtJ(f.date)} jährlich</span><span class="pill ${tone(f.n)}">${lbl(f.n)}</span></span><b>${esc(f.t)}</b><span class="note">${esc(f.s)} · ${esc(f.w)}</span></div>`).join('');
 const fmtL=d=>d.toLocaleDateString('de-DE',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});
 const ev=(D.termine.termine||[]).map(e=>Object.assign({},e,{d:new Date(e.datum+'T00:00:00')})).sort((a,b)=>a.d-b.d);
 const evHtml=e=>{const n=days(e.d);return `<div class="dl"><span class="t"><b>${esc(e.titel)}</b><br><span class="note">${fmtL(e.d)}${e.zeit?', '+esc(e.zeit):''}</span><br><span class="note">${esc(e.ort||'')}</span></span><span class="pill ${n>=0?tone(n):'gray'}">${n>=0?lbl(n):'vorbei'}</span></div>`};
-$('#tUp').innerHTML=ev.filter(e=>days(e.d)>=0).map(evHtml).join('')||'<p class="empty">Derzeit keine kommenden Termine eingetragen.</p>';
-$('#tPast').innerHTML=ev.filter(e=>days(e.d)<0).reverse().map(evHtml).join('')||'<p class="note">Keine.</p>';
+$('#tUp').innerHTML=ev.filter(e=>days(e.d)>=0).map(evHtml).join('')||'<p class="empty">Derzeit keine kommenden Termine eingetragen. Neue Termine werden zum Jahresende ergänzt.</p>';
+$('#tPast').innerHTML=ev.filter(e=>days(e.d)<0&&e.d.getFullYear()===TODAY.getFullYear()).reverse().map(evHtml).join('')||'<p class="note">Keine.</p>';
 const nextOcc=f=>{if(f.datum)return new Date(f.datum+'T00:00:00');let y=TODAY.getFullYear();let d=new Date(y,f.monat-1,f.tag);if(days(d)<0)d=new Date(y+1,f.monat-1,f.tag);return d};
 const VF=(D.termine.vereinsfristen||[]).map(f=>Object.assign({},f,{d:nextOcc(f)})).sort((a,b)=>a.d-b.d);
-$('#tFr').innerHTML=VF.map(f=>{const n=days(f.d);return `<div class="dl"><span class="t"><b>${esc(f.titel)}</b><br><span class="note">${esc(f.wer?f.wer+' · ':'')}${esc(f.hinweis||'')}</span></span><span class="pill ${tone(n)}">${fmtD(f.d)} · ${lbl(n)}</span></div>`}).join('');
+$('#tFr').innerHTML=VF.map(f=>{const n=days(f.d);return `<div class="dl"><span class="t"><b>${esc(f.titel)}</b><br><span class="note">${esc(f.wer?f.wer+' · ':'')}${esc(f.hinweis||'')}</span></span><span class="pill ${tone(n)}">${fmtJ(f.d)} jährlich · ${lbl(n)}</span></div>`}).join('');
 const KT=(D.kontakte&&D.kontakte.kontakte)||[];
 $('#kt').innerHTML=['Vorstand','Abteilungen'].map(g=>`<h3 class="grp">${g}</h3>`+KT.filter(k=>k.gruppe===g).map(k=>`<div class="dl"><span class="t"><b>${esc(k.rolle)}</b>${k.anliegen?'<br><span class="note">'+esc(k.anliegen)+'</span>':''}</span><a href="mailto:${esc(k.mail)}">${esc(k.mail)}</a></div>`).join('')).join('');
 let kf='Alle';
-function renderTL(){$('#tl').innerHTML=FE.filter(f=>kf==='Alle'||f.s===kf).map(f=>`<div class="ev ${tone(f.n)}"><div class="d"><span>${fmtD(f.date)}</span><span class="pill ${tone(f.n)}">${lbl(f.n)}</span><span class="pill gray">${esc(f.s)}</span>${f.date.getFullYear()>2026?'<span class="pill gray">erwartet</span>':''}</div><h3>${esc(f.t)}</h3><div class="note">${esc(f.w)}${f.h?' · '+esc(f.h):''}</div></div>`).join('')}
+function renderTL(){$('#tl').innerHTML=FE.filter(f=>kf==='Alle'||f.s===kf).map(f=>`<div class="ev ${tone(f.n)}"><div class="d"><span>${fmtJ(f.date)} jährlich</span><span class="pill ${tone(f.n)}">${lbl(f.n)}</span><span class="pill gray">${esc(f.s)}</span></div><h3>${esc(f.t)}</h3><div class="note">${esc(f.w)}${f.h?' · '+esc(f.h):''}</div></div>`).join('')}
 $('#kchips').innerHTML=['Alle','Stadt','LSB','SSB','Dritte'].map(k=>`<button class="chip" aria-pressed="${k==='Alle'}" data-k="${k}">${k}</button>`).join('');
 $('#kchips').onclick=e=>{const b=e.target.closest('button');if(!b)return;kf=b.dataset.k;document.querySelectorAll('#kchips button').forEach(x=>x.setAttribute('aria-pressed',x===b));renderTL()};
 renderTL();

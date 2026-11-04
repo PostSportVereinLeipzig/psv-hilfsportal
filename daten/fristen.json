@@ -1,0 +1,197 @@
+{
+ "hinweis": "Wiederkehrende Fristen: Monat (m) und Tag (d), ohne Jahr. Sie gelten jedes Jahr, bis sich etwas ändert. update_fristen.py gleicht sie jede Woche mit https://www.ssb-leipzig.de/leistungen/vereinsberatung/fristen-1/ ab und passt m und d bei Änderungen selbst an. ssb_match = Suchwörter der passenden Zeile auf der SSB-Seite. Einträge ohne ssb_match werden nicht abgeglichen und von Hand gepflegt.",
+ "fristen": [
+  {
+   "m": 1,
+   "d": 31,
+   "t": "Bestandsmeldung, Antrag Breitensportentwicklung und Verwendungsnachweis des Vorjahres",
+   "s": "LSB",
+   "w": "VereinsPortal LSB Sachsen",
+   "h": "Bestandsmeldung zum Stichtag 01.01. Verwendungsnachweis gleichzeitig mit dem neuen Antrag.",
+   "ssb_match": [
+    [
+     "bestandsmeldung"
+    ],
+    [
+     "verwendungsnachweis",
+     "breitensportentwicklung"
+    ]
+   ]
+  },
+  {
+   "m": 2,
+   "d": 28,
+   "t": "Jahresabschluss des Vorjahres und Haushaltsplan des laufenden Jahres",
+   "s": "Stadt",
+   "w": "Amt für Sport",
+   "h": "Grundvoraussetzung für städtische Förderung.",
+   "ssb_match": [
+    [
+     "jahresabschluss"
+    ]
+   ]
+  },
+  {
+   "m": 2,
+   "d": 28,
+   "t": "Abrechnung „Wir für Sachsen“ des Vorjahres",
+   "s": "Dritte",
+   "w": "Förderportal Bürgerstiftung",
+   "h": "Nur falls gefördert.",
+   "ssb_match": [
+    [
+     "abrechnungsfrist",
+     "wir für sachsen"
+    ]
+   ]
+  },
+  {
+   "m": 3,
+   "d": 31,
+   "t": "Antrag Großsportgerät",
+   "s": "LSB",
+   "w": "VereinsPortal",
+   "h": "Drei Angebote beifügen, erst nach Antragstellung kaufen.",
+   "ssb_match": [
+    [
+     "antrag",
+     "großsportgerät"
+    ]
+   ]
+  },
+  {
+   "m": 3,
+   "d": 31,
+   "t": "Verwendungsnachweise der städtischen Förderung des Vorjahres",
+   "s": "Stadt",
+   "w": "Amt für Sport, Amt für Jugend und Familie",
+   "h": "Ausnahmen stehen auf Seite 2 des Bescheids (z. B. Veranstaltungen, Ehrungen, Fahrtkosten).",
+   "ssb_match": [
+    [
+     "verwendungsnachweise",
+     "amt für sport"
+    ]
+   ]
+  },
+  {
+   "m": 4,
+   "d": 30,
+   "t": "Mitgliedsbeitrag Landessportbund Sachsen",
+   "s": "LSB",
+   "w": "Überweisung",
+   "h": "Voraussetzung für die LSB-Förderung.",
+   "ssb_match": [
+    [
+     "mitgliedsbeiträge",
+     "landessportbund"
+    ]
+   ]
+  },
+  {
+   "m": 5,
+   "d": 31,
+   "t": "Antrag „Ehrenamt stärken im Sport“ (Fenster ab 01.04.)",
+   "s": "LSB",
+   "w": "VereinsPortal",
+   "h": "Gilt für 2026, für 2027 Ausschreibung prüfen."
+  },
+  {
+   "m": 6,
+   "d": 30,
+   "t": "Abrechnung Pacht- und Pflegekostenzuschüsse",
+   "s": "Stadt",
+   "w": "Amt für Sport",
+   "h": "Nur für Vereine mit gepachteter Anlage.",
+   "ssb_match": [
+    [
+     "pacht"
+    ]
+   ]
+  },
+  {
+   "m": 7,
+   "d": 31,
+   "t": "Mitgliedsbeitrag Stadtsportbund Leipzig",
+   "s": "SSB",
+   "w": "Überweisung",
+   "h": "",
+   "ssb_match": [
+    [
+     "mitgliedsbeiträge",
+     "stadtsportbund"
+    ]
+   ]
+  },
+  {
+   "m": 8,
+   "d": 31,
+   "t": "Antrag Stadtbezirksbudgets",
+   "s": "Stadt",
+   "w": "Stadt Leipzig",
+   "h": "Nur bei Bedarf.",
+   "ssb_match": [
+    [
+     "stadtbezirksbudgets"
+    ]
+   ]
+  },
+  {
+   "m": 9,
+   "d": 30,
+   "t": "Anträge auf städtische Sportförderung für das Folgejahr",
+   "s": "Stadt",
+   "w": "Amt für Sport",
+   "h": "Später eingehende Anträge gelten als Nachanträge und werden nur bei vorhandenen Mitteln berücksichtigt.",
+   "ssb_match": [
+    [
+     "anträge auf sportförderung",
+     "amt für sport"
+    ]
+   ]
+  },
+  {
+   "m": 10,
+   "d": 31,
+   "t": "Antrag „Wir für Sachsen“ für das Folgejahr",
+   "s": "Dritte",
+   "w": "Förderportal Bürgerstiftung",
+   "h": "",
+   "ssb_match": [
+    [
+     "antragsfrist",
+     "wir für sachsen"
+    ]
+   ]
+  },
+  {
+   "m": 10,
+   "d": 31,
+   "t": "Großsportgerät: Rechnung und Zahlungsnachweis; Ehrenamt stärken: Abrechnung",
+   "s": "LSB",
+   "w": "VereinsPortal",
+   "h": "Anschaffung nur 01.01. bis 31.10."
+  }
+ ],
+ "laufend": [
+  {
+   "t": "Ferien-, Bildungs- und internationale Maßnahmen",
+   "wann": "mindestens 6 Wochen vor Beginn",
+   "w": "Amt für Jugend und Familie"
+  },
+  {
+   "t": "Neue periodische Hallennutzung",
+   "wann": "mindestens 4 Wochen vorher",
+   "w": "Amt für Sport"
+  },
+  {
+   "t": "Terminliche Hallennutzung",
+   "wann": "mindestens 4 Wochen vorher",
+   "w": "Amt für Sport"
+  },
+  {
+   "t": "Wettkampffahrten (Fahrtkostenzuschuss)",
+   "wann": "vor jeder Fahrt melden, Bestätigung bis 4 Wochen danach",
+   "w": "Amt für Sport"
+  }
+ ]
+}

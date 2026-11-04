@@ -112,7 +112,7 @@ def main():
     md_quellen(docs, chunks)
     data = {"docs": docs, "chunks": chunks, "downloads": downloads_liste(), "fmap": ref["fmap"],
             "termine": lade("termine.json"), "kontakte": lade("kontakte.json"),
-            "bildung": lade("bildung.json"), "veranstaltungen": veranstaltungen()}
+            "bildung": lade("bildung.json"), "fristen": lade("fristen.json"), "veranstaltungen": veranstaltungen()}
     # Nur Dateien aus fmap prüfen, die es wirklich nicht gibt
     for v in ref["fmap"].values():
         if v and not (ROOT / v).exists():
