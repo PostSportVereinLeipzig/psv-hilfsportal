@@ -1,24 +1,24 @@
 {
  "hinweis": "Termine und Vereinsfristen hier pflegen. datum: JJJJ-MM-TT. Vereinsfristen wiederholen sich jährlich (monat, tag). Danach Portal neu bauen.",
- "ort_standard": "Kultursaal, Am Sportforum 3, Zimmer 4.33.0, 04105 Leipzig",
+ "ort_standard": "Kultursaal, Am Sportforum 3, 04105 Leipzig",
  "termine": [
   {
    "datum": "2026-03-26",
    "titel": "Verwaltungsratssitzung",
    "art": "Gremium",
-   "ort": "Kultursaal, Am Sportforum 3, Zimmer 4.33.0, 04105 Leipzig"
+   "ort": "Kultursaal, Am Sportforum 3, 04105 Leipzig"
   },
   {
    "datum": "2026-06-25",
    "titel": "Verwaltungsratssitzung",
    "art": "Gremium",
-   "ort": "Kultursaal, Am Sportforum 3, Zimmer 4.33.0, 04105 Leipzig"
+   "ort": "Kultursaal, Am Sportforum 3, 04105 Leipzig"
   },
   {
    "datum": "2026-09-24",
    "titel": "Delegiertenversammlung",
    "art": "Gremium",
-   "ort": "Kultursaal, Am Sportforum 3, Zimmer 4.33.0, 04105 Leipzig"
+   "ort": "Kultursaal, Am Sportforum 3, 04105 Leipzig"
   },
   {
    "datum": "2026-10-31",
@@ -30,7 +30,7 @@
    "datum": "2026-12-10",
    "titel": "Verwaltungsratssitzung",
    "art": "Gremium",
-   "ort": "Kultursaal, Am Sportforum 3, Zimmer 4.33.0, 04105 Leipzig"
+   "ort": "Kultursaal, Am Sportforum 3, 04105 Leipzig"
   }
  ],
  "vereinsfristen": [

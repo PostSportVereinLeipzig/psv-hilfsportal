@@ -51,7 +51,7 @@ Voraussetzungen auf dem Rechner: Python 3, Git, angemeldet bei GitHub (`gh auth 
 ## Termine ändern (`daten/termine.json`)
 Einmalige Termine stehen unter `"termine"`, Datum als `JJJJ-MM-TT`:
 ```json
-{ "datum": "2026-12-10", "titel": "Verwaltungsratssitzung", "art": "Gremium", "ort": "Kultursaal, Am Sportforum 3, Zimmer 4.33.0, 04105 Leipzig" }
+{ "datum": "2026-12-10", "titel": "Verwaltungsratssitzung", "art": "Gremium", "ort": "Kultursaal, Am Sportforum 3, 04105 Leipzig" }
 ```
 Vergangene Termine wandern automatisch in „Vergangene Termine“. Zum Hinzufügen den Block kopieren und anpassen. Zwischen Blöcken steht ein Komma, nach dem letzten nicht.
 
