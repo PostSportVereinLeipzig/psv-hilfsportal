@@ -80,7 +80,7 @@ details[open].card>summary::after{content:"–"}
 .foot{margin-top:32px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 .ext{font:500 11px var(--f-mono);color:var(--muted)}
 .empty{padding:20px;text-align:center;color:var(--muted)}
-.steps{margin:4px 0 0;padding-left:22px}.steps li{margin:6px 0}.toolbar label{flex:0 0 auto}
+.stp{display:grid;grid-template-columns:40px 1fr;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}.stp .nr{width:36px;height:36px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font:700 18px/36px var(--f-display);text-align:center}.stp h3{margin:0 0 6px}.stp p{margin:8px 0 0}.stp .tags{display:flex;flex-wrap:wrap;gap:6px}#v-weiterbildung h3[id]{scroll-margin-top:64px}.steps{margin:4px 0 0;padding-left:22px}.steps li{margin:6px 0}.toolbar label{flex:0 0 auto}
 [hidden]{display:none!important}
 /* Responsive: Touch-Ziele, schmale Bildschirme, breite Bildschirme */
 html{-webkit-text-size-adjust:100%}
@@ -156,21 +156,36 @@ nav::-webkit-scrollbar{display:none}
 
 <section id="v-weiterbildung" hidden>
  <h2>Aus- und Weiterbildung der Übungsleiter</h2>
- <p class="note">Lizenz verlängern, erneuern oder neu erwerben (ÜL-C Breitensport). <span id="bQuelle"></span></p>
+ <p class="note">Lizenz Übungsleiter*in-C Breitensport: erwerben, erhalten, verlängern oder nach Ablauf erneuern. <span id="bQuelle"></span></p>
  <div class="kv" id="bKenn"></div>
- <h3 class="grp">Lizenz-Check</h3>
+ <div class="chips" id="bNav" role="navigation" aria-label="Abschnitte"><button class="chip" data-t="bErwerb">Lizenz erwerben</button><button class="chip" data-t="bCheckH">Lizenz-Check</button><button class="chip" data-t="bVerl">Lizenz verlängern</button><button class="chip" data-t="bAbgH">Abgelaufen</button><button class="chip" data-t="bPsvH">Im PSV</button></div>
+
+ <h3 class="grp" id="bErwerb">Lizenz erwerben: der Weg in drei Schritten</h3>
+ <p class="note" id="bIntro"></p>
+ <div id="bSteps" class="cards"></div>
+ <h3 class="grp">Voraussetzungen</h3>
+ <ul id="bVor"></ul>
+ <h3 class="grp">Anmeldung Schritt für Schritt</h3>
+ <ol class="steps" id="bAnm"></ol>
+ <h3 class="grp">Kosten und Förderung</h3>
+ <ul id="bFoe"></ul>
+ <h3 class="grp">Lizenz ohne Lehrgang</h3>
+ <ul id="bOhne"></ul>
+
+ <h3 class="grp" id="bCheckH">Lizenz-Check</h3>
  <div class="toolbar"><label for="bAblauf" class="note">Ablauf laut Lizenz (Monat und Jahr)</label><input id="bAblauf" type="month" aria-label="Ablauf der Lizenz, Monat und Jahr"></div>
  <div id="bCheck" class="dl" hidden></div>
- <h3 class="grp">Lizenz verlängern: Schritte</h3>
+
+ <h3 class="grp" id="bVerl">Lizenz verlängern: Schritte</h3>
  <ol class="steps" id="bSchritte"></ol>
  <h3 class="grp">Welche Angebote zählen?</h3>
  <div class="two"><div class="yes"><span class="lbl">Anerkannt</span><ul id="bJa"></ul></div><div class="no"><span class="lbl">Vorher prüfen</span><ul id="bPruef"></ul></div></div>
- <h3 class="grp">Lizenz abgelaufen</h3>
+
+ <h3 class="grp" id="bAbgH">Lizenz abgelaufen</h3>
  <p class="note">Je länger der Ablauf zurückliegt, desto mehr Lerneinheiten (LE) sind nötig (DOSB-Rahmenrichtlinie).</p>
  <div id="bAbg"></div>
- <h3 class="grp">Lizenz ohne Lehrgang</h3>
- <ul id="bOhne"></ul>
- <h3 class="grp">Das gilt im PSV</h3>
+
+ <h3 class="grp" id="bPsvH">Das gilt im PSV</h3>
  <ul id="bPsv"></ul>
  <h3 class="grp">Kurse und Ansprechpartner</h3>
  <div id="bKurse"></div>
@@ -369,7 +384,12 @@ $('#q').addEventListener('input',run);
 /* Weiterbildung */
 const BW=D.bildung||{};
 const bli=a=>(a||[]).map(x=>`<li>${esc(x)}</li>`).join('');
-if(BW.quelle)$('#bQuelle').innerHTML=`Quelle: <a href="${esc(BW.quelle.url)}" target="_blank" rel="noopener">${esc(BW.quelle.titel)}</a>${BW.stand?', Stand '+esc(BW.stand):''}.`;
+$('#bQuelle').innerHTML=(BW.quellen&&BW.quellen.length?'Quellen: '+BW.quellen.map(q=>`<a href="${esc(q.url)}" target="_blank" rel="noopener">${esc(q.titel.replace('SSB Leipzig: ',''))}</a>`).join(', ')+(BW.stand?', Stand '+esc(BW.stand):'')+'.':'');
+const BE=BW.erwerb||{};
+$('#bIntro').textContent=BE.intro||'';
+$('#bSteps').innerHTML=(BE.schritte||[]).map(s=>`<div class="stp"><div class="nr" aria-hidden="true">${esc(s.nr)}</div><div><h3>${esc(s.titel)}</h3><div class="tags"><span class="pill ok">${esc(s.le)}</span><span class="pill gray">${esc(s.kosten)}</span></div><p>${esc(s.text)}</p>${s.hinweis?`<p class="note"><b>Wichtig:</b> ${esc(s.hinweis)}</p>`:''}</div></div>`).join('');
+$('#bVor').innerHTML=bli(BE.voraussetzungen);$('#bAnm').innerHTML=bli(BE.anmeldung);$('#bFoe').innerHTML=bli(BE.foerderung);
+$('#bNav').onclick=e=>{const b=e.target.closest('button');if(!b)return;const el=document.getElementById(b.dataset.t);if(el)el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'})};
 $('#bKenn').innerHTML=(BW.kennzahlen||[]).map(k=>`<div><b>${esc(k.label)}</b><span style="font:700 20px var(--f-display)">${esc(k.wert)}</span><br><span class="note">${esc(k.text)}</span></div>`).join('');
 $('#bSchritte').innerHTML=bli(BW.verlaengern);
 $('#bJa').innerHTML=bli(BW.anerkannt&&BW.anerkannt.ja);$('#bPruef').innerHTML=bli(BW.anerkannt&&BW.anerkannt.pruefen);

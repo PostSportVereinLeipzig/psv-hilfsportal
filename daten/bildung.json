@@ -6,9 +6,9 @@
   "url": "https://www.ssb-leipzig.de/leistungen/aus-und-weiterbildung/haeufig-gestellte-fragen/"
  },
  "kurse": {
-  "titel": "Kurse und Fristen des SSB Leipzig",
-  "url": "https://www.ssb-leipzig.de/leistungen/aus-und-weiterbildung/",
-  "hinweis": "Alle aktuellen Kurse und Anmeldefristen stehen auf der Seite des SSB. Dort immer zuerst nachsehen."
+  "titel": "Jahresplan, Kurse und Termine des SSB Leipzig",
+  "url": "https://www.ssb-leipzig.de/leistungen/aus-und-weiterbildung/jahresplan-1/",
+  "hinweis": "Alle aktuellen Termine und Anmeldebeginne stehen im Jahresplan des SSB. Dort immer zuerst nachsehen."
  },
  "kontakt": {
   "rolle": "Referentin Aus- und Weiterbildung, Stadtsportbund Leipzig e.V.",
@@ -16,9 +16,21 @@
   "anschrift": "Goyastraße 2 d, 04105 Leipzig"
  },
  "kennzahlen": [
-  {"label": "Gültigkeit", "wert": "4 Jahre", "text": "Maßgeblich ist das Quartalsende, das auf der Lizenz steht, nicht der Ausstellungstag."},
-  {"label": "Verlängerung", "wert": "15 LE", "text": "Lerneinheiten innerhalb der vier Jahre nachweisen. Mehrere kleinere Angebote dürfen addiert werden."},
-  {"label": "Antrag", "wert": "letztes Quartal", "text": "Im letzten Quartal der Gültigkeit beim SSB per E-Mail einreichen."}
+  {
+   "label": "Ausbildung gesamt",
+   "wert": "120 LE",
+   "text": "Grundlehrgang, Aufbaulehrgang und Profillehrgang zusammen, dazu der Erste-Hilfe-Nachweis."
+  },
+  {
+   "label": "Lizenz gültig",
+   "wert": "4 Jahre",
+   "text": "Maßgeblich ist das Quartalsende auf der Lizenz, nicht der Ausstellungstag."
+  },
+  {
+   "label": "Verlängerung",
+   "wert": "15 LE",
+   "text": "Lerneinheiten innerhalb der vier Jahre. Antrag im letzten Quartal der Gültigkeit."
+  }
  ],
  "verlaengern": [
   "Auf der Lizenz das Ablaufdatum (Quartalsende) nachsehen.",
@@ -40,11 +52,36 @@
   "regel": "Der Ausrichter muss vom Landessportbund Sachsen zertifiziert sein oder unter dem Dach des DOSB stehen."
  },
  "abgelaufen": [
-  {"bis_jahre": 1, "zeitraum": "Im 1. Jahr nach Ablauf", "umfang": "15 LE", "ergebnis": "Verlängerung um 3 Jahre"},
-  {"bis_jahre": 3, "zeitraum": "Im 2. und 3. Jahr nach Ablauf", "umfang": "30 LE", "ergebnis": "Verlängerung"},
-  {"bis_jahre": 5, "zeitraum": "Im 4. und 5. Jahr nach Ablauf", "umfang": "45 LE", "ergebnis": "Verlängerung"},
-  {"bis_jahre": 10, "zeitraum": "Im 6. bis 10. Jahr nach Ablauf", "umfang": "32 LE Grundlehrgang und 30 LE Weiterbildung", "ergebnis": "Erneuerung"},
-  {"bis_jahre": 999, "zeitraum": "Mehr als 10 Jahre nach Ablauf", "umfang": "Gesamte Lizenzausbildung", "ergebnis": "Neu absolvieren"}
+  {
+   "bis_jahre": 1,
+   "zeitraum": "Im 1. Jahr nach Ablauf",
+   "umfang": "15 LE",
+   "ergebnis": "Verlängerung um 3 Jahre"
+  },
+  {
+   "bis_jahre": 3,
+   "zeitraum": "Im 2. und 3. Jahr nach Ablauf",
+   "umfang": "30 LE",
+   "ergebnis": "Verlängerung"
+  },
+  {
+   "bis_jahre": 5,
+   "zeitraum": "Im 4. und 5. Jahr nach Ablauf",
+   "umfang": "45 LE",
+   "ergebnis": "Verlängerung"
+  },
+  {
+   "bis_jahre": 10,
+   "zeitraum": "Im 6. bis 10. Jahr nach Ablauf",
+   "umfang": "32 LE Grundlehrgang und 30 LE Weiterbildung",
+   "ergebnis": "Erneuerung"
+  },
+  {
+   "bis_jahre": 999,
+   "zeitraum": "Mehr als 10 Jahre nach Ablauf",
+   "umfang": "Gesamte Lizenzausbildung",
+   "ergebnis": "Neu absolvieren"
+  }
  ],
  "ohne_lehrgang": [
   "Absolventen der Universität Leipzig: Antrag nach der Kooperationsvereinbarung mit dem LSB Sachsen, Formulare beim LSB.",
@@ -59,8 +96,84 @@
   "Altersgrenze für die Verlängerungspflicht gibt es nicht."
  ],
  "links": [
-  {"t": "SSB Leipzig: Aus- und Weiterbildung (Kurse und Fristen)", "u": "https://www.ssb-leipzig.de/leistungen/aus-und-weiterbildung/"},
-  {"t": "SSB Leipzig: Häufig gestellte Fragen", "u": "https://www.ssb-leipzig.de/leistungen/aus-und-weiterbildung/haeufig-gestellte-fragen/"},
-  {"t": "LSB Sachsen: Bildungsportal", "u": "https://bildungsportal.sport-fuer-sachsen.de/"}
- ]
+  {
+   "t": "SSB Leipzig: Aus- und Weiterbildung (Kurse und Fristen)",
+   "u": "https://www.ssb-leipzig.de/leistungen/aus-und-weiterbildung/"
+  },
+  {
+   "t": "SSB Leipzig: Häufig gestellte Fragen",
+   "u": "https://www.ssb-leipzig.de/leistungen/aus-und-weiterbildung/haeufig-gestellte-fragen/"
+  },
+  {
+   "t": "LSB Sachsen: Bildungsportal",
+   "u": "https://bildungsportal.sport-fuer-sachsen.de/"
+  }
+ ],
+ "quellen": [
+  {
+   "titel": "SSB Leipzig: Häufig gestellte Fragen",
+   "url": "https://www.ssb-leipzig.de/leistungen/aus-und-weiterbildung/haeufig-gestellte-fragen/"
+  },
+  {
+   "titel": "SSB Leipzig: Sportartübergreifender Grundlehrgang",
+   "url": "https://www.ssb-leipzig.de/leistungen/aus-und-weiterbildung/sportartuebergreifender-grundlehrgang/"
+  },
+  {
+   "titel": "SSB Leipzig: Lehrgang Übungsleiter*in-C Breitensport",
+   "url": "https://www.ssb-leipzig.de/leistungen/aus-und-weiterbildung/lehrgang-uebungsleiterin-c-breitensport/"
+  },
+  {
+   "titel": "SSB Leipzig: Kurs Erste Hilfe",
+   "url": "https://www.ssb-leipzig.de/leistungen/aus-und-weiterbildung/kurs-erste-hilfe/"
+  }
+ ],
+ "erwerb": {
+  "intro": "Der Weg zur Lizenz Übungsleiter*in-C Breitensport (1. Lizenzstufe des DOSB) besteht aus drei Bausteinen. Eine gesetzliche Pflicht zur Lizenz gibt es nicht, sie ist aber Voraussetzung für Zuschüsse und das höhere Honorar.",
+  "schritte": [
+   {
+    "nr": 1,
+    "titel": "Sportartübergreifender Grundlehrgang",
+    "le": "32 LE",
+    "kosten": "65 €",
+    "text": "Erster Baustein und Voraussetzung für die C-Lizenz. Inhalte: Aufbau des Sports und der Sportverwaltung, Aufbau einer Übungsstunde, Sportbiologie, Trainingslehre, Haftung und Aufsichtspflicht, Jugendschutz und Kindeswohl, Gruppenführung, Sportversicherung. Sechs Abende, dienstags und donnerstags 17 bis 21 Uhr. Am letzten Tag Prüfung, danach Zertifikat.",
+    "hinweis": "Das Zertifikat gilt 2 Jahre als Zulassung und kann nicht verlängert werden. Danach muss der Lehrgang komplett wiederholt werden."
+   },
+   {
+    "nr": 2,
+    "titel": "Erste Hilfe",
+    "le": "9 LE",
+    "kosten": "25 €",
+    "text": "Kurs mit den Johannitern, freitags 17 bis 21 Uhr und samstags 8:30 bis 12:30 Uhr. Der Nachweis ist für die Lizenz erforderlich und sollte möglichst nicht älter als 2 Jahre sein.",
+    "hinweis": "Mindestens 7 Teilnehmende, sonst fällt der Kurs aus. Die Kurse sind begrenzt, früh anmelden."
+   },
+   {
+    "nr": 3,
+    "titel": "Lehrgang Übungsleiter*in-C Breitensport (kompakt)",
+    "le": "90 LE",
+    "kosten": "325 €",
+    "text": "Aufbaulehrgang (30 LE: Sportabzeichen, Funktionelles Training, Veranstaltungsorganisation, Leichtathletik, Sportspiele) und Profillehrgang Erwachsene/Ältere (60 LE: Ausdauer, Faszien, Koordination, Rückenschule, Ernährung und mehr). Freitag 17 bis 21 Uhr, Samstag und Sonntag 8 bis 17 Uhr, im Sportforum Nordanlage. Schriftliche Prüfung am letzten Lehrgangstag.",
+    "hinweis": "Das Profil Kinder/Jugendliche wird vom SSB nicht angeboten."
+   }
+  ],
+  "voraussetzungen": [
+   "Mindestalter 16 Jahre zu Lehrgangsbeginn",
+   "Mitgliedschaft in einem Mitgliedsverein des SSB Leipzig (der PSV ist Mitglied). Externe nur nach Rücksprache, Vereine anderer sächsischer Bünde zahlen die doppelte Gebühr.",
+   "Für den ÜL-C-Lehrgang: Grundlehrgang nicht älter als 2 Jahre, Erste-Hilfe-Nachweis (9 LE), Akzeptanz des Ehrenkodex und gute körperliche Fitness",
+   "Vollständige Teilnahme: Es dürfen höchstens 10 % der Lerneinheiten fehlen. Wer mehr fehlt, wird beim Grundlehrgang und ÜL-C-Lehrgang nicht zur Prüfung zugelassen. Verpasster Stoff kann nicht später nachgeholt werden."
+  ],
+  "anmeldung": [
+   "Persönlichen Account im Bildungsportal des LSB Sachsen anlegen. Seit 01.01.2026 läuft die Anmeldung nur noch dort.",
+   "Der Kurs wird in der Regel 3 Monate vor Beginn freigeschaltet, am Vormittag des Anmeldebeginns. Anmeldebeginn im Jahresplan des SSB nachsehen.",
+   "Anmelden. Reservierungen gibt es nicht, jede Anmeldung ist verbindlich. Pro Verein gibt es grundsätzlich höchstens 2 Plätze, vergeben nach Eingang.",
+   "Anmeldebestätigung abwarten. Kommt sie nicht innerhalb einer Woche, beim SSB nachfragen.",
+   "Rechnung bezahlen. Der Platz ist erst mit rechtzeitigem Zahlungseingang gebucht. Die Rechnung geht an die gewählte Adresse (privat oder Verein, vorher im PSV abstimmen).",
+   "Teilnehmen, Prüfung ablegen, Zertifikat und Lizenz erhalten. Lizenz und Zertifikat an den Vorstand weitergeben."
+  ],
+  "foerderung": [
+   "Für Übungsleiter mit Status „in Ausbildung“ können Vereine Zuwendungen beantragen. Für 2026 gilt: LSB Sachsen 2 Jahre, Stadt Leipzig (Amt für Sport) 2 Jahre.",
+   "Lizenzierte oder in Ausbildung befindliche Übungsleiter mit Übungsleitervertrag können Kommunal- und Landesmittel auslösen, wenn die Kriterien erfüllt sind (siehe Reiter Förderungen).",
+   "Die Gebühren (65 € + 25 € + 325 € = 415 €) zahlt je nach Absprache der Verein oder die Person. Das klärt der Vorstand vor der Anmeldung."
+  ]
+ },
+ "pruefhinweis_intern": "Auf den SSB-Seiten nennt der Grundlehrgang 32 LE, die ÜL-C-Seite rechnet mit 30 LE und 120 LE gesamt. Die 120 LE sind die Angabe des SSB, im Zweifel beim SSB nachfragen."
 }

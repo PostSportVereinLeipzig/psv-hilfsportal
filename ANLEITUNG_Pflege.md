@@ -68,14 +68,16 @@ Felder je Eintrag: `gruppe`, `rolle`, `mail`, `anliegen`. Nur Funktionspostfäch
 
 ## Reiter „Weiterbildung“ pflegen (`daten/bildung.json`)
 Die Inhalte stammen von der SSB-Seite „Häufig gestellte Fragen“ (Link und Stand stehen in der Datei). Ändern sich dort Zahlen oder Regeln, die Datei anpassen:
-- `kennzahlen`: die drei Kacheln oben (Gültigkeit, Lerneinheiten, Antragszeitpunkt)
+- `kennzahlen`: die drei Kacheln oben
+- `erwerb`: Weg zur Lizenz mit `schritte` (Grundlehrgang, Erste Hilfe, ÜL-C-Lehrgang mit Lerneinheiten und Kosten), `voraussetzungen`, `anmeldung`, `foerderung`
+- `quellen`: die SSB-Seiten, aus denen die Angaben stammen
 - `verlaengern`: die Schritte zur Verlängerung
 - `abgelaufen`: Tabelle für abgelaufene Lizenzen. `bis_jahre` ist die Obergrenze in Jahren nach Ablauf und steuert den Lizenz-Check
 - `psv`: Hinweise, die nur für den PSV gelten (Vertrag, Honorar)
 - `kontakt`, `kurse`, `links`: Ansprechpartner und Verweise
 - `stand`: Datum der letzten Prüfung gegen die SSB-Seite, bitte mit anpassen
 
-Kurse und Anmeldefristen stehen bewusst nicht im Portal, sondern nur als Link auf die Seite des SSB. So kann nichts veralten.
+Kurse, Termine und Anmeldebeginne stehen bewusst nicht im Portal, sondern nur als Link auf den Jahresplan des SSB. So kann nichts veralten.
 
 ## Neues Formular bereitstellen
 1. Datei in `downloads/` legen. Dateinamen ohne Leerzeichen und Sonderzeichen, z. B. `Antrag-Beispiel-2027.pdf`.
