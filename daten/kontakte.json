@@ -1,0 +1,77 @@
+{
+ "hinweis": "Funktionspostfächer laut Vereinswebsite. Keine Telefonnummern.",
+ "kontakte": [
+  {
+   "gruppe": "Vorstand",
+   "rolle": "Vorstandsvorsitz",
+   "mail": "vorstand@postsportverein-leipzig.de",
+   "anliegen": "Allgemeine Anliegen; Verteiler für Grundbeitrags-Abrechnungen"
+  },
+  {
+   "gruppe": "Vorstand",
+   "rolle": "Stellvertretender Vorsitz",
+   "mail": "mitglieder@postsportverein-leipzig.de",
+   "anliegen": ""
+  },
+  {
+   "gruppe": "Vorstand",
+   "rolle": "Finanzen (Schatzmeister)",
+   "mail": "finanzen@postsportverein-leipzig.de",
+   "anliegen": "Verteiler für Grundbeitrags-Abrechnungen"
+  },
+  {
+   "gruppe": "Vorstand",
+   "rolle": "Vereinsmanager",
+   "mail": "manager@postsportverein-leipzig.de",
+   "anliegen": ""
+  },
+  {
+   "gruppe": "Vorstand",
+   "rolle": "Kinder- und Jugendarbeit",
+   "mail": "jugendarbeit@postsportverein-leipzig.de",
+   "anliegen": ""
+  },
+  {
+   "gruppe": "Abteilungen",
+   "rolle": "Tischtennis",
+   "mail": "tischtennis@postsportverein-leipzig.de",
+   "anliegen": ""
+  },
+  {
+   "gruppe": "Abteilungen",
+   "rolle": "Tamburello",
+   "mail": "tamburello@postsportverein-leipzig.de",
+   "anliegen": ""
+  },
+  {
+   "gruppe": "Abteilungen",
+   "rolle": "Volleyball Cellhoppers",
+   "mail": "cellhoppers@postsportverein-leipzig.de",
+   "anliegen": ""
+  },
+  {
+   "gruppe": "Abteilungen",
+   "rolle": "Volleyball Conneballer",
+   "mail": "volleyball@postsportverein-leipzig.de",
+   "anliegen": ""
+  },
+  {
+   "gruppe": "Abteilungen",
+   "rolle": "Freizeit- und Erholungssport",
+   "mail": "fes@postsportverein-leipzig.de",
+   "anliegen": ""
+  },
+  {
+   "gruppe": "Abteilungen",
+   "rolle": "Rückenschule",
+   "mail": "rueckenschule@postsportverein-leipzig.de",
+   "anliegen": ""
+  },
+  {
+   "gruppe": "Abteilungen",
+   "rolle": "Iaido-Jutsu / Yawara Kyushin Ryu",
+   "mail": "kampfkunst@postsportverein-leipzig.de",
+   "anliegen": ""
+  }
+ ]
+}

@@ -1,0 +1,303 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Förderportal PSV</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: schmale Kopfzeile mit Tabs, darunter ein Arbeitsbereich pro Ansicht; Fristen als Zeitleiste, Förderungen als aufklappbare Steckbriefe */
+:root{--bg:#f3f5f2;--surface:#ffffff;--ink:#14221d;--muted:#566860;--line:#d8dfda;--accent:#0d5b49;--accent-ink:#ffffff;--tint:#e3efe9;--ok:#2c7a4b;--warn:#a8650a;--crit:#b0352c;--okbg:#e2f1e7;--warnbg:#f7ebd3;--critbg:#f6dedb;--hl:#ffe9a6;
+--f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--f-body:"Source Sans 3","Segoe UI",system-ui,sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1614;--surface:#16211e;--ink:#e6eeea;--muted:#9bb0a7;--line:#2a3a35;--accent:#52c4a2;--accent-ink:#06231b;--tint:#1b2e28;--ok:#6cc58d;--warn:#e0a24a;--crit:#ef7d72;--okbg:#1b3326;--warnbg:#3a2d13;--critbg:#3b1d1a;--hl:#5a4a12;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1614;--surface:#16211e;--ink:#e6eeea;--muted:#9bb0a7;--line:#2a3a35;--accent:#52c4a2;--accent-ink:#06231b;--tint:#1b2e28;--ok:#6cc58d;--warn:#e0a24a;--crit:#ef7d72;--okbg:#1b3326;--warnbg:#3a2d13;--critbg:#3b1d1a;--hl:#5a4a12;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.5 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+.wrap{max-width:980px;margin:0 auto}
+header{padding-top:22px;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;justify-content:space-between}
+h1{font:700 clamp(26px,5vw,36px)/1.1 var(--f-display);margin:0;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:14px;margin:0}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:4px;margin:14px 0 18px;border-bottom:1px solid var(--line);overflow-x:auto}
+nav a{padding:10px 14px;text-decoration:none;color:var(--muted);font-weight:600;border-bottom:3px solid transparent;white-space:nowrap}
+nav a[aria-current="page"]{color:var(--accent);border-bottom-color:var(--accent)}
+nav a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+h2{font:700 22px/1.2 var(--f-display);margin:0 0 10px}
+h3{font:600 17px/1.3 var(--f-display);margin:0}
+.search{display:flex;gap:8px}
+.search input{flex:1;min-width:0;font:inherit;font-size:18px;padding:14px 16px;border:2px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink)}
+.search input:focus{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
+.chip{font:inherit;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip:hover,.chip[aria-pressed="true"]{background:var(--tint);border-color:var(--accent)}
+.next{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:22px 0}
+.due{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.due .when{font:500 13px var(--f-mono);display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pill{font:600 12px var(--f-body);padding:2px 9px;border-radius:999px;white-space:nowrap}
+.pill.ok{background:var(--okbg);color:var(--ok)}.pill.warn{background:var(--warnbg);color:var(--warn)}.pill.crit{background:var(--critbg);color:var(--crit)}.pill.gray{background:var(--tint);color:var(--muted)}
+.res{display:grid;gap:10px;margin-top:18px}
+.hit{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
+.hit .src{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 10px;margin-bottom:4px;align-items:center}
+.hit p{margin:0;overflow-wrap:anywhere}
+mark{background:var(--hl);color:inherit;border-radius:3px;padding:0 1px}
+.note{color:var(--muted);font-size:14px}
+a{color:var(--accent)}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;align-items:center}
+.toolbar input{font:inherit;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);min-width:0;flex:1 1 200px}
+.cards{display:grid;gap:10px}
+details.card{background:var(--surface);border:1px solid var(--line);border-radius:10px}
+details.card>summary{list-style:none;cursor:pointer;padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:start}
+details.card>summary::-webkit-details-marker{display:none}
+details.card>summary::after{content:"+";font:600 22px/1 var(--f-display);color:var(--accent);grid-column:2;grid-row:1}
+details[open].card>summary::after{content:"–"}
+.card .tags{display:flex;flex-wrap:wrap;gap:6px;grid-column:1;margin-top:4px}
+.card .body{padding:0 16px 16px;display:grid;gap:14px}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.kv div{background:var(--tint);border-radius:8px;padding:10px 12px;min-width:0}
+.kv b,.lbl{display:block;font:600 12px var(--f-body);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:2px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.two ul,.card ul{margin:4px 0 0;padding-left:20px}
+.card li{margin:2px 0}
+.yes li::marker{color:var(--ok)}.no li::marker{color:var(--crit)}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:600 14px var(--f-body);display:inline-flex;gap:6px;align-items:center;padding:7px 12px;border-radius:8px;border:1px solid var(--accent);background:var(--surface);color:var(--accent);text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--accent);color:var(--accent-ink)}
+.btn.sec{border-color:var(--line);color:var(--ink)}
+.tl{display:grid;gap:0;border-left:2px solid var(--line);margin-left:6px}
+.ev{position:relative;padding:4px 0 16px 20px}
+.ev::before{content:"";position:absolute;left:-7px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:3px solid var(--line)}
+.ev.ok::before{border-color:var(--ok)}.ev.warn::before{border-color:var(--warn)}.ev.crit::before{border-color:var(--crit)}
+.ev .d{font:500 13px var(--f-mono);color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ev h3{margin:2px 0}
+.grp{margin:22px 0 8px}
+.dl{display:flex;flex-wrap:wrap;gap:8px 12px;justify-content:space-between;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:8px}
+.dl span.t{min-width:0;overflow-wrap:anywhere;flex:1 1 240px}
+.foot{margin-top:32px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.ext{font:500 11px var(--f-mono);color:var(--muted)}
+.empty{padding:20px;text-align:center;color:var(--muted)}
+[hidden]{display:none!important}
+</style>
+<div class="wrap">
+<header><h1>Förderportal PSV</h1><p class="sub">Postsportverein Leipzig e.V. · Förderungen, Fristen, Formulare</p></header>
+<nav id="nav" aria-label="Bereiche"><a href="#suche">Suche</a><a href="#foerderungen">Förderungen</a><a href="#fristen">Fristen</a><a href="#termine">Termine</a><a href="#formulare">Formulare</a></nav>
+
+<section id="v-suche">
+ <h2>Was suchst du?</h2>
+ <div class="search"><input id="q" type="search" placeholder="z. B. Übungsleiter, Trainingsgerät, Fahrtkosten, Jubiläum" autocomplete="off" aria-label="Volltextsuche in Richtlinien und Formularen"></div>
+ <div class="chips" id="hints"></div>
+ <div id="results" class="res" aria-live="polite"></div>
+ <div id="homeNext"><h2 style="margin-top:26px">Als Nächstes fällig</h2><div class="next" id="nextCards"></div><p class="note">Alle Fristen unter „Fristen“. Termine für das Folgejahr sind nach dem Muster des Vorjahres berechnet und müssen geprüft werden.</p></div>
+</section>
+
+<section id="v-foerderungen" hidden>
+ <h2>Förderungen im Überblick</h2>
+ <div class="toolbar"><input id="fq" type="search" placeholder="In den Steckbriefen filtern" aria-label="Steckbriefe filtern"><div class="chips" id="fchips" style="margin:0"></div></div>
+ <div class="cards" id="cards"></div>
+</section>
+
+<section id="v-fristen" hidden>
+ <h2>Fristenkalender</h2>
+ <p class="note">Heute ist <span id="today"></span>. Die Ampel zeigt die Tage bis zur nächsten Fälligkeit.</p>
+ <div class="toolbar"><div class="chips" id="kchips" style="margin:0"></div></div>
+ <div class="tl" id="tl"></div>
+ <h3 class="grp">Laufend, vor Beginn der Maßnahme</h3><div id="ongoing"></div>
+</section>
+
+<section id="v-termine" hidden>
+ <h2>Termine des Vereins</h2>
+ <p class="note">Sitzungen, Veranstaltungen und interne Abgabetermine des Postsportvereins. <a id="vlink" href="https://www.postsportverein-leipzig.de/" target="_blank" rel="noopener">Zur Vereinswebsite</a></p>
+ <h3 class="grp">Kommende Termine</h3><div id="tUp"></div>
+ <h3 class="grp">Vereinsfristen</h3><div id="tFr"></div>
+ <h3 class="grp">Kontakt</h3><p class="note">Für eure Anliegen schreibt bitte eine E-Mail an Vorstand, Finanzen usw. Weitere Infos auf der <a href="https://www.postsportverein-leipzig.de/Kontakt/" target="_blank" rel="noopener">Kontaktseite</a>.</p><div id="kt"></div>
+ <details class="card" style="margin-top:18px"><summary><h3>Vergangene Termine</h3><span class="note" style="grid-column:1/3">in diesem Jahr bereits stattgefunden</span></summary><div class="body" id="tPast"></div></details>
+</section>
+
+<section id="v-formulare" hidden>
+ <h2>Formulare und Vorlagen</h2>
+ <p class="note">Leere Vordrucke der Stadt Leipzig und eigene PSV-Vorlagen. Die Stadt aktualisiert Formulare jährlich: vor dem Ausfüllen die aktuelle Fassung beim Amt für Sport prüfen.</p>
+ <div id="dls"></div>
+ <h3 class="grp">Weitere Quellen online</h3><div id="links"></div>
+</section>
+
+<p class="foot">Stand: Handlungshinweise der Stadt Leipzig 2025, LSB-Seiten und SSB-Fristentabelle 2026 (abgerufen 04.11.2026). Beträge und Fristen ohne Gewähr, vor jedem Antrag mit dem aktuellen Bescheid und den Originalquellen abgleichen. Mitglied im Stadtsportbund Leipzig und im Landessportbund Sachsen.</p>
+</div>
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const F=D.fmap, fl=(f,l)=>({l,f:F[f]||''});
+const G={P:'PSV intern',S:'Stadt Leipzig',L:'LSB Sachsen',J:'Jugendförderung'};
+const DK='2024 - 2-0-Gesamtdeckblatt_Sportfoerderung.pdf';
+const SB=[
+{g:'P',t:'Trainingseinheiten (TE) und Übungsleiter-Honorar im PSV',k:'TE Trainingseinheit Honorar Übungsleiter Lizenz 6 Euro 4 Euro 45 Minuten Stundennachweis Vertrag',amt:'6,00 € je TE mit Lizenz (ÜL-C oder ÜL-B), 4,00 € je TE ohne Lizenz',kurz:'Regeln für Verträge, Stundennachweise und die halbjährliche Abrechnung.',
+ ja:['Höchstens 2 TE pro Woche je Übungsleiter','1 TE: höchstens 45 Minuten zuzüglich Vorbereitung','Andere Gruppe im Anschluss am selben Tag zählt als zweite TE','Dieselbe Gruppe: Training an zwei verschiedenen Tagen'],
+ nein:['Dieselbe Gruppe am selben Tag direkt hintereinander','Mehr als 2 TE pro Woche werden nicht vergütet'],
+ nach:['Halbjährliche Abrechnung, vom Abteilungsleiter unterzeichnet','Stundennachweis je Übungsleiter','Lizenz (C oder B) mit Gültigkeit im Vertrag angeben'],
+ an:'Vertrag vor Tätigkeitsbeginn',ab:'halbjährlich (1. Halbjahr, 2. Halbjahr)',
+ forms:[{l:'Vertrag zum Ausfüllen (PDF)',f:'downloads/Uebungsleitervertrag-ausfuellbar.pdf'},{l:'Stundennachweis (Excel)',f:'downloads/Template-Nachweis-Uebungsleiter.xlsx'},{l:'Trainingsangebote erfassen (Excel)',f:'downloads/Erfassung-Trainingsangebote-blanko.xlsx'}],q:'Vorgaben des PSV-Vorstands'},
+{g:'S',t:'Übungsleiter-Zuschuss',k:'Übungsleiter ehrenamtlich Lizenz Aufwandsentschädigung Vertrag',amt:'2025: 300 € je ÜL mit Lizenz, 140 € in Ausbildung, 320 € im Behindertenbereich',kurz:'Pauschale je ehrenamtlich tätigem Übungsleiter mit gültiger Lizenz.',
+ ja:['Übungsleiter mit gültiger DOSB-Lizenz oder in Ausbildung','Gültiger Übungsleitervertrag mit dem Verein','Betreuerschlüssel 1:15 (Kinder/Jugend), 1:25 (Erwachsene)'],
+ nein:['Verwendung ohne Zweckbindung: die Mittel müssen für die Übungsleitertätigkeit eingesetzt werden'],
+ nach:['Verwendungsnachweis Übungsleiter','Vorstand (vertretungsberechtigt) bestätigt zweckgebundene Ausreichung','Lizenzen und Verträge müssen dem LSB/SSB für das Förderjahr vorliegen; Berechnung nach den dort erfassten Übungsleitern'],
+ an:'30.09. des Vorjahres',ab:'31.03. des Folgejahres',
+ forms:[fl(DK,'Deckblatt'),fl('2025_-_2-03-_Antrag_Zuschuss_Uebungsleiter.pdf','Antrag 2-03'),fl('2024 - 2-04-Abrechnung_Uebungsleiter.pdf','Abrechnung 2-04')],q:'Handlungshinweise 2025, Punkt 7.3'},
+{g:'S',t:'Kinder- und Jugendzuschuss',k:'Kinder Jugend Kleinsportmaterial Trainingslager Wettkampfbekleidung Mitglieder',amt:'2025: 30 € je gemeldetem Mitglied (Jugendliche bis 17 Jahre, Grundlage: Bestandserhebung des SSB)',kurz:'Sächliche Aufwendungen im Kinder- und Jugendbereich.',
+ ja:['Kleinsportmaterial','Spezielle Wettkampfbekleidung','Vereinsfördernde Veranstaltungen und Mitgliedergewinnung','Trainingslager und Vergleichswettkämpfe mit Kinder- und Jugendmannschaften','Kampfrichter-, Schiedsrichter- und Wettkampfgebühren','Urkunden, Pokale, Sachpreise; Sportfeste'],
+ nein:['Auszahlung an Vereinsmitglieder','Preisgeld, Prämien','Persönliche, personengebundene Sportbekleidung'],
+ nach:['Verwendungsnachweis Kinder- und Jugendarbeit','Angaben müssen mit Büchern und Belegen übereinstimmen'],
+ an:'30.09. des Vorjahres',ab:'31.03. des Folgejahres',
+ forms:[fl(DK,'Deckblatt'),fl('2025 - 2-01- Antrag Zuschuss Kinder- und Jugendarbeit.pdf','Antrag 2-01'),fl('2024 - 2-02-Abrechnung_Kinder-_und_Jugendarbeit.pdf','Abrechnung 2-02')],q:'Handlungshinweise 2025, Punkt 7.2'},
+{g:'S',t:'Kleinsportgeräte (Abteilungen)',k:'Trainingsgeräte Kleinsportgeräte Geräte Anschaffung Reparatur Abteilung Fairtrade',amt:'Gerät 250 bis 800 € (abzüglich Vorsteuer); Reparaturen ab 250 €',kurz:'Anschaffung oder Reparatur einzelner Geräte, passend für Abteilungsbedarf.',
+ ja:['Neuanschaffung je Gerät zwischen 250 und 800 € (ohne abziehbare Vorsteuer)','Reparatur ab 250 € (auch über 800 €)','Fairtrade-Produkte werden vorrangig gefördert'],
+ nein:['Geräte unter der Wertgrenze (bei Erstausstattung Einzelfall)','Pflegegeräte und Ausstattungsgegenstände','Personengebundene Sportbekleidung','Geräte über 800 €: stattdessen Investitionsförderung beantragen'],
+ nach:['Mit dem Antrag: Angebot bzw. Kostenvoranschlag','Zur Abrechnung: Originalrechnung und Überweisungsbeleg, Verwendungsnachweis'],
+ an:'30.09. des Vorjahres',ab:'spätestens 31.03. des Folgejahres',
+ forms:[fl(DK,'Deckblatt'),fl('2024 - 2-17-Zuschuss_fuer_Kleinsportgeraete.pdf','Antrag 2-17'),fl('2024 - 2-18-Abrechnung_Kleinsportgeraete.pdf','Abrechnung 2-18')],q:'Handlungshinweise 2025, Punkt 8.1.7'},
+{g:'S',t:'Fahrtkosten zu Wettkämpfen',k:'Fahrtkosten Wettkampf Fahrt Reise Bus Bahn PKW Meisterschaft',amt:'PKW/Kleinbus bis 9 Personen: 0,15 € je Kilometer; Bus und Bahn: ein Drittel der nachgewiesenen Kosten',kurz:'Reisen zu förderwürdigen Wettkämpfen innerhalb Deutschlands.',
+ ja:['Deutsche, überregionale und Landesmeisterschaften sowie weitere förderfähige Wettkämpfe (Verband muss DOSB-Mitglied sein)','Im Kinder- und Jugendbereich zusätzlich Landesmeisterschaften, Ranglistenwettkämpfe, internationale Wettkämpfe in der EU'],
+ nein:['Wettkampfreisen per Flugzeug nur nach Einzelfallprüfung','Qualifikationsturniere zur Deutschen Meisterschaft (Mannschaftssport)'],
+ nach:['Teilnahmebestätigung je Wettkampffahrt','Bei Bus: Mietkosten oder Tankbelege; bei Bahn: Tickets','Mitteilung, wenn zwischen Wettkampftagen übernachtet wird'],
+ an:'Grundantrag 30.09. des Vorjahres; Wettkampfreisen immer vor der Fahrt melden, letzte Liste für das Jahr bis 31.10.',ab:'Teilnahmebestätigung bis 4 Wochen nach der Fahrt; Nov./Dez.-Fahrten nach Absprache bis Anfang Januar',
+ forms:[fl(DK,'Deckblatt'),fl('2025 - 2-05- Antrag Zuschuss Fahrtkosten.pdf','Antrag 2-05'),fl('2024 - 2-06-Abrechnung_Fahrtkosten.pdf','Abrechnung 2-06')],q:'Handlungshinweise 2025, Punkt 8.1.1'},
+{g:'S',t:'Miete Sportstätten Dritter',k:'Miete Hallenmiete Sportstätte Anmietung Universität Arena Ersatzobjekt',amt:'anteilig, Kaltmiete der sportlich genutzten Flächen',kurz:'Anmietung von Hallen und Anlagen, wenn städtische Sportstätten nicht reichen oder die Sportart es verlangt.',
+ ja:['Reine Mietkosten (Kaltmiete) der sportlich genutzten Flächen','Uni Leipzig, Arena, Kohlrabizirkus, Ersatzobjekte, defekte Medientechnik in Wettkampfhallen'],
+ nein:['Strom, Wasser, Heizung und sonstige Nebenkosten','Personalkosten (Hausmeister, Hallenwart)','Büro-, Neben- und Lagerräume','Kommerzielle Anbieter nur nach Einzelfallprüfung'],
+ nach:['Mit dem Antrag: Kopie des Miet- oder Nutzungsvertrages','Zur Abrechnung: Verwendungsnachweis und Kopie des Überweisungsbelegs'],
+ an:'30.09. des Vorjahres',ab:'31.03. des Folgejahres',
+ forms:[fl(DK,'Deckblatt'),fl('2025 - 2-07- Antrag Zuschuss Miete.pdf','Antrag 2-07'),fl('2024 - 2-08-Abrechnung_Anmietung_Sportstaetten_Dritter.pdf','Abrechnung 2-08')],q:'Handlungshinweise 2025, Punkt 7.4'},
+{g:'S',t:'Vereinsjubiläum und Ehrungen',k:'Jubiläum 100 Jahre Ehrung Festschrift Feier Verein Jubiläumsveranstaltung',amt:'Staffel nach Mitgliederzahl, z. B. bis 500 Mitglieder: 25 Jahre 200 €, 50 Jahre 400 €, 75 Jahre 600 €, 100 Jahre und alle weiteren 25 Jahre 800 €',kurz:'Zuschuss für Jubiläumsveranstaltungen des Gesamtvereins.',
+ ja:['Mietkosten der Veranstaltungsstätte','Veranstaltungsequipment (Zelte, Fahnen, Lautsprecher, Beschilderung)','Ehrungen, Pokale, Urkunden, Ehrenpreise, Festschriften','Werbemaßnahmen in angemessenem Rahmen'],
+ nein:['Abteilungsjubiläen und Jubiläen von Vereinssportstätten','Rahmenprogramm, Verpflegung, VIP-Catering','Verwaltungs- und Personalkosten, kommerzielle Dienstleister, abziehbare Umsatzsteuer','Fahrtkosten der Teilnehmer, Mietfahrzeuge, elektronisches Zubehör'],
+ nach:['Vereinfachter Verwendungsnachweis (Frist laut Seite 2 des Bescheids)'],
+ an:'30.09. des Vorjahres',ab:'siehe Seite 2 des Bewilligungsbescheids',
+ forms:[fl(DK,'Deckblatt'),fl('2024 - 2-15-Zuschuss_fuer_Ehrungen.pdf','Antrag 2-15'),fl('2024 - 2-16-Abrechnung_Ehrungen.pdf','Abrechnung 2-16')],q:'Handlungshinweise 2025, Punkt 8.1.5'},
+{g:'S',t:'Sportveranstaltungen',k:'Veranstaltung Turnier Meisterschaft Sportfest Ausrichter Schiedsrichter Helfer',amt:'Festbetrag nach Antrag; Aufwandsentschädigung Helfer und Schiedsrichter höchstens 7,50 € je Stunde',kurz:'Veranstaltungen in Leipzig mit Meisterschaftscharakter, integrativem Ansatz oder als traditionelles Sportfest.',
+ ja:['Hallen- oder Anlagenmiete, wenn keine kommunale Anlage bereitsteht','Veranstaltungsequipment','Aufwandsentschädigung für Schieds-, Kampfrichter, Helfer, Ordnungs- und Sanitätsdienst','Siegerehrung, Pokale, Urkunden; angemessene Werbung'],
+ nein:['Rahmenprogramm, Feierlichkeiten','Preis- und Antrittsgelder, Zuschüsse an Sportler','Verpflegung, VIP-Catering','Verwaltungs- und Personalkosten, kommerzielle Dienstleister, abziehbare Umsatzsteuer','Notebooks und Verbrauchsmaterial (z. B. Bälle, Absperrband)'],
+ nach:['Verwendungsnachweis für Festbetragsfinanzierung','Maßnahme erst nach Bescheid oder genehmigtem vorzeitigem Beginn starten','Änderungen, Ausfall oder Terminverschiebung sofort schriftlich melden'],
+ an:'30.09. des Vorjahres',ab:'siehe Seite 2 des Bewilligungsbescheids',
+ forms:[fl(DK,'Deckblatt'),fl('2024 - 2-09-Zuschuss_Sportveranstaltung.pdf','Antrag 2-09'),fl('2024 - 2-10-Abrechnung_Sportveranstaltung_(Festbetragfestbetragsfinanzierung).pdf','Abrechnung 2-10')],q:'Handlungshinweise 2025, Punkt 8.1.2'},
+{g:'S',t:'Projekte Freizeit- und Breitensport',k:'Projekt inklusiv integrativ Senioren Behinderung Migranten Breitensport Angebot wöchentlich',amt:'nach Antrag, Kostenplan und Kriterien',kurz:'Integrative und inklusive Angebote für ausgewählte Gruppen.',
+ ja:['Kosten des Angebots (Übungsleiter, Helfer, Information)','Fahrtkosten, Anmietung von Sportanlagen Dritter, Personalkosten','Anschaffung von Sportgeräten, angemessene Werbung'],
+ nein:['Einmalige Ein- oder Mehrtagesangebote','Ganztagsschulprojekte (Komplementärförderung)','Leasing- und Kreditraten, Büro-, Internet-, Telefonkosten, Verbandsbeiträge','Nutzungsentgelt für kommunale Sportstätten, Versammlungs- und Lagerräume'],
+ nach:['Projektkonzeption und Projektfinanzierungsplan mit dem Antrag','Verwendungsnachweis für Fest- bzw. Anteilsfinanzierung','Angebot muss regelmäßig wöchentlich und über das ganze Förderjahr stattfinden'],
+ an:'30.09. des Vorjahres',ab:'31.03. des Folgejahres',
+ forms:[fl(DK,'Deckblatt'),fl('2024 - 2-13-Zuschuss_fuer_Projekte_im_Freizeit-_und_Breitensport.pdf','Antrag 2-13'),fl('2024 - 2-14-Abrechnung_Projekte_im_Freizeit-_und_Breitensportprojekte_(Festbetragsfinanzierung).pdf','Abrechnung 2-14')],q:'Handlungshinweise 2025, Punkt 8.1.4'},
+{g:'S',t:'Investitionsförderung (Bau und große Anschaffungen)',k:'Investition Bau Sanierung Geräte über 800 Euro Investfoerderung Eigenmittel',amt:'nach Antrag und Bescheid',kurz:'Größere Vorhaben und Geräte über 800 €.',
+ ja:['Bauvorhaben und größere Investitionen nach Fachförderrichtlinie'],nein:[],
+ nach:['Eigentums- oder Nutzungserklärung, Nachweis Eigenmittel (Kontoauszug), Nachweis Drittmittel','Verwendungsnachweise für Fördermaßnahmen des Vorjahres','Zwischen- und Verwendungsnachweis nach Bescheid'],
+ an:'laut Antrag und Fachförderrichtlinie',ab:'laut Bescheid',
+ forms:[fl('Antrag_Zuwendung_Investfoerderung.pdf','Antrag'),fl('Mittelabforderung_Investfoerderung.pdf','Mittelabforderung'),fl('Verwendungsnachweis_Investitionsfoerderung.pdf','Verwendungsnachweis'),fl('Datenschutz_Einwerklaerung_Investfoerderung.pdf','Datenschutz')],q:'Fachförderrichtlinie, Abschnitt Investive Förderung'},
+{g:'L',t:'Breitensportentwicklung (ÜL-Zuschuss des Landes)',k:'LSB Breitensportentwicklung Übungsleiter Lizenz Ausbildungsbonus Vereinsmanager Jugendleiter',amt:'Pauschale Festbeträge nach Fördereinheiten; neu 2026: Ausbildungsbonus bis 200 €; höchstens 95 % der Ausgaben',kurz:'Pauschalförderung für lizenzierte Übungsleiter, Vereinsmanager und Übungsgruppen im Kinder- und Jugendsport.',
+ ja:['Aufwandsentschädigung und Aus-/Fortbildung nebenberuflich Tätiger','Wettkämpfe und Trainingslager, besonders im Kinder- und Jugendsport','Absicherung des Übungsbetriebs (z. B. Sportgeräte)'],
+ nein:['Mitgliederversammlungen, Feiern, Jubiläumszuwendungen','Preis- und Antrittsgelder, Repräsentation','Wirtschaftliche Geschäftsbetriebe, abziehbare Vorsteuer','Doppelförderung mit Großsportgerät oder „Ehrenamt stärken“'],
+ nach:['Einfacher Verwendungsnachweis ohne Originalbelege im VereinsPortal, unterschrieben hochladen','Originalbelege 5 Jahre aufbewahren','Je Tätigkeit (Sportpraxis, Vereinsmanagement) eine eigene schriftliche Vereinbarung','Lizenzen bis 1 Jahr nach Ablauf anerkannt'],
+ an:'31.01. nach der Bestandsmeldung, im VereinsPortal',ab:'31.01. des Folgejahres im VereinsPortal',
+ forms:[],ext:[['LSB-Seite Sportförderung','https://www.sport-fuer-sachsen.de/sportfoerderung'],['Nachweis ÜL-/VM-/JL-Tätigkeit (LSB)','https://www.sport-fuer-sachsen.de/files/user_upload/03_Dokumentenarchiv_LSB/Sportfoerderung/Formular_Nachweisfuehrung_der_UEbungsleitertaetigkeit_VM_JL_LEER_Ausfuellbar.pdf']],q:'LSB Sportförderung, Projekt Breitensportentwicklung'},
+{g:'L',t:'Großsportgerät (Abteilungen)',k:'LSB Großsportgerät Trainingsgerät Anschaffung Angebote Matte Ring Gerät über 1000',amt:'in der Regel bis 50 % des Preises; Gerät mindestens 1.000 €, Regelförderung bis 5.000 €',kurz:'Neues oder generalüberholtes Gerät ab 1.000 €, das ins Vereinseigentum geht.',
+ ja:['Großsportgeräte, auch nicht fest verbaute Ausstattung von Hallen und Plätzen','Gebrauchte, generalüberholte Geräte'],
+ nein:['Einbaugeräte, Kleinsportgeräte, persönliche Ausrüstung','Computer, Video- und Kopiertechnik, Kleinbusse, Transportwagen','Transport-, Aufbau-, Installationskosten, Ersatzteile'],
+ nach:['Drei vergleichbare Angebote mit dem Antrag, Pflicht','Ab 5.000 €: Befürwortung des Landesfachverbands','Zur Abrechnung: Scan der Originalrechnung und Zahlungsnachweis','Zweckbindung in der Regel 5 Jahre, Inventarisierung'],
+ an:'31.03. des Förderjahres im VereinsPortal; kaufen erst nach Antragstellung',ab:'Anschaffung 01.01. bis 31.10.; Rechnung und Zahlungsnachweis bis 31.10.',
+ forms:[],ext:[['LSB-Seite Sportförderung','https://www.sport-fuer-sachsen.de/sportfoerderung']],q:'LSB Sportförderung, Projekt Erwerb eines Großsportgerätes'},
+{g:'L',t:'Ehrenamt stärken im Sport',k:'LSB Ehrenamt stärken Kampfrichter Schiedsrichter Ausstattung Wettkampf Ausbildung',amt:'100 bis 1.000 € je Jahr (bis 2.000 € ab 500 Mitgliedern oder mit Engagementkonzept), höchstens 95 %',kurz:'Aus- und Weiterbildung von Kampf-/Schiedsrichtern, Ausstattung für Engagierte, Technik für Wettkämpfe.',
+ ja:['Lizenzen für Kampf- und Schiedsrichter','Grundausstattung für Kampf-/Schiedsrichter, Übungsleiter und Trainer','Technik zur Zeitnahme und Wettkampfprotokollierung'],
+ nein:['Verpflegung, Übernachtung, Fahrtkosten, Tankbelege','Leasing, Energiekosten, Gutscheine und Präsente','Übungsleiter-Ausbildung (gehört in die Breitensportentwicklung)'],
+ nach:['Scan der Rechnung, Kontoauszug und Beleg über den erfolgreichen Abschluss der Maßnahme','Finanzierungsplan muss ausgeglichen sein'],
+ an:'01.04. bis 31.05. im VereinsPortal; Maßnahme erst ab Antragstellung',ab:'bis 31.10. des Förderjahres im VereinsPortal',
+ forms:[],ext:[['Projektbeschreibung 2026','https://www.sport-fuer-sachsen.de/files/user_upload/03_Dokumentenarchiv_LSB/Sportfoerderung/SP_1-3-2026-EAS.pdf']],q:'LSB Sportförderung, Projekt Ehrenamt stärken im Sport'},
+{g:'J',t:'Ferien-, Bildungs- und internationale Maßnahmen',k:'Jugend Ferienfahrt Ferienlager Bildung international Teilnehmer Betreuer Leipzig-Pass',amt:'Ferien 15 €, Bildung 17 €, international 20 € je Tag und Teilnehmer (Leipzig-Pass: 20 € / 20 € / 25 €); je 10 Teilnehmer zwei Betreuer',kurz:'Teilnehmerfinanzierte Maßnahmen der Jugendarbeit über das Amt für Jugend und Familie.',
+ ja:['Fahrten auch an verlängerten Wochenenden und bis zu drei Wochen','Angebote auch außerhalb der Schulferien, unabhängig von der Schulzugehörigkeit'],nein:[],
+ nach:['Antragsformular der jeweiligen Maßnahme (SSB-Seite, Fassung 2024: aktuelle Version prüfen)'],
+ an:'mindestens 6 Wochen vor Maßnahmenbeginn',ab:'nach Bescheid',
+ forms:[],ext:[['SSB: Sport-, Jugend- und Projektförderung','https://www.ssb-leipzig.de/leistungen/vereinsberatung/sportfoerderung/']],q:'SSB Leipzig, Sport-, Jugend- und Projektförderung'}
+];
+const FR=[
+{m:1,d:31,t:'Bestandsmeldung, Antrag Breitensportentwicklung und Verwendungsnachweis des Vorjahres',s:'LSB',w:'VereinsPortal LSB Sachsen',h:'Bestandsmeldung zum Stichtag 01.01. Verwendungsnachweis gleichzeitig mit dem neuen Antrag.'},
+{m:2,d:28,t:'Jahresabschluss des Vorjahres und Haushaltsplan des laufenden Jahres',s:'Stadt',w:'Amt für Sport',h:'Grundvoraussetzung für städtische Förderung.'},
+{m:2,d:28,t:'Abrechnung „Wir für Sachsen“ des Vorjahres',s:'Dritte',w:'Förderportal Bürgerstiftung',h:'Nur falls gefördert.'},
+{m:3,d:31,t:'Antrag Großsportgerät',s:'LSB',w:'VereinsPortal',h:'Drei Angebote beifügen, erst nach Antragstellung kaufen.'},
+{m:3,d:31,t:'Verwendungsnachweise der städtischen Förderung des Vorjahres',s:'Stadt',w:'Amt für Sport, Amt für Jugend und Familie',h:'Ausnahmen stehen auf Seite 2 des Bescheids (z. B. Veranstaltungen, Ehrungen, Fahrtkosten).'},
+{m:4,d:30,t:'Mitgliedsbeitrag Landessportbund Sachsen',s:'LSB',w:'Überweisung',h:'Voraussetzung für die LSB-Förderung.'},
+{m:5,d:31,t:'Antrag „Ehrenamt stärken im Sport“ (Fenster ab 01.04.)',s:'LSB',w:'VereinsPortal',h:'Gilt für 2026, für 2027 Ausschreibung prüfen.'},
+{m:6,d:30,t:'Abrechnung Pacht- und Pflegekostenzuschüsse',s:'Stadt',w:'Amt für Sport',h:'Nur für Vereine mit gepachteter Anlage.'},
+{m:7,d:31,t:'Mitgliedsbeitrag Stadtsportbund Leipzig',s:'SSB',w:'Überweisung',h:''},
+{m:8,d:31,t:'Antrag Stadtbezirksbudgets',s:'Stadt',w:'Stadt Leipzig',h:'Nur bei Bedarf.'},
+{m:9,d:30,t:'Anträge auf städtische Sportförderung für das Folgejahr',s:'Stadt',w:'Amt für Sport',h:'Später eingehende Anträge gelten als Nachanträge und werden nur bei vorhandenen Mitteln berücksichtigt.'},
+{m:10,d:31,t:'Antrag „Wir für Sachsen“ für das Folgejahr',s:'Dritte',w:'Förderportal Bürgerstiftung',h:''},
+{m:10,d:31,t:'Großsportgerät: Rechnung und Zahlungsnachweis; Ehrenamt stärken: Abrechnung',s:'LSB',w:'VereinsPortal',h:'Anschaffung nur 01.01. bis 31.10.'}
+];
+const ONG=[['Ferien-, Bildungs- und internationale Maßnahmen','mindestens 6 Wochen vor Beginn','Amt für Jugend und Familie'],['Neue periodische Hallennutzung','mindestens 4 Wochen vorher','Amt für Sport'],['Terminliche Hallennutzung','mindestens 4 Wochen vorher','Amt für Sport'],['Wettkampffahrten (Fahrtkostenzuschuss)','vor jeder Fahrt melden, Bestätigung bis 4 Wochen danach','Amt für Sport']];
+const TODAY=(()=>{const n=new Date();return new Date(n.getFullYear(),n.getMonth(),n.getDate())})();
+const fmtD=d=>d.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
+function nextOf(f){let d=new Date(TODAY.getFullYear(),f.m-1,f.d);if(d<TODAY)d=new Date(TODAY.getFullYear()+1,f.m-1,f.d);return d}
+const days=d=>Math.round((d-TODAY)/864e5);
+const tone=n=>n<=14?'crit':n<=45?'warn':'ok';
+const lbl=n=>n===0?'heute':n===1?'morgen':'in '+n+' Tagen';
+const FE=FR.map(f=>{const d=nextOf(f);return Object.assign({},f,{date:d,n:days(d)})}).sort((a,b)=>a.date-b.date);
+const views=['suche','foerderungen','fristen','termine','formulare'];
+function show(){const h=(location.hash||'#suche').slice(1);const v=views.includes(h)?h:'suche';views.forEach(x=>{$('#v-'+x).hidden=x!==v});document.querySelectorAll('#nav a').forEach(a=>{if(a.getAttribute('href')==='#'+v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')})}
+addEventListener('hashchange',show);show();
+$('#today').textContent=fmtD(TODAY);
+$('#nextCards').innerHTML=FE.slice(0,3).map(f=>`<div class="due"><span class="when"><span>${fmtD(f.date)}</span><span class="pill ${tone(f.n)}">${lbl(f.n)}</span></span><b>${esc(f.t)}</b><span class="note">${esc(f.s)} · ${esc(f.w)}</span></div>`).join('');
+const fmtL=d=>d.toLocaleDateString('de-DE',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});
+const ev=(D.termine.termine||[]).map(e=>Object.assign({},e,{d:new Date(e.datum+'T00:00:00')})).sort((a,b)=>a.d-b.d);
+const evHtml=e=>{const n=days(e.d);return `<div class="dl"><span class="t"><b>${esc(e.titel)}</b><br><span class="note">${fmtL(e.d)}${e.zeit?', '+esc(e.zeit):''}</span><br><span class="note">${esc(e.ort||'')}</span></span><span class="pill ${n>=0?tone(n):'gray'}">${n>=0?lbl(n):'vorbei'}</span></div>`};
+$('#tUp').innerHTML=ev.filter(e=>days(e.d)>=0).map(evHtml).join('')||'<p class="empty">Derzeit keine kommenden Termine eingetragen.</p>';
+$('#tPast').innerHTML=ev.filter(e=>days(e.d)<0).reverse().map(evHtml).join('')||'<p class="note">Keine.</p>';
+const nextOcc=f=>{if(f.datum)return new Date(f.datum+'T00:00:00');let y=TODAY.getFullYear();let d=new Date(y,f.monat-1,f.tag);if(days(d)<0)d=new Date(y+1,f.monat-1,f.tag);return d};
+const VF=(D.termine.vereinsfristen||[]).map(f=>Object.assign({},f,{d:nextOcc(f)})).sort((a,b)=>a.d-b.d);
+$('#tFr').innerHTML=VF.map(f=>{const n=days(f.d);return `<div class="dl"><span class="t"><b>${esc(f.titel)}</b><br><span class="note">${esc(f.wer?f.wer+' · ':'')}${esc(f.hinweis||'')}</span></span><span class="pill ${tone(n)}">${fmtD(f.d)} · ${lbl(n)}</span></div>`}).join('');
+const KT=(D.kontakte&&D.kontakte.kontakte)||[];
+$('#kt').innerHTML=['Vorstand','Abteilungen'].map(g=>`<h3 class="grp">${g}</h3>`+KT.filter(k=>k.gruppe===g).map(k=>`<div class="dl"><span class="t"><b>${esc(k.rolle)}</b>${k.anliegen?'<br><span class="note">'+esc(k.anliegen)+'</span>':''}</span><a href="mailto:${esc(k.mail)}">${esc(k.mail)}</a></div>`).join('')).join('');
+let kf='Alle';
+function renderTL(){$('#tl').innerHTML=FE.filter(f=>kf==='Alle'||f.s===kf).map(f=>`<div class="ev ${tone(f.n)}"><div class="d"><span>${fmtD(f.date)}</span><span class="pill ${tone(f.n)}">${lbl(f.n)}</span><span class="pill gray">${esc(f.s)}</span>${f.date.getFullYear()>2026?'<span class="pill gray">erwartet</span>':''}</div><h3>${esc(f.t)}</h3><div class="note">${esc(f.w)}${f.h?' · '+esc(f.h):''}</div></div>`).join('')}
+$('#kchips').innerHTML=['Alle','Stadt','LSB','SSB','Dritte'].map(k=>`<button class="chip" aria-pressed="${k==='Alle'}" data-k="${k}">${k}</button>`).join('');
+$('#kchips').onclick=e=>{const b=e.target.closest('button');if(!b)return;kf=b.dataset.k;document.querySelectorAll('#kchips button').forEach(x=>x.setAttribute('aria-pressed',x===b));renderTL()};
+renderTL();
+$('#ongoing').innerHTML=ONG.map(o=>`<div class="dl"><span class="t"><b>${esc(o[0])}</b><br><span class="note">${esc(o[2])}</span></span><span class="pill warn">${esc(o[1])}</span></div>`).join('');
+async function dl(f,name,b){try{const d=window.claude&&await window.claude.use('downloads');if(d){let buf;if(b){const bin=atob(D.b64[b]);buf=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)buf[i]=bin.charCodeAt(i)}else{const r=await fetch(f);buf=await r.arrayBuffer()}await d.save({filename:name,data:buf});return}}catch(e){}
+ if(b){alert2('Download hier nicht möglich. Die Datei liegt im Ordner Wissensdatenbank/2_Downloads_Blanko/PSV-Vorlagen: '+name)}else window.open(f,'_blank')}
+function alert2(t){let n=document.getElementById('toast');if(!n){n=document.createElement('p');n.id='toast';n.className='hit';n.setAttribute('role','status');n.style.cssText='position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;margin:0';document.body.appendChild(n)}n.textContent=t;n.hidden=false;setTimeout(()=>{n.hidden=true},6000)}
+const LOCAL=location.protocol==='file:';
+document.addEventListener('click',e=>{const a=e.target.closest('a[data-dl]');if(!a||LOCAL)return;e.preventDefault();dl(a.getAttribute('href'),a.dataset.name,a.dataset.b)});
+const sizeTxt=kb=>kb>=1024?(kb/1024).toFixed(1)+' MB':kb+' KB';
+const gs={};D.downloads.forEach(x=>{(gs[x.g+x.grp]=gs[x.g+x.grp]||{n:x.grp,i:[]}).i.push(x)});
+$('#dls').innerHTML=Object.keys(gs).sort().map(k=>`<h3 class="grp">${esc(gs[k].n)}</h3>`+gs[k].i.map(x=>`<div class="dl"><span class="t">${esc(x.t)} <span class="ext">${x.ext} · ${sizeTxt(x.kb)}</span></span><a class="btn" href="${esc(x.f)}" data-dl data-b="${x.b?esc(x.b):''}" data-name="${esc(x.f.split('/').pop())}" target="_blank" rel="noopener">Herunterladen</a></div>`).join('')).join('');
+const LK=[['LSB Sachsen: Sportförderung','https://www.sport-fuer-sachsen.de/sportfoerderung'],['LSB Sachsen: Für Mitglieder (Downloads, Mustervorlagen)','https://www.sport-fuer-sachsen.de/fuer-mitglieder'],['VereinsPortal LSB Sachsen','https://vereinsportal.sport-fuer-sachsen.de/'],['SSB Leipzig: Wichtige Fristen','https://www.ssb-leipzig.de/leistungen/vereinsberatung/fristen-1/'],['SSB Leipzig: Sport-, Jugend- und Projektförderung','https://www.ssb-leipzig.de/leistungen/vereinsberatung/sportfoerderung/'],['SSB Leipzig: Muster, Vorlagen, GEMA','https://www.ssb-leipzig.de/leistungen/vereinsberatung/muster-vorlagen/'],['Formulare des Amts für Sport (Stadt Leipzig)','https://www.leipzig.de/buergerservice-und-verwaltung/aemter-und-behoerdengaenge/formulare']];
+$('#links').innerHTML=LK.map(l=>`<div class="dl"><span class="t">${esc(l[0])}</span><a class="btn sec" href="${l[1]}" target="_blank" rel="noopener">Öffnen</a></div>`).join('');
+let gf='Alle',ft='';
+const li=a=>a.length?'<ul>'+a.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>':'<p class="note">Keine Angaben in den Unterlagen.</p>';
+function renderCards(){const q=ft.toLowerCase();$('#cards').innerHTML=SB.filter(s=>(gf==='Alle'||G[s.g]===gf)&&(!q||(s.t+' '+s.k+' '+s.kurz+' '+s.amt).toLowerCase().includes(q))).map(s=>`<details class="card"><summary><h3>${esc(s.t)}</h3><span class="tags" style="grid-row:2"><span class="pill gray">${G[s.g]}</span><span class="pill ok">Antrag: ${esc(s.an.split(';')[0].split(',')[0])}</span></span><span class="note" style="grid-column:1/3">${esc(s.kurz)}</span></summary><div class="body">
+<div class="kv"><div><b>Höhe</b>${esc(s.amt)}</div><div><b>Antrag</b>${esc(s.an)}</div><div><b>Abrechnung</b>${esc(s.ab)}</div></div>
+<div class="two"><div class="yes"><span class="lbl">Förderfähig</span>${li(s.ja)}</div><div class="no"><span class="lbl">Nicht förderfähig</span>${li(s.nein)}</div></div>
+<div><span class="lbl">Was nachgewiesen werden muss</span>${li(s.nach)}</div>
+<div class="btns">${s.forms.filter(f=>f.f).map(f=>`<a class="btn" href="${esc(f.f)}" data-dl data-name="${esc(f.f.split('/').pop())}" target="_blank" rel="noopener">${esc(f.l)}</a>`).join('')}${(s.ext||[]).map(x=>`<a class="btn sec" href="${x[1]}" target="_blank" rel="noopener">${esc(x[0])}</a>`).join('')}</div>
+<p class="note">Quelle: ${esc(s.q)}. Beträge laut Handlungshinweisen 2025 bzw. LSB-Seite, Jahr prüfen.</p></div></details>`).join('')||'<p class="empty">Nichts gefunden.</p>'}
+$('#fchips').innerHTML=['Alle',...Object.values(G)].map(k=>`<button class="chip" aria-pressed="${k==='Alle'}" data-k="${k}">${k}</button>`).join('');
+$('#fchips').onclick=e=>{const b=e.target.closest('button');if(!b)return;gf=b.dataset.k;document.querySelectorAll('#fchips button').forEach(x=>x.setAttribute('aria-pressed',x===b));renderCards()};
+$('#fq').oninput=e=>{ft=e.target.value;renderCards()};
+renderCards();
+const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ß/g,'ss');
+const idx=D.chunks.map(c=>norm(c[1]));
+const HINTS=['Übungsleiter','Trainingsgerät','Fahrtkosten','Jubiläum','Verwendungsnachweis Frist','Vorsteuer','Miete Halle','Gemeinnützigkeit','Kleinsportgeräte'];
+$('#hints').innerHTML=HINTS.map(h=>`<button class="chip" data-q="${esc(h)}">${esc(h)}</button>`).join('');
+$('#hints').onclick=e=>{const b=e.target.closest('button');if(!b)return;$('#q').value=b.dataset.q;doSearch()};
+function hl(txt,terms){let out=esc(txt);terms.forEach(t=>{if(t.length<2)return;const re=new RegExp('('+t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');out=out.replace(re,'<mark>$1</mark>')});return out}
+function snippet(txt,terms){const n=norm(txt);let p=-1;for(const t of terms){const i=n.indexOf(t);if(i>=0){p=i;break}}if(txt.length<=420||p<0)return txt.slice(0,420)+(txt.length>420?' …':'');const s=Math.max(0,p-140);return (s?'… ':'')+txt.slice(s,s+420)+(s+420<txt.length?' …':'')}
+let timer;function run(){clearTimeout(timer);timer=setTimeout(doSearch,120)}
+function openCard(w){document.getElementById('fq').value=w;ft=w;renderCards();location.hash='#foerderungen'}
+function doSearch(){const raw=$('#q').value.trim(),box=$('#results');$('#homeNext').hidden=!!raw;if(raw.length<2){box.innerHTML='';$('#homeNext').hidden=false;return}
+ const terms=norm(raw).split(/\s+/).filter(Boolean);const hits=[];
+ for(let i=0;i<idx.length;i++){const t=idx[i];let sc=0,ok=true;for(const w of terms){const c=t.split(w).length-1;if(!c){ok=false;break}sc+=Math.min(c,4)}if(ok){const d=D.docs[D.chunks[i][0]];if(norm(d.t).includes(terms[0]))sc+=2;if(d.k==='Info')sc+=1;hits.push([sc,i])}}
+ hits.sort((a,b)=>b[0]-a[0]);
+ const sb=SB.map((s,j)=>[s,j]).filter(([s])=>terms.every(w=>norm(s.t+' '+s.k+' '+s.kurz).includes(w))).slice(0,3);
+ let h='';
+ h+=sb.map(([s,j])=>`<div class="hit" style="border-color:var(--accent)"><div class="src"><span class="pill ok">Steckbrief</span><span>${G[s.g]}</span></div><p><b>${esc(s.t)}</b>: ${esc(s.kurz)} ${esc(s.amt)}.</p><p class="note"><a href="#foerderungen" data-open="${j}">Steckbrief öffnen</a></p></div>`).join('');
+ h+=`<p class="note">${hits.length} Treffer in ${new Set(hits.map(x=>D.chunks[x[1]][0])).size} Dokumenten${hits.length>30?', die besten 30':''}.</p>`;
+ h+=hits.slice(0,30).map(([,i])=>{const c=D.chunks[i],d=D.docs[c[0]];return `<div class="hit"><div class="src"><span class="pill gray">${esc(d.k)}</span><span>${esc(d.t)}</span>${d.h?`<a href="${esc(d.h)}" target="_blank" rel="noopener">Original</a>`:''}</div><p>${hl(snippet(c[1],terms),terms)}</p></div>`}).join('');
+ if(!hits.length)h+='<p class="empty">Keine Treffer. Andere Schreibweise oder ein einzelnes Stichwort probieren.</p>';
+ box.innerHTML=h}
+$('#results').addEventListener('click',e=>{const a=e.target.closest('a[data-open]');if(a){e.preventDefault();openCard(SB[+a.dataset.open].t.split(' ')[0])}});
+$('#q').addEventListener('input',run);
+</script>
