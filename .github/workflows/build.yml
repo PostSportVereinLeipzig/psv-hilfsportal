@@ -1,0 +1,43 @@
+name: Portal bauen
+
+# Läuft, sobald Daten, Quellen, Vorlage oder Downloads geändert werden,
+# und baut index.html neu. index.html selbst löst es nicht erneut aus.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "daten/**"
+      - "quellen/**"
+      - "downloads/**"
+      - "tpl.html"
+      - "build.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: portal-build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: index.html bauen
+        run: python3 build.py
+      - name: Änderung veröffentlichen
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "index.html ist bereits aktuell."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add index.html
+            git commit -m "index.html automatisch gebaut"
+            git push
+          fi

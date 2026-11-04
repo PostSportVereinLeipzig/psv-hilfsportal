@@ -19,8 +19,21 @@ Die Seite liegt öffentlich auf GitHub und wird dort kostenlos ausgeliefert.
 | `tpl.html` | Vorlage von Aussehen und Programmierung. Nur bei Designänderungen. |
 | `build.py` | Baut aus allem die fertige `index.html`. |
 | `index.html` | Fertige Seite. **Nie von Hand bearbeiten**, sie wird überschrieben. |
+| `.github/workflows/build.yml` | Automatik: baut `index.html` nach jeder Änderung auf GitHub. |
 
-## Ablauf bei jeder Änderung
+## Einfachster Weg: direkt im Browser ändern
+Die Seite baut sich selbst neu, sobald eine Datei in `daten/`, `quellen/`, `downloads/` oder `tpl.html` geändert wird.
+
+1. Auf https://github.com/PostSportVereinLeipzig/psv-hilfsportal mit dem Vereinskonto anmelden.
+2. Zum Beispiel `daten/termine.json` öffnen, oben rechts auf den **Stift** (Edit) klicken, ändern.
+3. Oben rechts **Commit changes…** klicken, kurz beschreiben, bestätigen.
+4. Unter dem Reiter **Actions** läuft „Portal bauen“ (grüner Haken nach etwa 30 Sekunden). Danach ist die Seite nach ein bis zwei Minuten aktualisiert.
+5. Neue Formulare: **Add file → Upload files** im Ordner `downloads/`, danach `daten/downloads.json` ergänzen.
+6. Rot markierter Lauf in **Actions**: Meist ein Tippfehler im JSON. Auf den Lauf klicken, die Fehlermeldung nennt die Zeile.
+
+Wer lokal arbeitet, holt vorher den neuesten Stand mit `git pull`, weil die Automatik `index.html` im Repository ändert.
+
+## Alternativ: lokal bauen und veröffentlichen
 1. Datei ändern (siehe unten).
 2. Im Ordner `Portal` ausführen: `python3 build.py`
 3. Lesen, was das Skript meldet. Bei „FEHLER“ oder „WARNUNG“ zuerst beheben.
