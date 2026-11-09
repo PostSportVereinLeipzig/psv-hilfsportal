@@ -74,7 +74,7 @@ Die Fristen gelten jedes Jahr, deshalb stehen nur Monat (`m`) und Tag (`d`) dari
 ## Termine ändern (`daten/termine.json`)
 Einmalige Termine stehen unter `"termine"`, Datum als `JJJJ-MM-TT`:
 ```json
-{ "datum": "2026-12-10", "titel": "Verwaltungsratssitzung", "art": "Gremium", "ort": "Kultursaal, Am Sportforum 3, 04105 Leipzig" }
+{ "datum": "2026-11-26", "titel": "Verwaltungsratssitzung", "art": "Gremium", "ort": "Kultursaal, Am Sportforum 3, 04105 Leipzig" }
 ```
 Vergangene Termine des laufenden Jahres wandern automatisch in „Vergangene Termine“. Neue Termine (Verwaltungsratssitzungen, Delegiertenversammlung, Feiern und sonstiges) werden am Jahresende für das nächste Jahr eingetragen. Dazu erinnert GitHub am 1. November, 1. Dezember, 15. Dezember und 5. Januar per Hinweis (Issue) und E-Mail, solange für das Zieljahr noch nichts eingetragen ist. Zum Hinzufügen den Block kopieren und anpassen. Zwischen Blöcken steht ein Komma, nach dem letzten nicht.
 
