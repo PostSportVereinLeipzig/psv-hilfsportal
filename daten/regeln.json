@@ -136,7 +136,7 @@
     {
      "nr": "2.2",
      "titel": "Der Verwaltungsrat",
-     "text": "**Zusammenarbeit des Vorstandes mit dem Verwaltungsrat**\n(1) Der Vorstand kann zur Aufgabenerledigung gem. § 8 der Satzung den Verwaltungsrat einberufen.\n(2) Der Verwaltungsrat wird grundsätzlich einmal im Quartal zur Beratung eingeladen. Weitere Beratungen finden bei einem durch den Vorstand festgestellten Bedarf statt.\n(3) Dem Verwaltungsrat gehören alle Mitglieder des Vorstandes, die Abteilungsleiter/innen sowie die Kassenprüfer an. Im Falle der Verhinderung eines Abteilungsleiters ist ein Stellvertreter zu delegieren, die Teilnahme eines Vertreters der Abteilungen ist sicherzustellen.\n(4) Der Verwaltungsrat legt nach § 5 Absatz 2 und § 8 Absatz 2 der Satzung die Grundbeiträge, Aufnahmegebühren und Umlagen fest. Er hat nach § 8 der Satzung Mitbestimmungsrechte bei der Aufstellung und Änderung der Finanzierungs- und Kassenordnung sowie der Beitragsordnung und Mitwirkungspflichten bei der Erstellung der Ehrenordnung sowie bei der Einberufung von Delegiertenversammlungen.\n(5) Die Verwaltungsratssitzungen dienen der Beratung und Meinungsbildung für den Vorstand und nehmen Einfluss auf geplante Beschlüsse des Vorstandes. Die Mitglieder des Verwaltungsrates können für die Sitzungen eigene Beschlussvorlagen vorbereiten und einbringen.\n(6) Die im Verwaltungsrat beteiligten Abteilungsleiter/innen mit ihrer jeweiligen Vertretung tragen im Rahmen ihrer Zuständigkeit Verantwortung bei der Umsetzung der Beschlüsse, Vereinbarungen und Festlegungen der Verwaltungsratssitzungen und sind verantwortlich für die Weitergabe der erhaltenen Informationen an die Mitglieder in ihren Abteilungen.",
+     "text": "**Zusammenarbeit des Vorstandes mit dem Verwaltungsrat**\n(1) Der Vorstand kann zur Aufgabenerledigung gem. § 8 der Satzung den Verwaltungsrat einberufen.\n(2) Der Verwaltungsrat wird dreimal im Jahr zur Beratung eingeladen. Zusammen mit der jährlichen Delegiertenversammlung findet damit je Quartal eine Versammlung statt. Weitere Beratungen finden bei einem durch den Vorstand festgestellten Bedarf statt.\n(3) Dem Verwaltungsrat gehören alle Mitglieder des Vorstandes, die Abteilungsleiter/innen sowie die Kassenprüfer an. Im Falle der Verhinderung eines Abteilungsleiters ist ein Stellvertreter zu delegieren, die Teilnahme eines Vertreters der Abteilungen ist sicherzustellen.\n(4) Der Verwaltungsrat legt nach § 5 Absatz 2 und § 8 Absatz 2 der Satzung die Grundbeiträge, Aufnahmegebühren und Umlagen fest. Er hat nach § 8 der Satzung Mitbestimmungsrechte bei der Aufstellung und Änderung der Finanzierungs- und Kassenordnung sowie der Beitragsordnung und Mitwirkungspflichten bei der Erstellung der Ehrenordnung sowie bei der Einberufung von Delegiertenversammlungen.\n(5) Die Verwaltungsratssitzungen dienen der Beratung und Meinungsbildung für den Vorstand und nehmen Einfluss auf geplante Beschlüsse des Vorstandes. Die Mitglieder des Verwaltungsrates können für die Sitzungen eigene Beschlussvorlagen vorbereiten und einbringen.\n(6) Die im Verwaltungsrat beteiligten Abteilungsleiter/innen mit ihrer jeweiligen Vertretung tragen im Rahmen ihrer Zuständigkeit Verantwortung bei der Umsetzung der Beschlüsse, Vereinbarungen und Festlegungen der Verwaltungsratssitzungen und sind verantwortlich für die Weitergabe der erhaltenen Informationen an die Mitglieder in ihren Abteilungen.",
      "seite": 3
     },
     {
@@ -450,7 +450,7 @@
   },
   {
    "frage": "Wie oft tagen Vorstand und Verwaltungsrat?",
-   "antwort": "Der Vorstand mindestens einmal pro Quartal, der Verwaltungsrat grundsätzlich einmal im Quartal und bei Bedarf öfter. Die Einladung muss jeweils mindestens 10 Tage vorher erfolgen, in dringenden Fällen kann darauf verzichtet werden.",
+   "antwort": "Der Vorstand mindestens einmal pro Quartal. Der Verwaltungsrat tritt dreimal im Jahr zusammen, dazu kommt einmal im Jahr die Delegiertenversammlung, so dass je Quartal eine Versammlung stattfindet. Weitere Beratungen gibt es bei Bedarf. Die Einladung muss jeweils mindestens 10 Tage vorher erfolgen, in dringenden Fällen kann darauf verzichtet werden.",
    "refs": [
     {
      "doc": "go",
@@ -466,7 +466,7 @@
      "abs": "(2)"
     }
    ],
-   "stichworte": "Sitzung Sitzungen Einladungsfrist Quartal Termin"
+   "stichworte": "Sitzung Sitzungen Einladungsfrist Quartal Termin dreimal Jahr Delegiertenversammlung Versammlung jährlich"
   },
   {
    "frage": "Wer gehört zum Verwaltungsrat?",
