@@ -13,6 +13,7 @@ Kein Login, keine App-Installation. Funktioniert am Handy, Tablet und Computer.
 | **Fristen** | Kalender mit Ampel: Wie viele Tage bleiben bis zur nächsten Abgabe? |
 | **Termine** | Sitzungen und Veranstaltungen des Vereins, Vereinsfristen und Kontakt-E-Mail-Adressen. |
 | **Veranstaltungen** | Veranstaltungen und Kurse von SSB, Sportjugend und LSB mit Anmeldebeginn. Am Handy: Filter oben, „Anmelden“-Knopf führt zum Bildungsportal. |
+| **Vereinsregeln** | Satzung und Geschäftsordnung zum Nachschlagen: Schnellfragen wie „Wie kündige ich?“, Stichwortsuche und Sprung zur richtigen PDF-Seite. |
 | **Formulare** | Leere Vordrucke zum Herunterladen: PSV-Vorlagen und Formulare der Stadt Leipzig. |
 | **Weiterbildung** | Übungsleiter-Lizenz neu erwerben (Grundlehrgang, Erste Hilfe, ÜL-C-Lehrgang mit Lerneinheiten, Kosten und Anmeldung), verlängern oder nach Ablauf erneuern. Mit Lizenz-Check: Ablaufdatum eingeben, die Seite sagt, was zu tun ist. |
 

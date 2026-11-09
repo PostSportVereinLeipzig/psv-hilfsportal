@@ -81,6 +81,7 @@ details[open].card>summary::after{content:"–"}
 .ext{font:500 11px var(--f-mono);color:var(--muted)}
 .empty{padding:20px;text-align:center;color:var(--muted)}
 .stp{display:grid;grid-template-columns:40px 1fr;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}.stp .nr{width:36px;height:36px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font:700 18px/36px var(--f-display);text-align:center}.stp h3{margin:0 0 6px}.stp p{margin:8px 0 0}.stp .tags{display:flex;flex-wrap:wrap;gap:6px}#v-weiterbildung h3[id]{scroll-margin-top:64px}.steps{margin:4px 0 0;padding-left:22px}.steps li{margin:6px 0}.toolbar label{flex:0 0 auto}
+.rg-text p{margin:5px 0}.rg-text p.h{margin-top:12px}.cards.nest{margin-top:8px}details.card details.card{margin-top:8px}
 [hidden]{display:none!important}
 /* Responsive: Touch-Ziele, schmale Bildschirme, breite Bildschirme */
 html{-webkit-text-size-adjust:100%}
@@ -121,7 +122,7 @@ nav::-webkit-scrollbar{display:none}
 </style>
 <div class="wrap">
 <header><h1>Förderportal PSV</h1><p class="sub">Postsportverein Leipzig e.V. · Förderungen, Fristen, Formulare</p></header>
-<nav id="nav" aria-label="Bereiche"><a href="#suche">Suche</a><a href="#foerderungen">Förderungen</a><a href="#fristen">Fristen</a><a href="#termine">Termine</a><a href="#formulare">Formulare</a><a href="#weiterbildung">Weiterbildung</a><a href="#veranstaltungen">Veranstaltungen</a></nav>
+<nav id="nav" aria-label="Bereiche"><a href="#suche">Suche</a><a href="#foerderungen">Förderungen</a><a href="#fristen">Fristen</a><a href="#termine">Termine</a><a href="#formulare">Formulare</a><a href="#weiterbildung">Weiterbildung</a><a href="#veranstaltungen">Veranstaltungen</a><a href="#vereinsregeln">Vereinsregeln</a></nav>
 
 <section id="v-suche">
  <h2>Was suchst du?</h2>
@@ -200,6 +201,19 @@ nav::-webkit-scrollbar{display:none}
  <div id="vListe"></div>
  <details class="card" style="margin-top:18px"><summary><h3>Vergangene Veranstaltungen</h3><span class="note" style="grid-column:1/3">in diesem Jahr bereits stattgefunden</span></summary><div class="body" id="vPast"></div></details>
  <p class="note" id="vQuellen" style="margin-top:14px"></p>
+</section>
+
+<section id="v-vereinsregeln" hidden>
+ <h2>Was ist bei uns geregelt?</h2>
+ <p class="note">Satzung und Geschäftsordnung des Postsportvereins zum Nachschlagen. Maßgeblich sind immer die PDF-Dokumente. <span id="rgStand"></span></p>
+ <div class="btns" id="rgDocs" style="margin-bottom:14px"></div>
+ <div class="search"><input id="rgq" type="search" placeholder="z. B. Kündigung, Einladungsfrist, Spendenbescheinigung, Delegierte" autocomplete="off" aria-label="Suche in Satzung und Geschäftsordnung"></div>
+ <div class="chips" id="rgChips"></div>
+ <div id="rgInfo" class="note" style="margin-top:12px" aria-live="polite"></div>
+ <h3 class="grp" id="rgFH">Häufige Fragen</h3>
+ <div class="cards" id="rgFragen"></div>
+ <h3 class="grp" id="rgTH">Im Text nachlesen</h3>
+ <div id="rgText"></div>
 </section>
 
 <section id="v-formulare" hidden>
@@ -313,7 +327,7 @@ const days=d=>Math.round((d-TODAY)/864e5);
 const tone=n=>n<=14?'crit':n<=45?'warn':'ok';
 const lbl=n=>n===0?'heute':n===1?'morgen':'in '+n+' Tagen';
 const FE=FR.map(f=>{const d=nextOf(f);return Object.assign({},f,{date:d,n:days(d)})}).sort((a,b)=>a.date-b.date);
-const views=['suche','foerderungen','fristen','termine','formulare','weiterbildung','veranstaltungen'];
+const views=['suche','foerderungen','fristen','termine','formulare','weiterbildung','veranstaltungen','vereinsregeln'];
 function show(){const h=(location.hash||'#suche').slice(1);const v=views.includes(h)?h:'suche';views.forEach(x=>{$('#v-'+x).hidden=x!==v});document.querySelectorAll('#nav a').forEach(a=>{if(a.getAttribute('href')==='#'+v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')})}
 addEventListener('hashchange',show);show();
 $('#today').textContent=fmtD(TODAY);
@@ -373,7 +387,7 @@ function doSearch(){const raw=$('#q').value.trim(),box=$('#results');$('#homeNex
  let h='';
  h+=sb.map(([s,j])=>`<div class="hit" style="border-color:var(--accent)"><div class="src"><span class="pill ok">Steckbrief</span><span>${G[s.g]}</span></div><p><b>${esc(s.t)}</b>: ${esc(s.kurz)} ${esc(s.amt)}.</p><p class="note"><a href="#foerderungen" data-open="${j}">Steckbrief öffnen</a></p></div>`).join('');
  h+=`<p class="note">${hits.length} Treffer in ${new Set(hits.map(x=>D.chunks[x[1]][0])).size} Dokumenten${hits.length>30?', die besten 30':''}.</p>`;
- h+=hits.slice(0,30).map(([,i])=>{const c=D.chunks[i],d=D.docs[c[0]];return `<div class="hit"><div class="src"><span class="pill gray">${esc(d.k)}</span><span>${esc(d.t)}</span>${d.h?`<a href="${esc(d.h)}" target="_blank" rel="noopener">Original</a>`:''}</div><p>${hl(snippet(c[1],terms),terms)}</p></div>`}).join('');
+ h+=hits.slice(0,30).map(([,i])=>{const c=D.chunks[i],d=D.docs[c[0]];const href=c[2]||d.h;return `<div class="hit"><div class="src"><span class="pill gray">${esc(d.k)}</span><span>${esc(d.t)}${c[3]?' · <b>'+esc(c[3])+'</b>':''}</span>${href?`<a href="${esc(href)}" target="_blank" rel="noopener">${c[2]?'Im PDF öffnen':'Original'}</a>`:''}</div><p>${hl(snippet(c[1],terms),terms)}</p></div>`}).join('');
  if(!hits.length)h+='<p class="empty">Keine Treffer. Andere Schreibweise oder ein einzelnes Stichwort probieren.</p>';
  box.innerHTML=h}
 $('#results').addEventListener('click',e=>{const a=e.target.closest('a[data-open]');if(a){e.preventDefault();openCard(SB[+a.dataset.open].t.split(' ')[0])}});
@@ -428,4 +442,41 @@ $('#vQuellen').innerHTML='Quellen: '+(VE.quellen||[]).map(q=>`<a href="${esc(q.u
 const HE=[];VE.eintraege.forEach(e=>{if(e.abgesagt)return;const a=vD(e.anmeldung_ab);if(a&&days(a)>=0&&days(a)<=60)HE.push({d:a,t:'Anmeldung startet',e});const s=vD(e.von);if(s&&days(s)>=0&&days(s)<=45)HE.push({d:s,t:e.kategorie==='Bildung'?'Kurs':'Veranstaltung',e})});
 HE.sort((x,y)=>x.d-y.d);
 if(HE.length){$('#homeEv').hidden=false;$('#evCards').innerHTML=HE.slice(0,3).map(h=>{const n=days(h.d);return `<div class="due"><span class="when"><span>${fmtD(h.d)}</span><span class="pill ${tone(n)}">${lbl(n)}</span></span><b>${esc(h.e.titel)}</b><span class="note">${esc(h.t)} · ${esc(h.e.veranstalter)}</span></div>`}).join('')}
+
+/* Vereinsregeln */
+const RG=D.regeln||{dokumente:[],fragen:[]};
+let rgf='Alle';
+const rgPdf=(d,a)=>d.pdf+'#page='+a.seite;
+const rgLabel=(d,a)=>d.kurz+' '+a.nr+' '+a.titel;
+function rgText(txt,terms){return txt.split('\n').map(l=>{const b=/^\*\*(.+)\*\*$/.exec(l);return b?`<p class="h"><b>${hl(b[1],terms)}</b></p>`:`<p>${hl(l,terms)}</p>`}).join('')}
+const rgFrage=(f,terms)=>`<details class="card"><summary><h3>${hl(f.frage,terms)}</h3><span class="note" style="grid-column:1/3">${esc(f.refs.map(r=>r.label).join(' · '))}</span></summary><div class="body"><p style="margin:0">${hl(f.antwort,terms)}</p><div class="btns">${f.refs.map(r=>`<a class="btn sec" href="${esc(r.link)}" target="_blank" rel="noopener">${esc(r.label)} im PDF, Seite ${r.seite}</a>`).join('')}</div></div></details>`;
+const rgAbschnitt=(d,a,terms,open)=>`<details class="card"${open?' open':''}><summary><h3>${hl(rgLabel(d,a),terms)}</h3><span class="note" style="grid-column:1/3">${esc(d.kurz)}, ab Seite ${a.seite}</span></summary><div class="body"><div class="rg-text">${rgText(a.text,terms)}</div><div class="btns"><a class="btn" href="${esc(rgPdf(d,a))}" target="_blank" rel="noopener">Im PDF öffnen (Seite ${a.seite})</a></div></div></details>`;
+function renderRG(){
+ const raw=$('#rgq').value.trim(),terms=norm(raw).split(/\s+/).filter(w=>w.length>=2);
+ const docs=RG.dokumente.filter(d=>rgf==='Alle'||d.id===rgf);
+ let fr=RG.fragen.filter(f=>rgf==='Alle'||f.refs.some(r=>r.doc===rgf));
+ if(terms.length)fr=fr.filter(f=>terms.every(w=>norm(f.frage+' '+f.antwort+' '+(f.stichworte||'')).includes(w)));
+ $('#rgFragen').innerHTML=fr.map(f=>rgFrage(f,terms)).join('');
+ $('#rgFH').hidden=!fr.length;
+ if(terms.length){
+  const hits=[];
+  docs.forEach(d=>d.abschnitte.forEach(a=>{if(!a.text)return;const t=norm(a.nr+' '+a.titel+' '+a.text);if(terms.every(w=>t.includes(w))){let sc=0;terms.forEach(w=>{sc+=Math.min(t.split(w).length-1,4)+(norm(a.titel).includes(w)?3:0)});hits.push([sc,d,a])}}));
+  hits.sort((x,y)=>y[0]-x[0]);
+  $('#rgText').innerHTML=hits.slice(0,20).map(([,d,a],i)=>rgAbschnitt(d,a,terms,i<2)).join('')||'';
+  $('#rgTH').hidden=!hits.length;$('#rgTH').textContent=`Im Text nachlesen (${hits.length} ${hits.length===1?'Fundstelle':'Fundstellen'})`;
+  $('#rgInfo').textContent=(fr.length||hits.length)?'':'Keine Treffer. Ein einzelnes Stichwort oder eine andere Schreibweise probieren.';
+ }else{
+  $('#rgTH').hidden=false;$('#rgTH').textContent='Durchblättern';
+  $('#rgText').innerHTML=docs.map(d=>`<details class="card" style="margin-bottom:10px"><summary><h3>${esc(d.kurz)}</h3><span class="note" style="grid-column:1/3">${esc(d.stand)}, ${d.abschnitte.filter(a=>a.text).length} Abschnitte</span></summary><div class="body">${d.abschnitte.filter(a=>a.text).map(a=>rgAbschnitt(d,a,[],false)).join('')}</div></details>`).join('');
+  $('#rgInfo').textContent='';
+ }
+}
+if(RG.dokumente.length){
+ $('#rgDocs').innerHTML=RG.dokumente.map(d=>`<a class="btn" href="${esc(d.pdf)}" target="_blank" rel="noopener">${esc(d.kurz)} (PDF)</a>`).join('');
+ $('#rgStand').textContent=RG.dokumente.map(d=>d.kurz+': '+d.stand).join('. ')+'.';
+ $('#rgChips').innerHTML=['Alle'].concat(RG.dokumente.map(d=>d.id)).map(k=>`<button class="chip" aria-pressed="${k==='Alle'}" data-k="${esc(k)}">${esc(k==='Alle'?'Alle':(RG.dokumente.find(d=>d.id===k)||{}).kurz)}</button>`).join('');
+ $('#rgChips').onclick=e=>{const b=e.target.closest('button');if(!b)return;rgf=b.dataset.k;document.querySelectorAll('#rgChips button').forEach(x=>x.setAttribute('aria-pressed',x===b));renderRG()};
+ $('#rgq').oninput=()=>{clearTimeout(window._rgt);window._rgt=setTimeout(renderRG,120)};
+ renderRG();
+}
 </script>

@@ -17,6 +17,7 @@ Die Seite liegt öffentlich auf GitHub und wird dort kostenlos ausgeliefert.
 | `daten/veranstaltungen.json` | Von Hand: Hinweise zu Veranstaltungen, eigene Ergänzungen, Infotext „Angebot anmelden“ |
 | `daten/veranstaltungen_auto.json` | Automatisch gelesen (jede Woche). Nicht von Hand ändern. |
 | `update_veranstaltungen.py` | Liest die Veranstaltungen von den Seiten des SSB und LSB |
+| `daten/regeln.json` | Abschnitte von Satzung und GO mit Seitenzahl, dazu die Schnellfragen für den Reiter „Vereinsregeln“ |
 | `daten/bildung.json` | Inhalte des Reiters „Weiterbildung“ (Lizenzregeln, Schritte, Kontakt, Links) |
 | `daten/downloads.json` | Titel und Gruppe der Formulare im Reiter „Formulare“ |
 | `downloads/` | Die Formular-Dateien selbst (PDF, XLSX, XLS) |
@@ -122,14 +123,18 @@ Kurse, Termine und Anmeldebeginne stehen bewusst nicht im Portal, sondern nur al
 
 Manuelle Einträge bleiben bestehen, die automatische Aktualisierung überschreibt sie nie.
 
-## Satzung und Geschäftsordnung austauschen
-Beide stehen als PDF in `downloads/` und als Text in `quellen/` (damit die Suche sie findet):
-1. Neue PDF nach `downloads/` legen, z. B. `Geschaeftsordnung-Postsportverein-Leipzig-2027-01-15.pdf`.
-2. In `daten/downloads.json` den Eintrag der Gruppe „Vereinsdokumente“ auf den neuen Dateinamen und Titel (mit Stand) ändern.
-3. In `quellen/Geschaeftsordnung.md` bzw. `quellen/Satzung.md` den Text ersetzen und die `Link:`-Zeile auf die neue PDF setzen.
-4. Alte PDF löschen, dann speichern. Die Seite baut sich selbst neu.
+## Reiter „Vereinsregeln“, Satzung und Geschäftsordnung
+Der Reiter zeigt Satzung und Geschäftsordnung zum Nachschlagen: Schnellfragen („Wie kündige ich?“), Stichwortsuche und Sprung auf die richtige PDF-Seite. Auch die Suche auf der Startseite findet Paragraphen und nennt die PDF-Seite. Die Daten stehen in `daten/regeln.json`:
+- `dokumente`: Abschnitte der beiden Dokumente mit Text und Seitenzahl. Wird nicht von Hand gepflegt, sondern aus den Dokumenten erzeugt.
+- `fragen`: Schnellfragen mit Antwort, Stichworten (Synonyme für die Suche) und Verweisen auf Abschnitte. Hier darf von Hand ergänzt werden. Ein Verweis nennt `doc` (`satzung` oder `go`) und `nr` (z. B. `§ 4` oder `3.3`). Gibt es den Abschnitt nicht, warnt `build.py`.
 
-Veröffentlicht wird nur, was beschlossen ist. Entwürfe (z. B. die Beitragsordnung) gehören nicht ins öffentliche Repository. Die GO wird ohne Anlagen veröffentlicht, damit sie keine Kontaktdaten enthält.
+**Neue Fassung veröffentlichen** (z. B. nach dem Beschluss der Delegiertenversammlung oder einer GO-Änderung):
+1. Neue PDF nach `downloads/` legen, alte löschen.
+2. In `daten/downloads.json` den Eintrag der Gruppe „Vereinsdokumente“ auf Dateinamen und Titel (mit Stand) ändern.
+3. `daten/regeln.json` aus der neuen Fassung neu erzeugen lassen (mit Claude Code: „Erzeuge regeln.json für die neue Satzung bzw. GO neu“). Danach prüfen, ob die Schnellfragen noch zum Text passen, besonders bei Fristen und Zahlen.
+4. Speichern. Die Seite baut sich selbst neu.
+
+Veröffentlicht wird nur, was beschlossen ist. Entwürfe (z. B. die Beitragsordnung oder die Satzung vor dem Beschluss) gehören nicht ins öffentliche Repository. Die GO wird ohne Anlagen veröffentlicht, damit sie keine Kontaktdaten enthält.
 
 ## Neues Formular bereitstellen
 1. Datei in `downloads/` legen. Dateinamen ohne Leerzeichen und Sonderzeichen, z. B. `Antrag-Beispiel-2027.pdf`.

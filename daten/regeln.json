@@ -1,0 +1,719 @@
+{
+ "hinweis": "dokumente wird von intern/vorlagen/regeln_erzeugen.py erzeugt (Abschnitte mit Seitenzahl). fragen sind von Hand gepflegt: refs verweisen auf doc und nr eines Abschnitts.",
+ "dokumente": [
+  {
+   "id": "satzung",
+   "kurz": "Satzung",
+   "titel": "Satzung des Postsportvereins Leipzig e.V.",
+   "stand": "Abschrift, Stand 06.06.2024",
+   "pdf": "downloads/Satzung-Postsportverein-Leipzig-2024-06-06.pdf",
+   "seiten": 8,
+   "abschnitte": [
+    {
+     "nr": "§ 1",
+     "titel": "Name und Sitz",
+     "text": "(1) Die Vereinigung führt den Namen Postsportverein Leipzig e.V. (Post SV Leipzig).\n(2) Der Verein hat seinen Sitz in Leipzig.",
+     "seite": 1
+    },
+    {
+     "nr": "§ 2",
+     "titel": "Zweck des Vereins",
+     "text": "(1) ist die Förderung des Sports.\nEr verfolgt ausschließlich und unmittelbar gemeinnützige Zwecke im Sinne des\nAbschnitts „Steuerbegünstigte Zwecke“ der Abgabenordnung.\n(2) Der Satzungszweck wird verwirklicht durch sportliche Übungen und Leistungen. Der\nVerein widmet dem Breitensport sowie Kinder u. Jugendarbeit seine besondere\nAufmerksamkeit.\n(3) Der Verein ist Mitglied des Landessportbund Sachsen und seiner Verbände und schließt\nsich seiner Satzungsbestimmungen und Ordnungen an.",
+     "seite": 1
+    },
+    {
+     "nr": "§ 3",
+     "titel": "Mittelverwendung",
+     "text": "(1) Der Verein ist selbstlos tätig. Er verfolgt nicht in erster Linie eigenwirtschaftliche\nZwecke. Die Mittel des Vereins dürfen nur im satzungsgemäßen Zwecke im Interesse\ndes Vereins verwendet werden.\n(2) Mitglieder des Vereins werden grundsätzlich ehrenamtlich tätig. Die Mitglieder\nerhalten keine Zuwendungen aus Mitteln des Vereins. Ausnahmeregelungen über\nVerfügungen zu besonderen Aufwendungen bedürfen eines Beschlusses durch den\nVorstand und der Bestätigung des Verwaltungsrates.\nEs darf keine Person durch Ausgaben, die dem Zweck des Vereins fremd sind, oder\ndurch unverhältnismäßig hohe Vergütung begünstigt werden.\n(3) Bei Bedarf können Vorstandsmandate im Rahmen der haushaltsrechtlichen\nMöglichkeiten entgeltlich und mit Zahlung einer Ehrenamtspauschale nach § 3 Nr. 26\na EstG ausgeübt werden. Die Entscheidung bezüglich der Höhe einer\nEhrenamtspauschale trifft der Vorstand in Absprache mit dem Verwaltungsrat und unter\nBerücksichtigung des im entsprechenden Jahr aufkommenden Arbeitsvolumen, der\nfinanziellen Situation im Verein und muss in der Höhe vertretbar sein.\n(4) Das Geschäftsjahr des Vereins ist das Kalenderjahr.",
+     "seite": 1
+    },
+    {
+     "nr": "§ 4",
+     "titel": "Vereinsmitgliedschaft",
+     "text": "(1) Mitglied kann jede natürliche und juristische Person werden. Es ist ein schriftlicher\nAufnahmeantrag an den Vorstand zu richten. Über die Aufnahme entscheidet der\nVorstand.\n(2) Der Vorstand kann einzelne Mitglieder, die besondere Leistungen für die Entwicklung\ndes Vereins erbracht haben, zu Ehrenmitgliedern ernennen.\n(3) Jedes Mitglied ist verpflichtet diese Satzung einzuhalten, Beschlüsse des Vereins\nanzuerkennen und für deren Erfüllung zu wirken sowie die Mitgliedsbeiträge und\nUmlagen zu entrichten.\n(4) Die Mitgliedschaft endet mit dem Tod des Mitgliedes, durch Kündigung, Ausschluss\naus dem Verein oder Verlust der Rechtsfähigkeit der juristischen Person.\n(5) Eine Kündigung ist nur zum Monatsende möglich. Sie muss in schriftlicher Form bis\nzum 15. des Vormonats vorliegen, um rechtskräftig zu werden.\n(6) Ein Mitglied kann durch Vorstandsbeschluss mit einfacher Mehrheit der mindestens zu\n2/3 anwesenden Vorstandsmitglieder ausgeschlossen werden, wenn es gegen die\nVereinsinteressen und Satzungsinhalte verstoßen hat. Dazu gehören:\n- Den Verein schädigende Handlungen oder Publikationen, insbesondere grobe\nVerstöße gegen die ungeschriebenen Gesetze von Sitte, Anstand und sportlicher\nKameradschaft\n- Wenn trotz zweimaliger Mahnung (davon mindestens einmal schriftlich) ein\nMitglied mit der Zahlung seines Beitrages drei Monate im Rückstand ist\n(7) Dem betroffenen Mitglied ist vor Fassung des Ausschließungsbeschlusses Gelegenheit\nzu geben, sich in mündlicher Verhandlung vor dem Vorstand wegen des ihm zur Last\ngelegten Handelns zu rechtfertigen. Die schriftliche Entscheidung ist dem Betroffenen\nnebst Begründung zuzustellen.\n(8) Gegen den Ausschließungsbeschluss des Vorstandes steht dem Mitglied das Recht auf\nBerufung zu. Die Berufung muss innerhalb von einem Monat ab Zugang des\nAusschließungsbeschlusses beim Vorstand vorliegen. Wird die Berufung nicht oder\nnicht rechtzeitig eingelegt, gilt dies als Unterwerfung des Ausschließungsbeschlusse, so\ndass die Mitgliedschaft als beendet gilt.\n(9) Die Berufung ist abschließend im Verwaltungsrat zu entscheiden. Über den Entscheid\ndes Verwaltungsrates ist keine Berufung möglich.",
+     "seite": 2
+    },
+    {
+     "nr": "§ 5",
+     "titel": "Mitgliedsbeiträge",
+     "text": "(1) Der Verein erhebt Mitgliedsbeiträge. Er kann Aufnahmegebühren und Umlagen\nfestsetzen.\n(2) Grundbeiträge, Aufnahmegebühren und Umlagen werden vom Verwaltungsrat\nfestgelegt. Die konkrete Beitragshöhe wird in der Beitragsordnung des Vereins\nausgewiesen.\n(3) Rückstände von Mitgliedsbeiträgen können eingeklagt werden. Bei Vereinswechsel\nkann eine Freigabe nur dann erfolgen, wenn alle Verpflichtungen gegenüber dem Verein\nerfüllt sind.\n(4) Ehrenmitglieder sind von der Verpflichtung zur Zahlung der Mitgliedsbeiträge und der\nUmlagen befreit.",
+     "seite": 3
+    },
+    {
+     "nr": "§ 6",
+     "titel": "Vereinsstruktur",
+     "text": "(1) Organe des Vereins sind:\n1. Der Vorstand\n2. Der Verwaltungsrat\n3. Die Delegiertenversammlung\n4. Die Abteilungsleitungen",
+     "seite": 3
+    },
+    {
+     "nr": "§ 7",
+     "titel": "Der Vorstand",
+     "text": "(1) Der Vorstand besteht nach § 26 BGB aus dem geschäftsführenden Vorstand:\n1. Dem Vorsitzenden\n2. Dem stellvertretenden Vorsitzenden\n3. Dem Schatzmeister und\n4. Dem Manager\n5. Vereinsmitglied für Kinder- und Jugendarbeit\nDer Verein wird gerichtlich und außergerichtlich durch die Mitglieder des\ngeschäftsführenden Vorstandes vertreten. Jeder von ihnen ist allein\nvertretungsberechtigt. Der Verein gibt sich eine Geschäftsordnung.\n(2) Der Vorstand wird von der Delegiertenversammlung für die Zeit von zwei Jahren\ngewählt. Der Vorstand bleibt geschäftsfähig auch über die Zeit hinaus, wenn durch\nbesondere Umstände der Zeitpunkt der Neuwahl nicht eingehalten werden kann. Dies\nbedarf der Zustimmung des Verwaltungsrates und darf den Zeitraum eines Jahres nicht\nüberschreiten.\n(3) Scheidet ein Mitglied des Vorstandes während der laufenden Amtsperiode aus oder ist\nin sonstiger Weise dauerhaft an der Ausübung seiner Tätigkeit als Vorstandsmitglied\nverhindert, ist der Vorstand ermächtigt bis zur nächsten Delegiertenversammlung ein\nkommissarisches Vorstandsmitglied mit Beschluss des Verwaltungsrates zu berufen.\n(4) Der Vorstand ist für die Angelegenheiten des Vereins zuständig, soweit sie nicht einem\nanderen Organ durch die Satzung zugewiesen sind. Zu seinen Aufgaben gehören\ninsbesondere:\n- Die laufende Geschäftsführung des Vereins\n- Die Vorbereitung und Einberufung der Delegiertenversammlung und die\nDurchführung ihrer Beschlüsse\n- Die Vorbereitung von Verwaltungsratssitzungen und die Durchführung ihrer\nBeschlüsse\n- Die Aufstellung eines Haushaltsplanes, der Haushaltsführung und Erstellung des\nJahresberichtes\n- Die Erstellung und Aktualisierung der Geschäftsordnung (GO). Die GO ist dem\nVerwaltungsrat auszuhändigen.\n- Der Vorstand bestellt falls erforderlich einen Geschäftsführer. Die Erfordernis eines\nGeschäftsführers ist durch Beschluss des Verwaltungsrates herbeizuführen.\n(5) Mit Beendigung der Mitgliedschaft im Verein endet auch das Amt als\nVorstandsmitglied.\n(6) Der Vorstand ist beschlussfähig, wenn mindestens 3/5 der Vorstandsmitglieder\nanwesend sind. Bei Beschlussfassung entscheidet die einfache Mehrheit.",
+     "seite": 3
+    },
+    {
+     "nr": "§ 8",
+     "titel": "Der Verwaltungsrat",
+     "text": "(1) Der Verwaltungsrat hat die Aufgabe den Vorstand zu beraten und gibt Empfehlungen\nfür Beschlussfassungen des Vorstandes.\n(2) Der Verwaltungsrat hat Mitbestimmungsrechte bei Änderung der Finanzierungs- und\nKassenordnung sowie der Beitragsordnung.\n(3) Dem Verwaltungsrat gehören alle Mitglieder des Vorstandes, die Abteilungsleiter oder\nihre Stellvertreter sowie Kassenprüfer an.\n(4) Der Verwaltungsrat tritt auf Einladung des Vorstandes zusammen. Die Sitzungen\nwerden vom Vorsitzenden oder seinem Vertreter geleitet. Für Beschlüsse sind eine 2/3\nMehrheit erforderliich. Es müssen ¾ der Mitglieder des Verwaltungsrates anwesend\nsein.",
+     "seite": 5
+    },
+    {
+     "nr": "§ 9",
+     "titel": "Die Delegiertenversammlung",
+     "text": "(1) Die Delegiertenversammlung hat folgende Aufgaben:\n- Die Wahl des Vorstandes\n- Die Wahl der Kassenprüfer\n- Entgegennahme und Beschlussfassung/Entlastung über den Tätigkeitsbericht des\nVorstandes, des Geschäfts- und Kassenberichtes und des Berichtes der Kassenprüfer\n- Beschlussfassung über Satzungsänderungen\n- Beschlussfassung über die Auflösung des Vereines\n(2) Vorstandsmitglieder können während ihrer Amtszeit durch die\nDelegiertenversammlung abgewählt werden, wenn sie die ihnen übertragenen Aufgaben\nnicht entsprechend der Satzung ausüben oder aus persönlichen Gründen nicht mehr\nausüben können.\n(3) Jugendliche, mit Vollendung des 16. Lebensjahres sind stimmberechtigt. Bei\nBeschlüssen über Umlagen oder den Beitrag sind nur volljährige Mitglieder\nstimmberechtigt.\n(4) In der Delegiertenversammlung hat jeder Delegierte eine Stimme. Die Übertragung der\nAusübung des Stimmrechts auf andere Mitglieder oder gesetzliche Vertreter ist nicht\nzulässig.\n(5) Die Delegiertenversammlung wird vom Gesamtvorstand schriftlich einberufen. Dabei\nist eine Frist von 6 Wochen einzuhalten.\n(6) Die Delegiertenversammlung ist beschlussfähig, wenn mindestens 50% der\nwahlberechtigten delegierten Mitglieder anwesend sind. Beschlüsse der\nDelegiertenversammlung werden mit einfacher Mehrheit erfasst. Hierbei kommt es auf\ndie abgegebenen gültigen Stimmen an.\n(7) Über den Verlauf der Delegiertenversammlung ist ein Protokoll zu fertigen, das vom\nVersammlungsleiter und dem Schriftführer zu unterzeichnen ist.",
+     "seite": 5
+    },
+    {
+     "nr": "§ 10",
+     "titel": "Die Abteilungen",
+     "text": "(1) Der Verein ist ein Mehrspartenverein und unterhält eine unbestimmte Zahl von\nAbteilungen. Keiner dieser Abteilungen darf im Vereinsleben so dominieren, dass\nandere, weniger starke Abteilungen durch die Aktivitäten einer mitgliedsstärkeren\nAbteilung verdrängt werden. Ziel ist es die breite Förderung von Sportinteressen aller\nVereinsmitglieder. Der Turn- und Sportbetrieb wird in den Abteilungen durchgeführt.\n(2) Alle Abteilungen des Vereins sind rechtlich unselbstständig. Die Abteilungen können\nnur im Namen des Gesamtvereins nach außen auftreten. Abteilungen, deren\nAbteilungsleitung bewusst gegen die Satzung und Ordnungen sowie die Interessen des\nVereins verstoßen, können durch Beschluss des Verwaltungsrates ihres Amtes enthoben\nund durch eine kommissarische Leitung ersetzt werden. Diese kommissarische Leitung\nführt bis zur Neuwahl einer Leitung die Geschäfte der Abteilung.\n(3) Löst sich eine Abteilung auf oder gründet eine Abteilung einen neuen, eigenen Verein,\nbzw. tritt einem neuen Verein bei, so bleibt sämtliches Vermögen im Verein.\n(4) Die Mitgliedschaft in einer Abteilung setzt die Mitgliedschaft im Verein voraus.\n(5) Die Abteilungsleitung sollte bei einem Mitgliedsstand unter 100 Mitgliedern\nmindestens aus 3 Personen bestehen. Die Leitungen der Abteilungen werden für vier\nJahre gewählt wenn nicht vom Fachverband andere Vorschriften bestehen.\n(6) Die Abteilungsleitung ist dem Vorstand rechenschaftspflichtig. Sie hat einen eigenen\nFinanzplan aufzustellen. Dieser wird mit dem Schatzmeister des Vereins abgestimmt.\nDer Vorstand ist gegenüber den Abteilungsleitungen weisungsberechtigt.\n(7) Jede Abteilung regelt die Angelegenheiten und Aufgaben des internen\nGeschäftsbetriebes selbstständig, jedoch unter ausdrücklicher Beachtung der Vorgaben\nnach Satzung und ergänzenden Ordnungen. Die Abteilungen sind an die Beschlüsse des\nVorstandes und der Delegiertenversammlung gebunden.\n(8) Die Abteilungen dürfen Abteilungsbeiträge erheben. Sie bestreiten nach Abzug des\nGrundbeitrages ihre finanziellen Aufwendungen selbst. Die Abteilungsleitungen haben\nein eigenes Kassenrecht. Die Abteilungskasse obliegt der uneingeschränkten Prüfung\ndurch de gewählten Kassenprüfer oder durch den Schatzmeister des Vereins.\n(9) Einmal im Jahr har die Abteilungsversammlung stattzufinden. Die\nAbteilungsversammlung wird vom Abteilungsleiter bzw. seinem Vertreter geleitet. Auf\nden jährlich stattfindenden Abteilungsversammlungen werden die Delegierten und\nErsatzdelegierten entsprechend dem in der Geschäftsordnung festgelegten\nDelegiertenschlüssel für die Delegiertenversammlung des Vereins gewählt.",
+     "seite": 6
+    },
+    {
+     "nr": "§ 11",
+     "titel": "Kassenprüfer",
+     "text": "(1) Die von der Delegiertenversammlung gewählten Kassenprüfer überwachen die\nKassengeschäfte des Vereins. Eine Überprüfung sollte mindestens einmal im Jahr\nerfolgen. Über das Ergebnis ist dem Verwaltungsrat bzw. dem Vorstand des Vereins zu\nberichten.\n(2) Die Kassenprüfer berichten zur Delegiertenversammlung über die Ergebnisse ihrer\nPrüfung im Zeitraum der Wahlperiode.",
+     "seite": 7
+    },
+    {
+     "nr": "§ 12",
+     "titel": "Ordnungen",
+     "text": "(1) Der Verein hat eine:\n- Geschäftsordnung\n- Beitragsordnung\n- Finanzierungs- und Kassenordnung",
+     "seite": 7
+    },
+    {
+     "nr": "§ 13",
+     "titel": "Die Haftung des Vereins",
+     "text": "(1) Der Verein haftet mit seinem Vermögen für in seinem Namen abgeschlossene Verträge.\nDie Mitglieder haften nicht mit ihrem Eigentum für Ansprüche gegen den Verein.\n(2) Mitglieder, die ihre Befugnisse überschreiten und zum Nachteil des Vereins schuldhaft\nmateriellen Schaden verursachen, können in besonders schwerwiegenden Fällen dafür\nverantwortlich gemacht werden.",
+     "seite": 7
+    },
+    {
+     "nr": "§ 14",
+     "titel": "Auflösung des Vereins",
+     "text": "(1) Die Auflösung des Vereins kann nur in einer eigens zu diesem Zweck einberufenen\naußerordentlichen Delegiertenversammlung beschlossen werden. Für den Beschluss\neiner Auflösung ist eine Mehrheit von 75% der Stimmen erforderlich.\n(2) Das nach Auflösung des Vereins oder bei Wegfall steuerbegünstigter Zwecke\nverbleibende Vermögen fällt dem Landessportbund Sachsen e.V. zu, der es unmittelbar\nund ausschließlich für gemeinnützige Zwecke zu verwenden hat.",
+     "seite": 8
+    },
+    {
+     "nr": "§ 15",
+     "titel": "Inkrafttreten",
+     "text": "(1) Diese Satzung wurde am 06.06.2024 durch die Delegiertenversammlung beschlossen\nund tritt mit Eintragung in das Vereinsregister in Kraft.\n(2) Die Satzung vom 25.10.2023 verliert mit Eintragung der neuen Satzung in das\nVereinsregister ihre Gültigkeit.\n(3) Die vorstehende Satzung stimmt mit den unveränderten Bestimmungen der zuletzt\neingereichten Satzung sowie den geänderten Bestimmungen entsprechend dem\nBeschluss über die Satzungsänderung vom 06.06.2024 überein\nLeipzig, den 06.06.2024\n__________________________\nVorstandsvorsitzender Alexej Müller\n__________________________\nStellvertretender Vorsitzender Michael Theile",
+     "seite": 8
+    }
+   ]
+  },
+  {
+   "id": "go",
+   "kurz": "Geschäftsordnung",
+   "titel": "Geschäftsordnung des Postsportvereins Leipzig e.V.",
+   "stand": "Stand 10.11.2026, ohne Anlagen",
+   "pdf": "downloads/Geschaeftsordnung-Postsportverein-Leipzig-2026-11-10.pdf",
+   "seiten": 12,
+   "abschnitte": [
+    {
+     "nr": "1",
+     "titel": "Präambel",
+     "text": "",
+     "seite": 3
+    },
+    {
+     "nr": "1.1",
+     "titel": "Zweck und Ziel der Geschäftsordnung",
+     "text": "Diese Geschäftsordnung gilt für alle in Führungsverantwortung gewählten Mitglieder des Vereins. Dies betrifft den Vorstand, den Verwaltungsrat und die Abteilungsleitungen und regelt entsprechend der Satzung ihre Verantwortungsbereiche sowie die externe und interne Arbeitsweise.",
+     "seite": 3
+    },
+    {
+     "nr": "2",
+     "titel": "Aufbauorganisation",
+     "text": "",
+     "seite": 3
+    },
+    {
+     "nr": "2.1",
+     "titel": "Der Vorstand",
+     "text": "Es gilt der Grundsatz der Gesamtgeschäftsführung, d. h., alle Vorstandsmitglieder wirken gemeinsam an allen Geschäftsführungsmaßnahmen durch Beschlussfassung mit.\n**Interne Aufgaben- und Zuständigkeitsverteilung**\nUnbeschadet des Grundsatzes beschließt der Vorstand intern folgende Aufgaben- und Zuständigkeitsverteilung: Vorsitzende:r – zuständig für die Leitung des Vereins, Vertretung des Vereins in allen gerichtlichen und außergerichtlichen Angelegenheiten sowie handlungsbevollmächtigter Ansprechpartner gegenüber den maßgeblichen Vertretern der Stadt, des Landes und der übergeordneten Sportverbände. Die Zuständigkeit betrifft auch alle Fragen der vom Postsportverein genutzten bzw. beantragten Sportstätten. Alle Aktivitäten werden vor Umsetzung mit den jeweils zuständigen Abteilungsleitungen abgestimmt.\nStellvertretende:r des/der Vorsitzenden – zuständig für die Mitglieder- und Übungsleiterstatistik.\nSchatzmeister:in – zuständig für die Führung der Vereinsfinanzen sowie der Klärung bzw. Regelung aller damit im Zusammenhang stehenden internen wie externen Fragen und Forderungen.\nVereinsmanager:in – zuständig für die Führung der Abteilungsfinanzen sowie der Klärung bzw. Regelung aller damit im Zusammenhang stehenden internen Fragen und Forderungen.\nKinder- und Jugendwart:in – zuständig für die Organisation von Sport- und Trainingsmöglichkeiten für Kinder sowie für die Werbung zur Übernahme einer Übungsleitertätigkeit (möglichst mit Zertifikat). Diese Person nimmt für den Verein an allen Veranstaltungen teil, bei denen es vorrangig um Kinder- und Jugendthemen geht.\nUnbeschadet der internen Aufgabenverteilung ist der Vorstand insgesamt für alle Entscheidungen verantwortlich.",
+     "seite": 3
+    },
+    {
+     "nr": "2.2",
+     "titel": "Der Verwaltungsrat",
+     "text": "**Zusammenarbeit des Vorstandes mit dem Verwaltungsrat**\n(1) Der Vorstand kann zur Aufgabenerledigung gem. § 8 der Satzung den Verwaltungsrat einberufen.\n(2) Der Verwaltungsrat wird grundsätzlich einmal im Quartal zur Beratung eingeladen. Weitere Beratungen finden bei einem durch den Vorstand festgestellten Bedarf statt.\n(3) Dem Verwaltungsrat gehören alle Mitglieder des Vorstandes, die Abteilungsleiter/innen sowie die Kassenprüfer an. Im Falle der Verhinderung eines Abteilungsleiters ist ein Stellvertreter zu delegieren, die Teilnahme eines Vertreters der Abteilungen ist sicherzustellen.\n(4) Der Verwaltungsrat legt nach § 5 Absatz 2 und § 8 Absatz 2 der Satzung die Grundbeiträge, Aufnahmegebühren und Umlagen fest. Er hat nach § 8 der Satzung Mitbestimmungsrechte bei der Aufstellung und Änderung der Finanzierungs- und Kassenordnung sowie der Beitragsordnung und Mitwirkungspflichten bei der Erstellung der Ehrenordnung sowie bei der Einberufung von Delegiertenversammlungen.\n(5) Die Verwaltungsratssitzungen dienen der Beratung und Meinungsbildung für den Vorstand und nehmen Einfluss auf geplante Beschlüsse des Vorstandes. Die Mitglieder des Verwaltungsrates können für die Sitzungen eigene Beschlussvorlagen vorbereiten und einbringen.\n(6) Die im Verwaltungsrat beteiligten Abteilungsleiter/innen mit ihrer jeweiligen Vertretung tragen im Rahmen ihrer Zuständigkeit Verantwortung bei der Umsetzung der Beschlüsse, Vereinbarungen und Festlegungen der Verwaltungsratssitzungen und sind verantwortlich für die Weitergabe der erhaltenen Informationen an die Mitglieder in ihren Abteilungen.",
+     "seite": 3
+    },
+    {
+     "nr": "2.3",
+     "titel": "Die Abteilungen",
+     "text": "(1) Der Verein besteht aus einer jederzeit änderbaren Zahl von Abteilungen. Die Aufnahme neuer Sportarten und Gründung von Abteilungen erfolgt unter Einbezug des Verwaltungsrates und mit Beschluss des Vorstandes.\n(2) Jede Abteilung wird durch eine Abteilungsleitung geführt. Die Abteilungsleitung soll bei einem Mitgliederstand unter 100 Mitgliedern mindestens aus 3 Personen mit den Funktionen Abteilungsleiter/in, Stellvertretung und Kassenwart bestehen (§ 10 Absatz 5 der Satzung).\n(3) Jede Abteilung regelt die Angelegenheiten und Aufgaben des internen Geschäftsbetriebes selbständig, jedoch unter ausdrücklicher Beachtung der Vorgaben nach Satzung und ergänzenden Ordnungen. Die Abteilungen sind an die Beschlüsse des Vorstandes, des Verwaltungsrates und der Delegiertenversammlung gebunden.\n(4) Die Abteilungsleitung ist dem Vorstand rechenschaftspflichtig. Sie hat einen eigenen Finanzplan aufzustellen. Dieser wird mit dem Schatzmeister des Vereins abgestimmt. Der Vorstand ist gegenüber den Abteilungsleitungen weisungsberechtigt.\n(5) Die Abteilungen dürfen Abteilungsbeiträge erheben. Sie bestreiten nach Abzug des Grundbeitrages ihre finanziellen Aufwendungen selbst. Die Abteilungsleitungen haben ein eigenes Kassenrecht. Die Abteilungskasse obliegt der uneingeschränkten Prüfung durch die gewählten Kassenprüfer oder durch den Schatzmeister des Vereins.\n(6) Der Vorstand delegiert die Entscheidung zur Aufnahme/Abmeldung von Mitgliedern an die Leitung der Abteilung. Die Aufnahmeanträge oder Kündigungen werden von der Abteilungsleitung archiviert.\n(7) Die aktuellen Abteilungen und ihre Leitungen (Abteilungsleiter/in und Stellvertreter/in) sind auf der Internetseite des Vereins ersichtlich.",
+     "seite": 4
+    },
+    {
+     "nr": "3",
+     "titel": "Geschäftstätigkeit",
+     "text": "",
+     "seite": 5
+    },
+    {
+     "nr": "3.1",
+     "titel": "Geschäftsstelle",
+     "text": "Die Geschäftsstelle des Vereins befindet sich am Sportforum in Leipzig. Postanschrift und Kontaktdaten sind auf der Internetseite des Vereins veröffentlicht.",
+     "seite": 5
+    },
+    {
+     "nr": "3.2",
+     "titel": "Rechtsgeschäftliche Vertretung",
+     "text": "",
+     "seite": 5
+    },
+    {
+     "nr": "3.2.1",
+     "titel": "Wertgrenzenregelung",
+     "text": "(1) Alle Aufträge, bei denen Kosten ausgelöst werden, sind vor Abschluss vom Vorstand per Beschluss zu genehmigen. Dabei ist Folgendes zu beachten: Der jeweilige Auftrag ist Bestandteil der Jahresplanung oder schränkt nach Aussage der Schatzmeisterin die Handlungsmöglichkeiten des Vereins in keiner Weise ein. Der jeweilig gefasste Beschluss ist im entsprechenden Protokoll der Vorstandsberatung vermerkt. Kleinbeträge, die aus der Handkasse bezahlt werden, unterliegen nicht der Notwendigkeit einer vorherigen Beschlussfassung.",
+     "seite": 5
+    },
+    {
+     "nr": "3.2.2",
+     "titel": "Vertretung der Vorstandsmitglieder",
+     "text": "**Vertretung nach § 26 BGB**\n(1) Gem. § 7 der Satzung ist jedes Mitglied des geschäftsführenden Vorstands berechtigt, den Verein allein zu vertreten. Diese alleinige Vertretung wird gemäß § 26 BGB durch den Vorsitzenden wahrgenommen.\n(2) Im Verhinderungsfall (Urlaub, Abwesenheit und Erkrankung, bei denen die Erreichbarkeit und Anwesenheit des Vorsitzenden nicht gegeben ist) nehmen die stellvertretende Vorsitzende, oder die Schatzmeisterin oder der Manager (in dieser Reihenfolge) dieses alleinige Recht auf Vertretung für den Verein wahr.",
+     "seite": 5
+    },
+    {
+     "nr": "3.3",
+     "titel": "Vorstandssitzungen",
+     "text": "**Einberufung**\n(1) Vorstandssitzungen finden mindestens einmal pro Quartal statt.\n(2) Die Sitzungen werden durch den Vorsitzenden unter Angabe der Tagesordnung schriftlich oder in kurzfristigen Ausnahmesituationen in einer geeigneten Form einberufen.\n(3) Eine Vorstandssitzung hat auch stattzufinden, wenn es für den Verein dringend erforderlich ist oder der stellvertretende Vorsitzende und der Schatzmeister dies gemeinsam gegenüber dem Vorsitzenden verlangen.\n**Einladungsfrist**\n(1) Die Vorstandsmitglieder erhalten die Einladung mindestens 10 Tage vor dem Termin der Beratung.\n(2) In dringenden Fällen kann auf die Frist verzichtet werden.\n**Tagesordnung**\n(1) Die Tagesordnung wird vom Vorsitzenden unter Berücksichtigung der Vorschläge der anderen Vorstandsmitglieder aufgestellt.\n(2) Die Tagesordnung muss unabhängig von Ansatz (1) alle Anträge enthalten, die dem Vorsitzenden vorgelegt werden.\n(3) Die Tagesordnungspunkte sind Anhaltspunkte und können bei Bedarf verändert werden.\n**Ablauf der Sitzungen**\nDie Sitzungen werden vom Vorsitzenden geleitet. Im Übrigen gelten die o. a. Vertretungsregelungen.\n**Öffentlichkeit**\n(1) Die Vorstandssitzungen sind nicht öffentlich.\n(2) Bei Bedarf können zu einzelnen Tagesordnungspunkten weitere Personen geladen werden.\n(3) Die Sitzungen, deren Verlauf, die Ergebnisse der Diskussionen und die Ergebnisse sind vertraulich und dürfen von den Vorstandsmitgliedern ohne Abstimmung im Vorstand nicht gegenüber Dritten verwendet werden.\n**Befangenheit**\n(1) An Beratungen und Entscheidungen über Beschlussgegenstände, an denen ein Vorstandsmitglied oder ein Angehöriger direkt oder indirekt betroffen ist, dürfen diese nicht teilnehmen. Die Betroffenen haben dies dem Vorsitzenden unaufgefordert vor Beginn mitzuteilen.\n(2) Im Zweifel entscheidet der Vorsitzende.\n**Beschlussfassung**\n(1) Alle Vorstandsmitglieder haben Sitz und Stimme.\n(2) Die Stimmabgabe erfolgt stets per Handzeichen.\n(3) Der Vorstand ist beschlussfähig und entscheidet nach § 7 Absatz 6 der Satzung: Beschlussfähig ist er, wenn mehr als die Hälfte der amtierenden Vorstandsmitglieder anwesend ist. Beschlüsse bedürfen der absoluten Mehrheit, das heißt der Zustimmung von mehr als der Hälfte der amtierenden Vorstandsmitglieder. Stimmenthaltungen zählen danach in Abweichung von §§ 32 Abs. 1, 28 Abs. 1 BGB als Neinstimmen.\n**Protokoll**\n(1) Über den Verlauf und die wesentlichen Ergebnisse der Sitzungen ist ein Ergebnisprotokoll zu fertigen.\n(2) Das Protokoll ist zu unterzeichnen (Vorsitzender / Protokollant).\n(3) Jedes Vorstandsmitglied erhält ein Protokoll der Sitzung, das vertraulich zu behandeln ist und nicht an Dritte weitergegeben werden darf.",
+     "seite": 5
+    },
+    {
+     "nr": "3.4",
+     "titel": "Verwaltungsratssitzungen",
+     "text": "**Einladungsfrist**\n(1) Die Mitglieder des Verwaltungsrates erhalten die Einladung mindestens 10 Tage vor dem Termin der Beratung.\n(2) In dringenden Fällen kann auf die Frist verzichtet werden.\n**Tagesordnung**\n(1) Die Tagesordnung wird vom Vorstandsvorsitzenden nach den Vorschlägen der Vorstands- und Verwaltungsratsmitglieder aufgestellt.\n(2) Die Tagesordnung muss unabhängig von Ansatz (1) alle Anträge enthalten, die dem Vorsitzenden vorgelegt werden.\n(3) Die Tagesordnungspunkte sind Anhaltspunkte und können bei Bedarf verändert werden.\n**Ablauf der Sitzungen**\n(1) Die Sitzungen werden vom Vorstandsvorsitzenden geleitet. Im Übrigen gelten die unter 3.2.2 genannten Vertretungsregelungen.\n**Protokoll**\n(1) Über den Verlauf und die wesentlichen Ergebnisse der Sitzungen ist ein Ergebnisprotokoll zu fertigen.\n(2) Das Protokoll ist zu unterzeichnen (Versammlungsleiter/in und Protokollant/in).\n(3) Jedes Verwaltungsratsmitglied erhält ein Protokoll der Sitzung. Protokollteile, deren Inhalt eines vertraulichen Umgangs bedarf, sind nicht an Dritte weiterzugeben. Dies ist immer dann der Fall, wenn es private Daten/Informationen eines Vereinsmitgliedes betrifft.",
+     "seite": 7
+    },
+    {
+     "nr": "3.5",
+     "titel": "Abteilungsversammlungen",
+     "text": "(1) Einmal im Jahr hat eine Abteilungsversammlung stattzufinden. Die Abteilungsversammlung wird vom Abteilungsleiter bzw. seinem Vertreter geleitet. Auf der Abteilungsversammlung, die vor der Wahl eines neuen Vereinsvorstandes stattfindet, werden die Delegierten und Ersatzdelegierten nach nachfolgendem Delegiertenschlüssel gewählt:\n– Abteilungen < 10 Mitglieder = 1 Delegierter\n– Abteilungen 10 – 20 Mitglieder = 2 Delegierte\n– Abteilungen 21 – 50 Mitglieder = 3 Delegierte\n– Abteilungen 51 – 100 Mitglieder = 4 Delegierte\n– Abteilungen > 100 Mitglieder = 5 Delegierte\n(2) Über den Verlauf und die wesentlichen Ergebnisse der Sitzungen ist ein Ergebnisprotokoll zu fertigen.",
+     "seite": 7
+    },
+    {
+     "nr": "4",
+     "titel": "Regeln zum Geschäftsverkehr",
+     "text": "Dieser Punkt betrifft außer Punkt 4.1. nur die Mitglieder des Vorstandes und beinhaltet die Bearbeitung und Steuerung von Geschäftsfällen und wird vom Vorstand intern geführt. Der nachfolgende Punkt 4.1. ist von allen Mitgliedern des Vereins zu beachten, die eine Eingabeberechtigung auf der Homepage des Vereins besitzen.",
+     "seite": 8
+    },
+    {
+     "nr": "4.1",
+     "titel": "Internet/Homepage",
+     "text": "(1) Der Verein nutzt zur Information seiner Mitglieder und zur Darstellung des Mitgliederlebens sowie zur Mitgliederwerbung an Außenstehende eine eigene Homepage als Kommunikationsplattform.\n(2) Die Nutzung dieser Homepage ist nur im Sinne des Vereins und des Sports zu verwenden und nicht für politische Agitation zu missbrauchen.\n(3) Bei der Nutzung von Bildmaterial sind die jeweils aktuellen Vorschriften des Datenschutzes zu beachten.\n(4) Bei der Verwendung nicht eigener Texte, Bilder etc. sind eventuell bestehende Urheberrechte zu beachten und vor der Veröffentlichung zu klären.",
+     "seite": 8
+    },
+    {
+     "nr": "5",
+     "titel": "Finanzierungs- und Kassenordnung",
+     "text": "",
+     "seite": 8
+    },
+    {
+     "nr": "5.1",
+     "titel": "Grundsätze der Finanzierung des Vereins",
+     "text": "(1) Von jeder Abteilung sowie der Vereinsgeschäftsstelle ist ein jährlicher Haushaltsplan bis 31.12. des Vorjahres für das Folgejahr aufzustellen.\n(2) Die Haushaltspläne haben sich grundsätzlich in Einnahmen und Ausgaben auszugleichen. Es kann lediglich ein Überschuss nachgewiesen werden.\n(3) Zahlungen haben unter Beachtung einer strengen Finanzdisziplin und Wahrung der Sparsamkeit zu erfolgen.\n(4) Zahlungsverpflichtungen dürfen nur im Rahmen vorhandener finanzieller Mittel ausgelöst werden. Auch hier gelten die unter 3.2.1 beschriebenen Voraussetzungen.\n(5) Fördergelder (z. B. Übungsleiterzuschuss, Zuschüsse für den Kinder- und Jugendsport) dürfen nicht zweckentfremdet verwendet werden.",
+     "seite": 8
+    },
+    {
+     "nr": "5.2",
+     "titel": "Einnahmen",
+     "text": "(1) Die Grundbeiträge lt. Beitragsordnung sind zweimal jährlich auf das Vereinskonto zu überweisen.\n(2) Werden bei Mitgliederwechsel in andere Vereine Ausbildungskostenerstattungen usw. ausgehandelt, so sind diese Einnahmen zunächst dem Vereinskonto zuzurechnen. Der Vorstand entscheidet, ob die entsprechende Abteilung diese Einnahme erhält. Verträge dieser Art schließt der Vorstand ab.\n(3) Spendeneinnahmen sind grundsätzlich vom Spender auf das Vereinskonto zu überweisen. Die Abteilungen bestätigen auf besonderen Vordrucken die Ordnungsmäßigkeit (keinen eigenen Nutzen durch den Spender wie Beiträge, Trikotwerbung usw.). Die Spender müssen uneigennützig spenden. Nur der Schatzmeister und der Vorstandsvorsitzende sind berechtigt, die Spendenbescheinigung auszustellen.\n(4) Eintrittsgelder und Gebühren verbleiben in den Abteilungen. Sie dürfen aber nicht gegen Ausgaben verrechnet werden. Aus steuerlichen Gründen sind sie als besondere Position in die Jahresabrechnung aufzunehmen.",
+     "seite": 9
+    },
+    {
+     "nr": "5.3",
+     "titel": "Kassenführung",
+     "text": "(1) Der Schatzmeister führt die Kasse des Postsportvereins. Zahlungen dürfen nur geleistet werden, wenn sie der Begleichung von Forderungen dienen oder durch Vorstandsbeschluss (siehe 3.2.1 der GO) genehmigt sind. Der Zahlungsverkehr erfolgt in der Regel bargeldlos über die Konten des Vereins. Fördermittel und Zuschüsse sind schriftlich zu beantragen. Die Vorstandsmitglieder entscheiden mit Beschluss über die Mittelbereitstellung.\n(2) Die Abteilungen sind für die Organisation einer ordnungsgemäßen Nachweisführung aller Finanzmittel verantwortlich und werden durch die Kassenprüfer entsprechend überprüft.\n(3) Das Einrichten eines Kontos ist beim Vorstand zu beantragen.\n(4) Die Kassenführung darf nur in den Händen eines gewählten Mitgliedes der jeweiligen Abteilung bzw. Sportgruppe liegen. Es ist persönlich verantwortlich und haftbar für:\n– die ordnungsgemäße Verwaltung und Nachweisführung der finanziellen Mittel,\n– die sichere Aufbewahrung und gewissenhafte Sorgfalt beim Transport von Bargeld,\n– die protokollarische Übergabe von Bargeld und Werten bei Vertretung durch ein anderes Mitglied.\n(5) Die ordnungsgemäße Buchführung des Vereins erfordert klare und jederzeit nachprüfbare buchhalterische Aufzeichnungen. In den Abteilungen ist ein Kassenbuch/Journal zu führen, in dem alle Geschäftsfälle in zeitlicher Reihenfolge festzuhalten sind. Je Geschäftsfall muss zu erkennen sein: Datum, Buchungstext (gesplittet!), Beleg-Nr. (fortlaufend), Kassen- oder Bankbewegung (Einnahmen, Ausgaben).\n(6) Der Kassenabschluss der Abteilungen per 31.12. jedes Jahres ist auf dem vorgegebenen Abrechnungsvordruck vorzunehmen. Die Positionen entsprechen der Vorgabe des Amtes für Sport. Auf dem Vordruck können in einer extra Spalte die Angaben für den Haushaltsplan des Folgejahres gemacht werden. Die Angaben aus dem Kassenbuch/Journal sind zusammenzufassen und in das Abrechnungsformblatt zu übernehmen.\n(7) Die Kassenführer und die Abteilungsleiter bestätigen die Richtigkeit der Abrechnung.\n(8) Die Abrechnungen einschließlich der Belege (kontoführende Abteilungen Durchschlag des Kassenbuchs/Journals bzw. PC-Ausdrucke und am Jahresende eine Kopie des Kontoauszuges per 31.12.) sind grundsätzlich bis zum 10.01. eines jeden Jahres an den Schatzmeister zu senden.",
+     "seite": 9
+    },
+    {
+     "nr": "5.4",
+     "titel": "Kassenkontrolle",
+     "text": "(1) Der Schatzmeister und der Kassenprüfer sind berechtigt, die vollständige Erfassung aller Geschäftsvorfälle im Kassenbuch zu prüfen und bei Bedarf Kassenprüfungen zu veranlassen.",
+     "seite": 10
+    },
+    {
+     "nr": "5.5",
+     "titel": "Zahlungsanweisung und Zahlungsberechtigte",
+     "text": "(1) Zahlungsanweisungen sind auszustellen, wenn es keinen Beleg gibt (z. B. Vorschussanweisung).\n(2) Zeichnungsberechtigt sind:\n– in der Geschäftsstelle der Vorsitzende und der Stellvertreter (siehe Punkt 3.2.1 der GO),\n– in den Abteilungen der Abteilungsleiter und ein festgelegtes Vorstandsmitglied.",
+     "seite": 10
+    },
+    {
+     "nr": "6",
+     "titel": "Beitragsordnung (Übergangsregelung)",
+     "text": "Bis zum Inkrafttreten einer eigenen Beitragsordnung gelten die nachfolgenden Regelungen. Mit Inkrafttreten der eigenen Beitragsordnung entfällt dieser Abschnitt.",
+     "seite": 10
+    },
+    {
+     "nr": "6.1",
+     "titel": "Mitgliedsbeitrag",
+     "text": "Der Mitgliedsbeitrag des Postsportvereins Leipzig e.V. setzt sich aus Abteilungs- und Grundbeitrag zusammen. Der Abteilungsbeitrag wird von der Abteilung/Sportgruppe beschlossen und dient zur Finanzierung ihrer internen Aufwendungen. Den Grundbeitrag beschließt der Verwaltungsrat. Er dient zur Finanzierung der zentralen Aufwendungen des Vereins als Ganzes entsprechend der Satzung § 5.",
+     "seite": 10
+    },
+    {
+     "nr": "6.2",
+     "titel": "Grundbeitrag",
+     "text": "Der Verein erhebt für alle Mitglieder einen monatlichen Grundbeitrag, der jährlich zum 31.03. und 30.09. auf das Vereinskonto abzuführen ist.\n– Kinder und Jugendliche (bis zum vollendeten 18. Lebensjahr): 2,00 €\n– Erwachsene (ab dem vollendeten 18. Lebensjahr): 4,50 €",
+     "seite": 10
+    },
+    {
+     "nr": "6.3",
+     "titel": "Kassieren des Beitrages",
+     "text": "Das Kassieren der Mitgliedsbeiträge obliegt den Abteilungen/Sportgruppen. Die Art des Kassierens (Einzug oder Inkasso) wird von der Abteilung bestimmt. Bei Austritt eines Mitgliedes trägt der Verein den ausstehenden Grundbeitrag des laufenden Halbjahres. Die Abteilung führt nur den Grundbeitrag für die Mitgliedsdauer bis zum gemeldeten Austritt des Mitgliedes ab. Die Kündigung des Mitgliedes muss fristgemäß entsprechend der Satzung § 4 Abs. 5 erfolgen.",
+     "seite": 11
+    },
+    {
+     "nr": "6.4",
+     "titel": "Beitragspflicht",
+     "text": "Kommt ein Mitglied trotz zweimaliger Mahnung (davon mindestens einmal schriftlich) länger als 3 Monate seiner Beitragspflicht nicht nach, kann nach Absprache der Abteilung/Sportgruppe mit dem Vereinsvorstand und dessen Beschluss der Ausschluss aus dem Verein nach § 4 Abs. 6 der Satzung erfolgen.",
+     "seite": 11
+    },
+    {
+     "nr": "6.5",
+     "titel": "Passive Mitgliedschaft",
+     "text": "Mitglieder, die mehr als 3 Monate abwesend oder aus anderen Gründen (z. B. Krankheit) an der aktiven Sportausübung verhindert sind, können auf Antrag als vorübergehend passive Mitglieder geführt werden. Für passive Mitgliedschaft ist der Grundbeitrag zu entrichten und an den Verein abzuführen. Darüber hinaus ist den Abteilungen/Sportgruppen freigestellt, in welcher Höhe Beiträge tatsächlich erhoben werden. Über Anträge entscheidet die Abteilungsleitung. Die Beitragsordnung tritt mit Wirkung vom 01.01.2026 in Kraft. Änderungen zur Beitragsordnung sind nur mit Beschluss des Verwaltungsrates möglich.",
+     "seite": 11
+    },
+    {
+     "nr": "7",
+     "titel": "Ehrenordnung",
+     "text": "(1) Zur Förderung des Sportes und des Vereinslebens werden besondere Leistungen von Vereinsmitgliedern sowohl in der ehrenamtlichen Arbeit als auch bei sportlichen Erfolgen jährlich in einem entsprechenden Rahmen gewürdigt. Die Abteilungsleiter unterbreiten dazu dem Vorstand ihre Vorschläge mit Angabe der besonderen Verdienste. Die Ehrungen werden durch den Vorstand unter Beachtung der bestehenden finanziellen Möglichkeiten vorgenommen.\n(2) Langjährige Treue zum Verein ist in geeigneter Form zu würdigen. Gewürdigt wird eine Vereinszugehörigkeit von 25, 40, 50 oder 60 Jahren. Hierbei liegt die Verantwortung bei den Abteilungsleitern.\n(3) Alle Vereinsmitglieder erhalten anlässlich ihres runden Geburtstages, beginnend ab dem 50. und 60. Geburtstag, eine Glückwunschkarte. Nach Erreichen des 60. Geburtstages erhalten die Mitglieder alle 5 Jahre (65./70./75. …) anlässlich ihres Geburtstages eine Glückwunschkarte. Die Mitglieder des Vorstandes und des Verwaltungsrates erhalten anlässlich ihres 50. und zu den dann folgenden runden Geburtstagen, im Rahmen der Gratulation, neben der Glückwunschkarte ein kleines Präsent. Dieses wird in geeigneter Form übergeben. Hierbei liegt die Verantwortung bei den Abteilungsleitern.\n(4) Sollten Vereinsmitglieder vom Verein für ihr besonderes Engagement ausgezeichnet werden, so ist dies durch die jeweils zuständigen Abteilungsleiter mit der entsprechenden Begründung beim Vorstand einzureichen bzw. zu beantragen.\n(5) Für besondere langjährig erbrachte Verdienste für den Verein kann auf Beschluss des Vorstandes die Ehrenmitgliedschaft verliehen werden. Ein Mitglied, dem die Ehrenmitgliedschaft verliehen wurde, ist ab dem Zeitpunkt der Ehrung vom Grundbeitrag befreit.",
+     "seite": 11
+    },
+    {
+     "nr": "8",
+     "titel": "Inkrafttreten",
+     "text": "(1) Der Vorstand ist berechtigt, diese Geschäftsordnung jederzeit zu ändern oder aufzuheben. Ausgenommen davon sind die Finanzierungs- und Kassenordnung sowie die Beitragsordnung, die der Zustimmung des Verwaltungsrates bedürfen. Eine Beteiligung anderer Organe ist nicht vorgesehen.\n(2) Für die Beschlussfassung ist die absolute Mehrheit der amtierenden Vorstandsmitglieder gemäß § 7 Absatz 6 der Satzung erforderlich. Stimmenthaltungen sind als Neinstimmen zu werten.\n(3) Zu ihrer Wirksamkeit muss die Geschäftsordnung allen Vorstandsmitgliedern schriftlich bekannt gegeben werden.\n(4) Diese Geschäftsordnung tritt in der vorliegenden Fassung mit Wirkung vom 10.11.2026 in Kraft.",
+     "seite": 12
+    },
+    {
+     "nr": "9",
+     "titel": "Verteiler Geschäftsordnung",
+     "text": "(1) Die Geschäftsordnung ist allen an der Leitung des Vereins maßgeblich beteiligten Personen auszuhändigen. Zu dem Personenkreis gehören:\n– der Vorstand,\n– die Kassenprüfer,\n– die Abteilungsleiter, ihre Stellvertreter und die Kassenwarte der Abteilungen sowie ein Exemplar für die Geschäftsstelle.\n(2) Zur Aktualisierung der Geschäftsordnung sind Änderungen zur Person oder den genannten Gremien (Vorstand, Verwaltungsrat, Abteilungsleitung) zeitnah durch den jeweiligen Verantwortlichen der Geschäftsstelle mitzuteilen.\nLeipzig, den 09.11.2026\nAlexej Müller\nVorsitzender Postsportverein Leipzig e.V.",
+     "seite": 12
+    }
+   ]
+  }
+ ],
+ "fragen": [
+  {
+   "frage": "Wie kündige ich meine Mitgliedschaft?",
+   "antwort": "Schriftlich und nur zum Monatsende. Die Kündigung muss bis zum 15. des Vormonats vorliegen.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 4",
+     "abs": "(5)"
+    },
+    {
+     "doc": "go",
+     "nr": "6.3"
+    }
+   ],
+   "stichworte": "Austritt austreten Kündigungsfrist abmelden kündigen"
+  },
+  {
+   "frage": "Wie werde ich Mitglied?",
+   "antwort": "Mit einem schriftlichen Aufnahmeantrag. Über die Aufnahme entscheidet der Vorstand. Er überträgt die Entscheidung über Aufnahme und Abmeldung an die Leitung der Abteilung.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 4",
+     "abs": "(1)"
+    },
+    {
+     "doc": "go",
+     "nr": "2.3",
+     "abs": "(6)"
+    }
+   ],
+   "stichworte": "Aufnahme Aufnahmeantrag Eintritt Beitritt anmelden"
+  },
+  {
+   "frage": "Wann endet die Mitgliedschaft?",
+   "antwort": "Mit dem Tod, durch Kündigung, durch Ausschluss oder bei einer juristischen Person mit dem Verlust der Rechtsfähigkeit.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 4",
+     "abs": "(4)"
+    }
+   ],
+   "stichworte": "Ende Austritt Tod"
+  },
+  {
+   "frage": "Wann kann ein Mitglied ausgeschlossen werden?",
+   "antwort": "Der Vorstand kann ein Mitglied ausschließen, wenn es gegen Vereinsinteressen oder Satzung verstößt, zum Beispiel durch den Verein schädigende Handlungen oder wenn es trotz zweimaliger Mahnung (mindestens einmal schriftlich) drei Monate mit dem Beitrag im Rückstand ist. Vorher wird das Mitglied angehört. Es kann innerhalb eines Monats Berufung einlegen, der Verwaltungsrat entscheidet abschließend.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 4",
+     "abs": "(6) bis (9)"
+    },
+    {
+     "doc": "go",
+     "nr": "6.4"
+    }
+   ],
+   "stichworte": "Ausschluss ausschließen Rauswurf Mahnung Berufung Rückstand"
+  },
+  {
+   "frage": "Wer legt die Beiträge fest?",
+   "antwort": "Grundbeiträge, Aufnahmegebühren und Umlagen legt der Verwaltungsrat fest. Den Abteilungsbeitrag beschließt die Abteilung bzw. Sportgruppe für ihre eigenen Aufwendungen.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 5",
+     "abs": "(2)"
+    },
+    {
+     "doc": "go",
+     "nr": "6.1"
+    }
+   ],
+   "stichworte": "Beitragshöhe Umlage Aufnahmegebühr Verwaltungsrat Beitragsordnung"
+  },
+  {
+   "frage": "Wie hoch ist der Grundbeitrag?",
+   "antwort": "Der Grundbeitrag ist ein monatlicher Beitrag: 2,00 € für Kinder und Jugendliche bis zum vollendeten 18. Lebensjahr und 4,50 € für Erwachsene. Er ist jährlich zum 31.03. und 30.09. an den Verein abzuführen. Bis eine eigene Beitragsordnung gilt, stehen die Beträge in der Geschäftsordnung.",
+   "refs": [
+    {
+     "doc": "go",
+     "nr": "6.2"
+    }
+   ],
+   "stichworte": "Beitrag Mitgliedsbeitrag Kosten Euro monatlich Halbjahr fällig Stichtag"
+  },
+  {
+   "frage": "Wer kassiert die Beiträge?",
+   "antwort": "Die Abteilungen bzw. Sportgruppen. Sie bestimmen die Art des Kassierens (Einzug oder Inkasso) und führen den Grundbeitrag an den Verein ab.",
+   "refs": [
+    {
+     "doc": "go",
+     "nr": "6.3"
+    }
+   ],
+   "stichworte": "Einzug Inkasso Lastschrift Beitragseinzug"
+  },
+  {
+   "frage": "Was gilt bei passiver Mitgliedschaft?",
+   "antwort": "Wer länger als 3 Monate abwesend oder zum Beispiel durch Krankheit verhindert ist, kann auf Antrag vorübergehend als passives Mitglied geführt werden. Der Grundbeitrag ist weiter zu zahlen. Über den Antrag entscheidet die Abteilungsleitung, sie legt auch ihren eigenen Beitrag fest.",
+   "refs": [
+    {
+     "doc": "go",
+     "nr": "6.5"
+    }
+   ],
+   "stichworte": "ruhend ruhen pausieren Krankheit passiv"
+  },
+  {
+   "frage": "Wer vertritt den Verein nach außen?",
+   "antwort": "Jedes Mitglied des geschäftsführenden Vorstands ist allein vertretungsberechtigt. Ist der Vorsitzende verhindert, vertreten der stellvertretende Vorsitzende, der Schatzmeister oder der Manager, in dieser Reihenfolge.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 7",
+     "abs": "(1)"
+    },
+    {
+     "doc": "go",
+     "nr": "3.2.2"
+    }
+   ],
+   "stichworte": "Vertretung vertretungsberechtigt Unterschrift Vorsitzender Stellvertreter"
+  },
+  {
+   "frage": "Wie lange ist der Vorstand im Amt?",
+   "antwort": "Zwei Jahre. Die Delegiertenversammlung wählt ihn. Wenn eine Neuwahl aus besonderen Gründen nicht rechtzeitig möglich ist, bleibt er mit Zustimmung des Verwaltungsrates höchstens ein Jahr länger im Amt.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 7",
+     "abs": "(2)"
+    },
+    {
+     "doc": "satzung",
+     "nr": "§ 9",
+     "abs": "(1)"
+    }
+   ],
+   "stichworte": "Amtszeit Wahl Wahlperiode Neuwahl"
+  },
+  {
+   "frage": "Wie oft tagen Vorstand und Verwaltungsrat?",
+   "antwort": "Der Vorstand mindestens einmal pro Quartal, der Verwaltungsrat grundsätzlich einmal im Quartal und bei Bedarf öfter. Die Einladung muss jeweils mindestens 10 Tage vorher erfolgen, in dringenden Fällen kann darauf verzichtet werden.",
+   "refs": [
+    {
+     "doc": "go",
+     "nr": "3.3"
+    },
+    {
+     "doc": "go",
+     "nr": "3.4"
+    },
+    {
+     "doc": "go",
+     "nr": "2.2",
+     "abs": "(2)"
+    }
+   ],
+   "stichworte": "Sitzung Sitzungen Einladungsfrist Quartal Termin"
+  },
+  {
+   "frage": "Wer gehört zum Verwaltungsrat?",
+   "antwort": "Alle Mitglieder des Vorstandes, die Abteilungsleiter (bei Verhinderung ihre Stellvertreter) und die Kassenprüfer. Für Beschlüsse braucht es eine 2/3-Mehrheit, dabei müssen ¾ der Mitglieder anwesend sein.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 8",
+     "abs": "(3), (4)"
+    },
+    {
+     "doc": "go",
+     "nr": "2.2",
+     "abs": "(3)"
+    }
+   ],
+   "stichworte": "Mitglieder Zusammensetzung"
+  },
+  {
+   "frage": "Wie wird die Delegiertenversammlung einberufen?",
+   "antwort": "Der Vorstand lädt schriftlich ein. Es gilt eine Frist von 6 Wochen.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 9",
+     "abs": "(5)"
+    }
+   ],
+   "stichworte": "Einladungsfrist Einladung Frist Ladung Mitgliederversammlung Tagesordnung einberufen"
+  },
+  {
+   "frage": "Wer darf in der Delegiertenversammlung abstimmen?",
+   "antwort": "Jeder Delegierte hat eine Stimme. Das Stimmrecht kann nicht auf andere Mitglieder oder gesetzliche Vertreter übertragen werden. Jugendliche sind ab Vollendung des 16. Lebensjahres stimmberechtigt.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 9",
+     "abs": "(3), (4)"
+    }
+   ],
+   "stichworte": "Stimmrecht Stimme Delegierte Wahl Jugendliche Stimmberechtigt"
+  },
+  {
+   "frage": "Wie viele Delegierte stellt eine Abteilung?",
+   "antwort": "Das richtet sich nach der Mitgliederzahl: unter 10 Mitglieder 1 Delegierter, 10 bis 20 Mitglieder 2, 21 bis 50 Mitglieder 3, 51 bis 100 Mitglieder 4, über 100 Mitglieder 5. Die Delegierten und Ersatzdelegierten wählt die Abteilungsversammlung.",
+   "refs": [
+    {
+     "doc": "go",
+     "nr": "3.5"
+    },
+    {
+     "doc": "satzung",
+     "nr": "§ 10",
+     "abs": "(9)"
+    }
+   ],
+   "stichworte": "Delegiertenschlüssel Wahl Anzahl"
+  },
+  {
+   "frage": "Wann ist die Delegiertenversammlung beschlussfähig?",
+   "antwort": "Wenn mindestens 50 % der wahlberechtigten Delegierten anwesend sind. Beschlüsse brauchen die einfache Mehrheit der abgegebenen gültigen Stimmen. Über den Verlauf wird ein Protokoll gefertigt.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 9",
+     "abs": "(6), (7)"
+    }
+   ],
+   "stichworte": "Quorum Mehrheit Beschluss Anwesenheit Beschlussfähigkeit"
+  },
+  {
+   "frage": "Wie lange sind Abteilungsleitungen im Amt und wie groß sind sie?",
+   "antwort": "Vier Jahre, sofern der Fachverband nichts anderes vorschreibt. Bei weniger als 100 Mitgliedern soll die Leitung aus mindestens 3 Personen bestehen, zum Beispiel Abteilungsleiter/in, Stellvertretung und Kassenwart.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 10",
+     "abs": "(5)"
+    },
+    {
+     "doc": "go",
+     "nr": "2.3",
+     "abs": "(2)"
+    }
+   ],
+   "stichworte": "Wahl Amtszeit Leitung Kassenwart Stellvertretung"
+  },
+  {
+   "frage": "Wie oft findet die Abteilungsversammlung statt?",
+   "antwort": "Einmal im Jahr. Der Abteilungsleiter oder sein Vertreter leitet sie. Dort werden auch die Delegierten für die Delegiertenversammlung gewählt.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 10",
+     "abs": "(9)"
+    },
+    {
+     "doc": "go",
+     "nr": "3.5"
+    }
+   ],
+   "stichworte": "Jahresversammlung Versammlung Mitgliederversammlung"
+  },
+  {
+   "frage": "Was regeln die Abteilungen finanziell selbst?",
+   "antwort": "Sie dürfen Abteilungsbeiträge erheben, haben ein eigenes Kassenrecht und bestreiten nach Abzug des Grundbeitrages ihre Aufwendungen selbst. Ihre Kasse prüfen die Kassenprüfer oder der Schatzmeister. Die Abteilung stellt außerdem einen eigenen Finanzplan auf und stimmt ihn mit dem Schatzmeister ab.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 10",
+     "abs": "(6), (8)"
+    },
+    {
+     "doc": "go",
+     "nr": "2.3",
+     "abs": "(4), (5)"
+    }
+   ],
+   "stichworte": "Kassenrecht Abteilungsbeitrag Finanzplan Kasse"
+  },
+  {
+   "frage": "Wer muss Ausgaben genehmigen?",
+   "antwort": "Aufträge, bei denen Kosten ausgelöst werden, muss der Vorstand vor Abschluss per Beschluss genehmigen. Kleinbeträge, die aus der Handkasse bezahlt werden, brauchen keinen vorherigen Beschluss.",
+   "refs": [
+    {
+     "doc": "go",
+     "nr": "3.2.1"
+    }
+   ],
+   "stichworte": "Wertgrenze Aufträge Kosten Beschluss Handkasse Anschaffung"
+  },
+  {
+   "frage": "Bis wann ist der Haushaltsplan fällig?",
+   "antwort": "Jede Abteilung und die Geschäftsstelle stellen bis zum 31.12. den Haushaltsplan für das Folgejahr auf.",
+   "refs": [
+    {
+     "doc": "go",
+     "nr": "5.1",
+     "abs": "(1)"
+    }
+   ],
+   "stichworte": "Budget Finanzplan Jahresplanung Frist"
+  },
+  {
+   "frage": "Bis wann muss die Abrechnung beim Schatzmeister sein?",
+   "antwort": "Der Kassenabschluss der Abteilungen erfolgt zum 31.12. auf dem vorgegebenen Vordruck. Die Abrechnungen mit den Belegen sind bis zum 10.01. an den Schatzmeister zu senden.",
+   "refs": [
+    {
+     "doc": "go",
+     "nr": "5.3",
+     "abs": "(6), (8)"
+    }
+   ],
+   "stichworte": "Kassenabschluss Belege Kassenbuch Journal Jahresabrechnung Frist"
+  },
+  {
+   "frage": "Wer darf Spendenbescheinigungen ausstellen?",
+   "antwort": "Nur der Schatzmeister und der Vorstandsvorsitzende. Die Abteilungen bestätigen auf besonderen Vordrucken die Ordnungsmäßigkeit der Spende.",
+   "refs": [
+    {
+     "doc": "go",
+     "nr": "5.2",
+     "abs": "(3)"
+    }
+   ],
+   "stichworte": "Zuwendungsbestätigung Spende Quittung Spendenquittung"
+  },
+  {
+   "frage": "Wer ist zeichnungsberechtigt und wie bekomme ich ein Konto?",
+   "antwort": "In der Geschäftsstelle sind der Vorsitzende und der Stellvertreter zeichnungsberechtigt, in den Abteilungen der Abteilungsleiter und ein festgelegtes Vorstandsmitglied. Das Einrichten eines Kontos ist beim Vorstand zu beantragen.",
+   "refs": [
+    {
+     "doc": "go",
+     "nr": "5.5",
+     "abs": "(2)"
+    },
+    {
+     "doc": "go",
+     "nr": "5.3",
+     "abs": "(3)"
+    }
+   ],
+   "stichworte": "Konto Bankkonto Vollmacht Unterschrift"
+  },
+  {
+   "frage": "Wer prüft die Kassen?",
+   "antwort": "Die von der Delegiertenversammlung gewählten Kassenprüfer. Die Prüfung sollte mindestens einmal im Jahr erfolgen. Sie berichten dem Verwaltungsrat bzw. Vorstand und der Delegiertenversammlung.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 11"
+    },
+    {
+     "doc": "go",
+     "nr": "5.4"
+    }
+   ],
+   "stichworte": "Kassenprüfung Revision Prüfung Kassenprüfer"
+  },
+  {
+   "frage": "Wie sind Ehrungen und Ehrenmitgliedschaften geregelt?",
+   "antwort": "Besondere Leistungen werden jährlich gewürdigt, die Abteilungsleiter machen Vorschläge. Vereinstreue wird nach 25, 40, 50 und 60 Jahren gewürdigt. Ehrenmitglieder ernennt der Vorstand, sie sind von den Mitgliedsbeiträgen befreit.",
+   "refs": [
+    {
+     "doc": "go",
+     "nr": "7"
+    },
+    {
+     "doc": "satzung",
+     "nr": "§ 4",
+     "abs": "(2)"
+    },
+    {
+     "doc": "satzung",
+     "nr": "§ 5",
+     "abs": "(4)"
+    }
+   ],
+   "stichworte": "Auszeichnung Jubiläum Treue Geburtstag Ehrenmitglied Geschenk Ehrenordnung"
+  },
+  {
+   "frage": "Was gilt für die Vereinshomepage?",
+   "antwort": "Sie darf nur im Sinne des Vereins und des Sports genutzt werden, nicht für politische Agitation. Beim Bildmaterial sind die Datenschutzvorschriften und bei fremden Texten und Bildern die Urheberrechte zu beachten.",
+   "refs": [
+    {
+     "doc": "go",
+     "nr": "4.1"
+    }
+   ],
+   "stichworte": "Internet Website Webseite Bilder Datenschutz Urheberrecht Homepage"
+  },
+  {
+   "frage": "Wann ist das Geschäftsjahr?",
+   "antwort": "Das Geschäftsjahr ist das Kalenderjahr.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 3",
+     "abs": "(4)"
+    }
+   ],
+   "stichworte": "Kalenderjahr Jahr Haushaltsjahr"
+  },
+  {
+   "frage": "Was passiert bei Auflösung des Vereins?",
+   "antwort": "Die Auflösung kann nur eine eigens dafür einberufene außerordentliche Delegiertenversammlung beschließen, mit einer Mehrheit von 75 % der Stimmen. Das Vermögen fällt an den Landessportbund Sachsen e.V.",
+   "refs": [
+    {
+     "doc": "satzung",
+     "nr": "§ 14"
+    }
+   ],
+   "stichworte": "auflösen Auflösung Vermögen Landessportbund"
+  }
+ ]
+}

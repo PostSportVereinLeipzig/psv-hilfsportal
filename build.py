@@ -106,13 +106,50 @@ def veranstaltungen():
             "angebot_melden": manuell.get("angebot_melden")}
 
 
+def regeln(docs, chunks):
+    """Satzung und Geschäftsordnung aus daten/regeln.json: Abschnitte für die Suche (mit PDF-Seite)
+    und für den Reiter Vereinsregeln; die Schnellfragen werden mit Seitenverweisen versehen."""
+    try:
+        r = json.loads((DATEN / "regeln.json").read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return None
+    index = {}
+    for d in r["dokumente"]:
+        docs.append({"t": f"{d['titel']} ({d['stand']})", "k": "PSV", "h": d["pdf"]})
+        n = len(docs) - 1
+        for a in d["abschnitte"]:
+            index[(d["id"], a["nr"])] = (d, a)
+            if not a["text"].strip():
+                continue
+            label = f"{a['nr']} {a['titel']}"
+            link = f"{d['pdf']}#page={a['seite']}" if a.get("seite") else d["pdf"]
+            kopf = f"{d['kurz']} {label}"
+            for teil in abschnitte(a["text"].replace("\n", "\n\n")):
+                chunks.append([n, f"{kopf}: {teil}", link, f"{label} · Seite {a['seite']}" if a.get("seite") else label])
+    fragen = []
+    for f in r.get("fragen", []):
+        refs = []
+        for ref in f["refs"]:
+            treffer = index.get((ref["doc"], ref["nr"]))
+            if not treffer:
+                print(f"  WARNUNG: Schnellfrage „{f['frage'][:40]}“ verweist auf {ref['doc']} {ref['nr']}, das es nicht gibt.")
+                continue
+            d, a = treffer
+            stelle = f" {ref['abs']}" if ref.get("abs") else ""
+            refs.append({"doc": d["id"], "label": f"{d['kurz']} {a['nr']}{stelle}", "link": f"{d['pdf']}#page={a['seite']}", "seite": a["seite"]})
+        fragen.append({"frage": f["frage"], "antwort": f["antwort"], "stichworte": f.get("stichworte", ""), "refs": refs})
+    dokumente = [{k: d[k] for k in ("id", "kurz", "titel", "stand", "pdf", "seiten")} | {"abschnitte": d["abschnitte"]} for d in r["dokumente"]]
+    return {"dokumente": dokumente, "fragen": fragen}
+
+
 def main():
     ref = lade("dokumente.json")
     docs, chunks = list(ref["docs"]), [list(c) for c in ref["chunks"]]
     md_quellen(docs, chunks)
+    regeln_daten = regeln(docs, chunks)
     data = {"docs": docs, "chunks": chunks, "downloads": downloads_liste(), "fmap": ref["fmap"],
             "termine": lade("termine.json"), "kontakte": lade("kontakte.json"),
-            "bildung": lade("bildung.json"), "fristen": lade("fristen.json"), "veranstaltungen": veranstaltungen()}
+            "bildung": lade("bildung.json"), "fristen": lade("fristen.json"), "veranstaltungen": veranstaltungen(), "regeln": regeln_daten}
     # Nur Dateien aus fmap prüfen, die es wirklich nicht gibt
     for v in ref["fmap"].values():
         if v and not (ROOT / v).exists():

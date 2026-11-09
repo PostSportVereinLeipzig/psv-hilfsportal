@@ -26,6 +26,7 @@ Kurzfassung: Datei in `daten/` direkt auf GitHub bearbeiten (Stift-Symbol), spei
 | `daten/kontakte.json` | Kontakt-E-Mail-Adressen (keine Telefonnummern) |
 | `daten/veranstaltungen.json` | Von Hand gepflegte Veranstaltungs-Hinweise und Ergänzungen |
 | `daten/veranstaltungen_auto.json` | Automatisch gelesene Veranstaltungen (SSB, LSB) |
+| `daten/regeln.json` | Satzung und Geschäftsordnung: Abschnitte mit PDF-Seite und Schnellfragen |
 | `daten/bildung.json` | Inhalte des Reiters Weiterbildung (Übungsleiter-Lizenz) |
 | `daten/downloads.json` | Titel und Gruppen der Downloads |
 | `daten/dokumente.json` | Such-Index der Richtlinien und Formulare |
@@ -50,7 +51,7 @@ Danach `index.html` im Browser öffnen. Veröffentlicht wird mit `git push`; Git
 
 ## Technik
 - Statische Seite ohne Server, gehostet über GitHub Pages
-- Hash-Navigation (`#suche`, `#foerderungen`, `#fristen`, `#termine`, `#formulare`, `#weiterbildung`, `#veranstaltungen`)
+- Hash-Navigation (`#suche`, `#foerderungen`, `#fristen`, `#termine`, `#formulare`, `#weiterbildung`, `#veranstaltungen`, `#vereinsregeln`)
 - Responsives Layout für Handy, Tablet und Desktop, helles und dunkles Farbschema
 - Volltextsuche im Browser über rund 800 Textabschnitte
 
