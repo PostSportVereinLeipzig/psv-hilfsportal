@@ -2,3 +2,5 @@
 daten/.aenderungen.txt
 daten/.fristen_aenderungen.txt
 __pycache__/
+# Interne Entwürfe (Satzung, Ordnungen im Entwurf): niemals veröffentlichen, das Repository ist öffentlich
+intern/
