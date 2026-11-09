@@ -137,7 +137,7 @@ def regeln(docs, chunks):
             d, a = treffer
             stelle = f" {ref['abs']}" if ref.get("abs") else ""
             refs.append({"doc": d["id"], "label": f"{d['kurz']} {a['nr']}{stelle}", "link": f"{d['pdf']}#page={a['seite']}", "seite": a["seite"]})
-        fragen.append({"frage": f["frage"], "antwort": f["antwort"], "stichworte": f.get("stichworte", ""), "refs": refs})
+        fragen.append({"frage": f["frage"], "antwort": f["antwort"], "stichworte": f.get("stichworte", ""), "links": f.get("links", []), "refs": refs})
     dokumente = [{k: d[k] for k in ("id", "kurz", "titel", "stand", "pdf", "seiten")} | {"abschnitte": d["abschnitte"]} for d in r["dokumente"]]
     return {"dokumente": dokumente, "fragen": fragen}
 

@@ -330,7 +330,13 @@
      "abs": "(6)"
     }
    ],
-   "stichworte": "Aufnahme Aufnahmeantrag Eintritt Beitritt anmelden"
+   "stichworte": "Aufnahme Aufnahmeantrag Eintritt Beitritt anmelden Antrag Formular Mitgliedsantrag Mitglied werden beitreten Mitgliedschaft beantragen",
+   "links": [
+    {
+     "t": "Aufnahmeantrag (PDF zum Ausfüllen)",
+     "f": "downloads/Aufnahmeantrag-Postsportverein-Leipzig-ausfuellbar.pdf"
+    }
+   ]
   },
   {
    "frage": "Wann endet die Mitgliedschaft?",
@@ -714,6 +720,24 @@
     }
    ],
    "stichworte": "auflösen Auflösung Vermögen Landessportbund"
+  },
+  {
+   "frage": "Darf der Verein Fotos und Videos von mir oder meinem Kind veröffentlichen?",
+   "antwort": "Nur mit Einwilligung. Sie ist freiwillig, gilt bis zum Widerruf und kann jederzeit mit Wirkung für die Zukunft widerrufen werden, ohne dass Nachteile entstehen. Bei Kindern und Jugendlichen unterschreiben die Erziehungsberechtigten. Die Geschäftsordnung verlangt, bei Bildmaterial die Datenschutzvorschriften zu beachten.",
+   "stichworte": "Foto Fotos Bilder Bildmaterial Film Video Einwilligung Datenschutz Veröffentlichung Widerruf Internet Webseite Social Media Instagram Facebook",
+   "refs": [
+    {
+     "doc": "go",
+     "nr": "4.1",
+     "abs": "(3)"
+    }
+   ],
+   "links": [
+    {
+     "t": "Einwilligung Bild- und Filmmaterial (PDF zum Ausfüllen)",
+     "f": "downloads/Einwilligung-Bildmaterial-Postsportverein-Leipzig-ausfuellbar.pdf"
+    }
+   ]
   }
  ]
 }

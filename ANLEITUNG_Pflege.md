@@ -136,6 +136,9 @@ Der Reiter zeigt Satzung und Geschäftsordnung zum Nachschlagen: Schnellfragen (
 
 Veröffentlicht wird nur, was beschlossen ist. Entwürfe (z. B. die Beitragsordnung oder die Satzung vor dem Beschluss) gehören nicht ins öffentliche Repository. Die GO wird ohne Anlagen veröffentlicht, damit sie keine Kontaktdaten enthält.
 
+## Mitgliedsantrag und Einwilligung zur Bildnutzung
+Beide Formulare sind ausfüllbare PDFs (Gruppe „Anträge und Erklärungen“ im Reiter „Formulare“). Sie enthalten keine Kontaktdaten des Vereins. Sie müssen zu Satzung und Geschäftsordnung passen (Kündigungsfrist nach § 4 (5), Beitragsaufbau nach GO Abschnitt 6, Aufnahme durch die Abteilungsleitung nach GO 2.3 (6)). Ändern sich diese Regeln, bitte die Formulare mitprüfen und neu erzeugen lassen.
+
 ## Neues Formular bereitstellen
 1. Datei in `downloads/` legen. Dateinamen ohne Leerzeichen und Sonderzeichen, z. B. `Antrag-Beispiel-2027.pdf`.
 2. In `daten/downloads.json` einen Eintrag ergänzen:
