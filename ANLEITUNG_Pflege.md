@@ -122,6 +122,15 @@ Kurse, Termine und Anmeldebeginne stehen bewusst nicht im Portal, sondern nur al
 
 Manuelle Einträge bleiben bestehen, die automatische Aktualisierung überschreibt sie nie.
 
+## Satzung und Geschäftsordnung austauschen
+Beide stehen als PDF in `downloads/` und als Text in `quellen/` (damit die Suche sie findet):
+1. Neue PDF nach `downloads/` legen, z. B. `Geschaeftsordnung-Postsportverein-Leipzig-2027-01-15.pdf`.
+2. In `daten/downloads.json` den Eintrag der Gruppe „Vereinsdokumente“ auf den neuen Dateinamen und Titel (mit Stand) ändern.
+3. In `quellen/Geschaeftsordnung.md` bzw. `quellen/Satzung.md` den Text ersetzen und die `Link:`-Zeile auf die neue PDF setzen.
+4. Alte PDF löschen, dann speichern. Die Seite baut sich selbst neu.
+
+Veröffentlicht wird nur, was beschlossen ist. Entwürfe (z. B. die Beitragsordnung) gehören nicht ins öffentliche Repository. Die GO wird ohne Anlagen veröffentlicht, damit sie keine Kontaktdaten enthält.
+
 ## Neues Formular bereitstellen
 1. Datei in `downloads/` legen. Dateinamen ohne Leerzeichen und Sonderzeichen, z. B. `Antrag-Beispiel-2027.pdf`.
 2. In `daten/downloads.json` einen Eintrag ergänzen:
