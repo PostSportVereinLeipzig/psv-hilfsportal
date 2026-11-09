@@ -83,7 +83,11 @@ Sie wiederholen sich jährlich, deshalb nur `monat` und `tag`:
 ```json
 { "titel": "Übungsleiter-Abrechnung 1. Halbjahr", "monat": 7, "tag": 15, "wer": "Vorstand", "hinweis": "Abrechnungszeitraum 01.01. bis 30.06." }
 ```
-Aktuelle Fristen: Grundbeiträge 1. Halbjahr 31.03.; Mitgliedermeldung 30.06. und 31.12.; ÜL-Abrechnung 15.07. und 15.01.
+Vereinsfristen erscheinen auch im Fristenkalender (Filter „PSV“) und auf der Startseite unter „Als Nächstes fällig“. Aktuelle Fristen: Grundbeiträge 31.03. und 30.09.; Mitgliedermeldung 30.06. und 31.12.; ÜL-Abrechnung 15.07. und 15.01.; Haushaltsplan der Abteilungen 31.12.; Abrechnung der Abteilungen an den Schatzmeister 10.01.
+
+Einladungsfristen rechnet das Portal selbst aus: Für jeden Termin „Delegiertenversammlung“ (6 Wochen vorher) und „Verwaltungsratssitzung“ (10 Tage vorher) erscheint die Frist zum Versenden der Einladung. Die Regeln stehen unter `einladungsfristen` in `daten/termine.json`. Trägt man also die Termine eines neuen Jahres ein, entstehen die Einladungsfristen von allein.
+
+Fristen ohne festes Datum (Sitzungsrhythmus, Kündigung, Berufung) stehen unter `laufend` in `daten/fristen.json`.
 
 ## Kontakte ändern (`daten/kontakte.json`)
 Felder je Eintrag: `gruppe`, `rolle`, `mail`, `anliegen`. Nur Funktionspostfächer, keine Telefonnummern. Einträge ohne E-Mail (z. B. Gymnastik-Ansprechpartner) bleiben draußen.

@@ -1,5 +1,5 @@
 {
- "hinweis": "Termine und Vereinsfristen hier pflegen. datum: JJJJ-MM-TT. Vereinsfristen wiederholen sich jährlich (monat, tag). Danach Portal neu bauen.",
+ "hinweis": "Termine und Vereinsfristen hier pflegen. datum: JJJJ-MM-TT. Vereinsfristen wiederholen sich jährlich (monat, tag) und erscheinen auch im Fristenkalender. einladungsfristen: Für jeden Termin, dessen Titel den Text titel_enthaelt enthält, rechnet das Portal automatisch das Datum der Einladung aus (tage vor dem Termin).",
  "ort_standard": "Kultursaal, Am Sportforum 3, 04105 Leipzig",
  "termine": [
   {
@@ -39,28 +39,28 @@
    "monat": 7,
    "tag": 15,
    "wer": "Vorstand",
-   "hinweis": "Abrechnungszeitraum 01.01. bis 30.06., Abgabe bis Mitte des Folgemonats."
+   "hinweis": "Abrechnungszeitraum 01.01. bis 30.06., vom Abteilungsleiter unterzeichnet, mit Stundennachweisen. Das Honorar wird nach Prüfung der Abrechnung fällig. Abgabe bis Mitte des Folgemonats."
   },
   {
    "titel": "Übungsleiter-Abrechnung 2. Halbjahr (inkl. Stundennachweise)",
    "monat": 1,
    "tag": 15,
    "wer": "Vorstand",
-   "hinweis": "Abrechnungszeitraum 01.07. bis 31.12., Abgabe bis Mitte des Folgemonats. Grundlage für den LSB-Verwendungsnachweis (31.01.)."
+   "hinweis": "Abrechnungszeitraum 01.07. bis 31.12., vom Abteilungsleiter unterzeichnet, mit Stundennachweisen. Das Honorar wird nach Prüfung der Abrechnung fällig. Abgabe bis Mitte des Folgemonats. Grundlage für den LSB-Verwendungsnachweis (31.01.)."
   },
   {
    "titel": "Abgabe Abrechnung Grundbeiträge 1. Halbjahr",
    "monat": 3,
    "tag": 31,
    "wer": "Vorstand, Finanzen",
-   "hinweis": "Vorlage „Abrechnung Grundbeiträge“ unter Formulare. Verteiler: Vorstand und Finanzen."
+   "hinweis": "Grundbeiträge sind zum 31.03. und 30.09. abzuführen (GO 6.2). Vorlage „Abrechnung Grundbeiträge“ unter Formulare. Verteiler: Vorstand und Finanzen."
   },
   {
    "titel": "Abgabe Abrechnung Grundbeiträge 2. Halbjahr",
    "monat": 9,
    "tag": 30,
    "wer": "Vorstand, Finanzen",
-   "hinweis": "Vorlage „Abrechnung Grundbeiträge“ unter Formulare. Verteiler: Vorstand und Finanzen."
+   "hinweis": "Grundbeiträge sind zum 31.03. und 30.09. abzuführen (GO 6.2). Vorlage „Abrechnung Grundbeiträge“ unter Formulare. Verteiler: Vorstand und Finanzen."
   },
   {
    "titel": "Meldung der Mitglieder zum Ende des 1. Halbjahres",
@@ -75,12 +75,40 @@
    "tag": 31,
    "wer": "Vorstand",
    "hinweis": "Grundlage für die Bestandsmeldung an den LSB bis 31.01."
+  },
+  {
+   "titel": "Haushaltsplan für das Folgejahr (Abteilungen und Geschäftsstelle)",
+   "monat": 12,
+   "tag": 31,
+   "wer": "Abteilungsleitungen, Geschäftsstelle",
+   "hinweis": "Je Abteilung und für die Geschäftsstelle. Einnahmen und Ausgaben gleichen sich grundsätzlich aus. Der Finanzplan der Abteilung wird mit dem Schatzmeister abgestimmt (GO 5.1, 2.3 (4))."
+  },
+  {
+   "titel": "Abrechnung der Abteilungen an den Schatzmeister",
+   "monat": 1,
+   "tag": 10,
+   "wer": "Abteilungsleitungen, Kassenwarte",
+   "hinweis": "Kassenabschluss per 31.12. auf dem Abrechnungsvordruck, mit Belegen (Kassenbuch/Journal oder Ausdrucke) und Kopie des Kontoauszugs per 31.12. Kassenführer und Abteilungsleiter bestätigen die Richtigkeit (GO 5.3)."
   }
  ],
  "links": [
   {
    "titel": "Website des Postsportvereins Leipzig",
    "url": "https://www.postsportverein-leipzig.de/"
+  }
+ ],
+ "einladungsfristen": [
+  {
+   "titel_enthaelt": "Delegiertenversammlung",
+   "tage": 42,
+   "titel": "Einladung zur Delegiertenversammlung verschicken",
+   "hinweis": "Schriftlich, mindestens 6 Wochen vorher (Satzung § 9 (5)). Tagesordnung beilegen, bei einer Satzungsänderung den Wortlaut und die Änderungsübersicht."
+  },
+  {
+   "titel_enthaelt": "Verwaltungsratssitzung",
+   "tage": 10,
+   "titel": "Einladung zur Verwaltungsratssitzung verschicken",
+   "hinweis": "Mindestens 10 Tage vorher, in dringenden Fällen darf darauf verzichtet werden (GO 3.4)."
   }
  ]
 }

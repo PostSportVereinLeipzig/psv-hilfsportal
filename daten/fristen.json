@@ -192,6 +192,51 @@
    "t": "Wettkampffahrten (Fahrtkostenzuschuss)",
    "wann": "vor jeder Fahrt melden, Bestätigung bis 4 Wochen danach",
    "w": "Amt für Sport"
+  },
+  {
+   "t": "Vorstandssitzung",
+   "wann": "mindestens einmal pro Quartal",
+   "w": "PSV, GO 3.3 (Einladung mindestens 10 Tage vorher)"
+  },
+  {
+   "t": "Verwaltungsratssitzung",
+   "wann": "dreimal im Jahr",
+   "w": "PSV, GO 2.2 (Einladung mindestens 10 Tage vorher)"
+  },
+  {
+   "t": "Delegiertenversammlung",
+   "wann": "einmal im Jahr, Einladung 6 Wochen vorher",
+   "w": "PSV, Satzung § 9 (5)"
+  },
+  {
+   "t": "Abteilungsversammlung (mit Wahl der Delegierten)",
+   "wann": "einmal im Jahr",
+   "w": "PSV, Satzung § 10 (9), GO 3.5"
+  },
+  {
+   "t": "Kassenprüfung",
+   "wann": "mindestens einmal im Jahr",
+   "w": "PSV, Satzung § 11 (1)"
+  },
+  {
+   "t": "Kündigung der Mitgliedschaft",
+   "wann": "schriftlich bis zum 15. des Vormonats, wirksam zum Monatsende",
+   "w": "PSV, Satzung § 4 (5)"
+  },
+  {
+   "t": "Berufung gegen einen Ausschluss",
+   "wann": "innerhalb eines Monats nach Zugang",
+   "w": "PSV, Satzung § 4 (8)"
+  },
+  {
+   "t": "Beitragsrückstand eines Mitglieds",
+   "wann": "Ausschluss möglich nach 3 Monaten Rückstand und zweimaliger Mahnung",
+   "w": "PSV, Satzung § 4 (6), GO 6.4"
+  },
+  {
+   "t": "Übungsleitervertrag",
+   "wann": "vor Tätigkeitsbeginn abschließen, Kündigung mit 14 Kalendertagen",
+   "w": "PSV, Übungsleitervertrag"
   }
  ]
 }

@@ -140,10 +140,10 @@ nav::-webkit-scrollbar{display:none}
 
 <section id="v-fristen" hidden>
  <h2>Fristenkalender</h2>
- <p class="note">Heute ist <span id="today"></span>. Die Fristen wiederholen sich jährlich, die Ampel zeigt die Tage bis zur nächsten Fälligkeit. Die Daten werden jede Woche mit der <a href="https://www.ssb-leipzig.de/leistungen/vereinsberatung/fristen-1/" target="_blank" rel="noopener">Fristenseite des SSB</a> abgeglichen.</p>
+ <p class="note">Heute ist <span id="today"></span>. Die Fristen wiederholen sich jährlich (Filter „PSV“: unsere eigenen Fristen aus Satzung und Geschäftsordnung), die Ampel zeigt die Tage bis zur nächsten Fälligkeit. Die Daten werden jede Woche mit der <a href="https://www.ssb-leipzig.de/leistungen/vereinsberatung/fristen-1/" target="_blank" rel="noopener">Fristenseite des SSB</a> abgeglichen.</p>
  <div class="toolbar"><div class="chips" id="kchips" style="margin:0"></div></div>
  <div class="tl" id="tl"></div>
- <h3 class="grp">Laufend, vor Beginn der Maßnahme</h3><div id="ongoing"></div>
+ <h3 class="grp">Laufend, regelmäßig und im Einzelfall</h3><div id="ongoing"></div>
 </section>
 
 <section id="v-termine" hidden>
@@ -326,12 +326,15 @@ function nextOf(f){let d=new Date(TODAY.getFullYear(),f.m-1,f.d);if(d<TODAY)d=ne
 const days=d=>Math.round((d-TODAY)/864e5);
 const tone=n=>n<=14?'crit':n<=45?'warn':'ok';
 const lbl=n=>n===0?'heute':n===1?'morgen':'in '+n+' Tagen';
-const FE=FR.map(f=>{const d=nextOf(f);return Object.assign({},f,{date:d,n:days(d)})}).sort((a,b)=>a.date-b.date);
+const FRV=(D.termine.vereinsfristen||[]).map(f=>({m:f.monat,d:f.tag,t:f.titel,s:'PSV',w:f.wer||'Vorstand',h:f.hinweis||''}));
+const FEI=[];(D.termine.termine||[]).forEach(e=>{(D.termine.einladungsfristen||[]).forEach(r=>{if(!e.titel.includes(r.titel_enthaelt))return;const t0=new Date(e.datum+'T00:00:00');const d=new Date(t0.getFullYear(),t0.getMonth(),t0.getDate()-r.tage);if(days(d)<0)return;FEI.push({t:`${r.titel}: ${e.titel} am ${t0.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'})}`,s:'PSV',w:'Vorstand',h:r.hinweis||'',date:d,n:days(d),einmal:true})})});
+const FE=FR.concat(FRV).map(f=>{const d=nextOf(f);return Object.assign({},f,{date:d,n:days(d)})}).concat(FEI).sort((a,b)=>a.date-b.date);
+const fdat=f=>f.einmal?fmtD(f.date):fmtJ(f.date)+' jährlich';
 const views=['suche','foerderungen','fristen','termine','formulare','weiterbildung','veranstaltungen','vereinsregeln'];
 function show(){const h=(location.hash||'#suche').slice(1);const v=views.includes(h)?h:'suche';views.forEach(x=>{$('#v-'+x).hidden=x!==v});document.querySelectorAll('#nav a').forEach(a=>{if(a.getAttribute('href')==='#'+v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')})}
 addEventListener('hashchange',show);show();
 $('#today').textContent=fmtD(TODAY);
-$('#nextCards').innerHTML=FE.slice(0,3).map(f=>`<div class="due"><span class="when"><span>${fmtJ(f.date)} jährlich</span><span class="pill ${tone(f.n)}">${lbl(f.n)}</span></span><b>${esc(f.t)}</b><span class="note">${esc(f.s)} · ${esc(f.w)}</span></div>`).join('');
+$('#nextCards').innerHTML=FE.slice(0,3).map(f=>`<div class="due"><span class="when"><span>${fdat(f)}</span><span class="pill ${tone(f.n)}">${lbl(f.n)}</span></span><b>${esc(f.t)}</b><span class="note">${esc(f.s)} · ${esc(f.w)}</span></div>`).join('');
 const fmtL=d=>d.toLocaleDateString('de-DE',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});
 const ev=(D.termine.termine||[]).map(e=>Object.assign({},e,{d:new Date(e.datum+'T00:00:00')})).sort((a,b)=>a.d-b.d);
 const evHtml=e=>{const n=days(e.d);return `<div class="dl"><span class="t"><b>${esc(e.titel)}</b><br><span class="note">${fmtL(e.d)}${e.zeit?', '+esc(e.zeit):''}</span><br><span class="note">${esc(e.ort||'')}</span></span><span class="pill ${n>=0?tone(n):'gray'}">${n>=0?lbl(n):'vorbei'}</span></div>`};
@@ -343,11 +346,11 @@ $('#tFr').innerHTML=VF.map(f=>{const n=days(f.d);return `<div class="dl"><span c
 const KT=(D.kontakte&&D.kontakte.kontakte)||[];
 $('#kt').innerHTML=['Vorstand','Abteilungen'].map(g=>`<h3 class="grp">${g}</h3>`+KT.filter(k=>k.gruppe===g).map(k=>`<div class="dl"><span class="t"><b>${esc(k.rolle)}</b>${k.anliegen?'<br><span class="note">'+esc(k.anliegen)+'</span>':''}</span><a href="mailto:${esc(k.mail)}">${esc(k.mail)}</a></div>`).join('')).join('');
 let kf='Alle';
-function renderTL(){$('#tl').innerHTML=FE.filter(f=>kf==='Alle'||f.s===kf).map(f=>`<div class="ev ${tone(f.n)}"><div class="d"><span>${fmtJ(f.date)} jährlich</span><span class="pill ${tone(f.n)}">${lbl(f.n)}</span><span class="pill gray">${esc(f.s)}</span></div><h3>${esc(f.t)}</h3><div class="note">${esc(f.w)}${f.h?' · '+esc(f.h):''}</div></div>`).join('')}
-$('#kchips').innerHTML=['Alle','Stadt','LSB','SSB','Dritte'].map(k=>`<button class="chip" aria-pressed="${k==='Alle'}" data-k="${k}">${k}</button>`).join('');
+function renderTL(){$('#tl').innerHTML=FE.filter(f=>kf==='Alle'||f.s===kf).map(f=>`<div class="ev ${tone(f.n)}"><div class="d"><span>${fdat(f)}</span><span class="pill ${tone(f.n)}">${lbl(f.n)}</span><span class="pill gray">${esc(f.s)}</span></div><h3>${esc(f.t)}</h3><div class="note">${esc(f.w)}${f.h?' · '+esc(f.h):''}</div></div>`).join('')}
+$('#kchips').innerHTML=['Alle','PSV','Stadt','LSB','SSB','Dritte'].map(k=>`<button class="chip" aria-pressed="${k==='Alle'}" data-k="${k}">${k}</button>`).join('');
 $('#kchips').onclick=e=>{const b=e.target.closest('button');if(!b)return;kf=b.dataset.k;document.querySelectorAll('#kchips button').forEach(x=>x.setAttribute('aria-pressed',x===b));renderTL()};
 renderTL();
-$('#ongoing').innerHTML=ONG.map(o=>`<div class="dl"><span class="t"><b>${esc(o[0])}</b><br><span class="note">${esc(o[2])}</span></span><span class="pill warn">${esc(o[1])}</span></div>`).join('');
+$('#ongoing').innerHTML=ONG.map(o=>`<div class="dl"><span class="t"><b>${esc(o[0])}</b><br><span class="note">${esc(o[2])}</span></span><span class="pill warn" style="white-space:normal;text-align:left;max-width:100%">${esc(o[1])}</span></div>`).join('');
 async function dl(f,name,b){try{const d=window.claude&&await window.claude.use('downloads');if(d){let buf;if(b){const bin=atob(D.b64[b]);buf=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)buf[i]=bin.charCodeAt(i)}else{const r=await fetch(f);buf=await r.arrayBuffer()}await d.save({filename:name,data:buf});return}}catch(e){}
  if(b){alert2('Download hier nicht möglich. Die Datei liegt im Ordner Wissensdatenbank/2_Downloads_Blanko/PSV-Vorlagen: '+name)}else window.open(f,'_blank')}
 function alert2(t){let n=document.getElementById('toast');if(!n){n=document.createElement('p');n.id='toast';n.className='hit';n.setAttribute('role','status');n.style.cssText='position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;margin:0';document.body.appendChild(n)}n.textContent=t;n.hidden=false;setTimeout(()=>{n.hidden=true},6000)}
